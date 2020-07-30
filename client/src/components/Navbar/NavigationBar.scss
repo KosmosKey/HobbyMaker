@@ -1,0 +1,22 @@
+.NavigationBar__NavBar {
+  background: transparent !important;
+  box-shadow: none !important;
+
+  .NavigationBar__AppBar {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 15px 100px;
+  }
+
+  img {
+    width: 275px;
+  }
+
+  button {
+    background: #6547f9 !important;
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+    border: 1px solid white;
+  }
+}

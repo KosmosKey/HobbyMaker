@@ -1,0 +1,33 @@
+.Home__ImageWave {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.Home__Container {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+  .Home__Text_Presentation {
+    background: red;
+    max-width: 600px;
+    h1 {
+      font-weight: 800;
+      font-size: 35px;
+    }
+  }
+
+  .Home__iPhoneImage {
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .Home__GridOne {
+    margin-top: 50px;
+    text-align: right !important;
+  }
+}
