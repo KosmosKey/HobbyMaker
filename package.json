@@ -1,0 +1,11 @@
+{
+  "name": "hobbymaker",
+  "version": "1.0.0",
+  "description": "\"An hobbymaker application\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Magomed Khamidov",
+  "license": "ISC"
+}
