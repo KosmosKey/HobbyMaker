@@ -5,17 +5,71 @@
   z-index: -1;
 }
 
+.Home__Buttons {
+  margin-top: 20px;
+
+  .Home__GetStarted {
+    background: #7733FF !important;
+    padding: 10px 25px !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    transition: 500ms ease;
+    border: 2px solid #7E2EFF !important;
+
+  }
+
+  .Home__PlayCircle {
+    margin-right: 10px !important;
+    font-size: 25px;
+  }
+
+  .Home__LogIn {
+    background: #FFFF !important;
+    padding: 10px 30px !important;
+    font-weight: 700 !important;
+    font-size: 18px !important;
+    border: 2px solid #7E2EFF;
+    color: #7E2EFF;
+    margin-left: 15px;
+    transition: 500ms ease;
+  }
+
+  .Home__GetStarted:hover {
+    background: #FFFF !important;
+    border-radius: 0px !important;
+    border: 2px solid #7E2EFF;
+    color: #7E2EFF;
+  }
+
+  .Home__LogIn:hover {
+    background: #7E2EFF !important;
+    font-weight: 700 !important;
+    color: #FFFF;
+  }
+}
+
+
+
+
 .Home__Container {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
 
   .Home__Text_Presentation {
-    background: red;
-    max-width: 600px;
+    max-width: 900px;
+
     h1 {
+      padding: 10px 0px;
       font-weight: 800;
-      font-size: 35px;
+      font-size: 60px;
+      color: #252A32;
+    }
+
+    p {
+      font-weight: 600;
+      color: #4d525a;
+      line-height: 40px;
     }
   }
 
@@ -29,5 +83,170 @@
   .Home__GridOne {
     margin-top: 50px;
     text-align: right !important;
+  }
+}
+
+.Home__WhySection {
+  margin-top: 150px;
+  text-align: center;
+
+  h1 {
+    color: #252A32;
+  }
+
+  .Home__WhyText {
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+  }
+
+
+
+  .Home__firstImage {
+    margin-top: 30px;
+    max-width: 300px;
+    margin-bottom: 10px;
+    border: 3px solid #7E2EFF;
+    border-radius: 5px;
+  }
+
+  .Home__secondImage {
+    margin-top: 35px;
+    max-width: 270px;
+    margin-bottom: 10px;
+    border: 3px solid #7E2EFF;
+    border-radius: 5px;
+
+  }
+
+  .Home__thirdImage {
+    max-width: 250px;
+    margin-bottom: 10px;
+    margin-top: 35px;
+    border: 3px solid #7E2EFF;
+    border-radius: 5px;
+  }
+}
+
+
+.Home__SetContactGoal {
+  margin-top: 200px;
+
+  .Home__ImageFluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .Home__SetGoalsForHobi {
+    max-width: 550px;
+
+    h1 {
+      margin-bottom: 15px;
+      color: #252A32;
+      font-weight: 700;
+    }
+
+    p {
+      font-weight: 700;
+      color: #4d525a;
+      line-height: 32px;
+    }
+  }
+
+  .Home__paragraph {
+    margin-top: 15px;
+  }
+
+  .Home__ButtonSignUp {
+    margin-top: 15px;
+    background: #7733FF;
+    padding: 10px 50px;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid #7733FF;
+    transition: 350ms ease;
+  }
+
+  .Home__ButtonSignUp:hover {
+    background: #FFFF;
+    border: 2px solid #7733FF;
+    color: #7733FF;
+  }
+}
+
+
+
+@media screen and (max-width: 1279px) {
+  .Home__Container {
+
+    p {
+      color: #252A32 !important;
+      line-height: 25px !important;
+    }
+
+    .Home__Buttons {
+      .Home__GetStarted {
+        border: 1px solid white;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .Home__Container {
+    margin-top: 20px;
+
+    h1 {
+      color: white !important;
+      font-size: 35px !important;
+    }
+
+    p {
+      font-size: 15px;
+      color: white !important;
+      line-height: 25px !important;
+    }
+
+
+    .Home__iPhoneImage {
+      max-width: 300px;
+    }
+
+    .Home__Buttons {
+      .Home__GetStarted {
+        border: 1px solid white;
+        font-size: 15px !important;
+      }
+
+      .Home__LogIn {
+        border: 1px solid white;
+        font-size: 15px !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .Home__WhyText {
+    font-size: 30px !important;
+  }
+
+  .Home__firstImage {
+    max-width: 200px !important;
+  }
+
+  .Home__secondImage {
+    max-width: 200px !important;
+  }
+
+  .Home__thirdImage {
+    max-width: 200px !important;
+  }
+
+  .Home__first {
+    h1 {
+      font-size: 15px;
+      max-width: 250px;
+    }
   }
 }
