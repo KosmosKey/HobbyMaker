@@ -5,6 +5,9 @@ import firstSvg from "../../Logo/svg1.png";
 import secondSvg from "../../Logo/svg2.png";
 import Event from "../../Logo/Event1.png";
 import thirdSvg from "../../Logo/svg3.png";
+import BookmarkIcon from "@material-ui/icons/Bookmark";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import TwitterIcon from "@material-ui/icons/Twitter";
 import { Grid, Container, Button } from "@material-ui/core";
 import "./Home.scss";
 
@@ -138,10 +141,11 @@ function Home() {
               sm={6}
             >
               <div className="Home__SetGoalsForHobi">
-                <h1>
+                <h1 className="Home__TitleSet">
                   Set your self future goals with
                   <br /> your passion and hobbies
                 </h1>
+
                 <p>
                   You've heard people telling you go and do what you love doing.
                   That's right! This app allows you to have so many
@@ -149,8 +153,8 @@ function Home() {
                 </p>
                 <p className="Home__paragraph">
                   Such as How many hobbies you have, your plans for the hobbies,
-                  hobbies that did go so well and hobbies that went well and
-                  etc. So set yourself a future goal with your passion and
+                  hobbies that did go so well and hobbies that did not go well
+                  and etc. So set yourself a future goal with your passion and
                   hobbies!
                 </p>
                 <Button
@@ -172,6 +176,65 @@ function Home() {
           </Grid>
         </Container>
       </div>
+      <section className="Home__SectionBenefits">
+        <Container>
+          <Grid container justify="center" alignItems="center">
+            <Grid item lg={6} md={6} sm={6}>
+              <img
+                src={Event}
+                alt="Image_column"
+                className="Home__ImageFluid"
+              />
+            </Grid>
+            <Grid
+              item
+              lg={6}
+              md={6}
+              sm={6}
+              container
+              direction="row"
+              justify="flex-end"
+              alignItems="flex-start"
+              className="Home__gridSystemFourth"
+            >
+              <div className="Home__SetYourSelfGoal">
+                <h1>Explore tha hobbymaker app</h1>
+                <div className="Home__ListOfGroup">
+                  <p className="Home__QuoteParagraph">
+                    "People with great passion can make the impossible happen".
+                    Here are some benefits that you can get from this
+                    application.
+                  </p>
+                  <ul>
+                    <li className="Home__UnlistItems">
+                      <CheckCircleIcon className="Home__icons" />
+                      The web app is free to use
+                    </li>
+                    <li className="Home__UnlistItems">
+                      <CheckCircleIcon className="Home__icons" />
+                      Your hobbies and interests
+                    </li>
+                    <li className="Home__UnlistItems">
+                      <CheckCircleIcon className="Home__icons" />
+                      Having a plan for your hobbies
+                    </li>
+                    <li className="Home__UnlistItems">
+                      <CheckCircleIcon className="Home__icons" />
+                      Hobbies that went well/bad for you
+                      <br />
+                    </li>
+                    <li className="Home__UnlistItems">
+                      <CheckCircleIcon className="Home__icons" />
+                      Plan your future plans for more hobbies
+                      <br />
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+        </Container>
+      </section>
     </div>
   );
 }

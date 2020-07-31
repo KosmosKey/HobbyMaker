@@ -133,8 +133,8 @@
   margin-top: 200px;
 
   .Home__ImageFluid {
-    max-width: 100%;
-    height: auto;
+    max-width: 100% !important;
+    height: auto !important;
   }
 
   .Home__SetGoalsForHobi {
@@ -174,7 +174,62 @@
   }
 }
 
+.Home__SectionBenefits {
+  margin-top: 75px;
 
+  .Home__ImageFluid {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+
+.Home__SetYourSelfGoal {
+  .Home__TwitterIcon {
+    margin-left: 10px;
+  }
+
+  h1 {
+    font-size: 35px;
+    color: #252A32;
+    margin-bottom: 10px;
+  }
+
+  ul {
+    margin-top: 5px;
+
+    li {
+      list-style: none;
+      padding-top: 20px;
+    }
+  }
+
+  .Home__icons {
+    margin-right: 10px;
+    color: #7E2EFF;
+  }
+
+  .Home__QuoteParagraph {
+    max-width: 500px;
+    font-style: italic;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: 35px;
+    color: #4d525a;
+
+  }
+
+
+  .Home__ListOfGroup {
+    .Home__UnlistItems {
+      display: flex;
+      font-weight: 600;
+      align-items: center;
+      color: #4d525a;
+    }
+  }
+}
 
 @media screen and (max-width: 1279px) {
   .Home__Container {
@@ -212,17 +267,17 @@
       max-width: 300px;
     }
 
-    .Home__Buttons {
-      .Home__GetStarted {
-        border: 1px solid white;
-        font-size: 15px !important;
-      }
 
-      .Home__LogIn {
-        border: 1px solid white;
-        font-size: 15px !important;
+    .Home__SectionBenefits {
+      margin-top: 75px;
+
+      .Home__ImageFluid {
+        max-width: 100%;
+        height: auto;
       }
     }
+
+
   }
 }
 
