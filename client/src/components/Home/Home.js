@@ -5,8 +5,11 @@ import firstSvg from "../../Logo/svg1.png";
 import secondSvg from "../../Logo/svg2.png";
 import Event from "../../Logo/Event1.png";
 import thirdSvg from "../../Logo/svg3.png";
-import BookmarkIcon from "@material-ui/icons/Bookmark";
+import iPhoneTwo from "../../Logo/iPhoneTwo.png";
+import LogoBlue from "../../Logo/LogoBlue.png";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import YouTubeIcon from "@material-ui/icons/YouTube";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { Grid, Container, Button } from "@material-ui/core";
 import "./Home.scss";
@@ -132,14 +135,7 @@ function Home() {
       <div className="Home__SetContactGoal">
         <Container>
           <Grid container justify="center">
-            <Grid
-              item
-              direction="row"
-              justify="center"
-              alignItems="center"
-              lg={6}
-              sm={6}
-            >
+            <Grid item lg={6} sm={6}>
               <div className="Home__SetGoalsForHobi">
                 <h1 className="Home__TitleSet">
                   Set your self future goals with
@@ -166,7 +162,7 @@ function Home() {
                 </Button>
               </div>
             </Grid>
-            <Grid item direction="row" alignItems="center" lg={6} sm={6}>
+            <Grid item lg={6} sm={6}>
               <img
                 src={Event}
                 alt="Image_column"
@@ -178,7 +174,7 @@ function Home() {
       </div>
       <section className="Home__SectionBenefits">
         <Container>
-          <Grid container justify="center" alignItems="center">
+          <Grid container justify="center">
             <Grid item lg={6} md={6} sm={6}>
               <img
                 src={Event}
@@ -198,7 +194,7 @@ function Home() {
               className="Home__gridSystemFourth"
             >
               <div className="Home__SetYourSelfGoal">
-                <h1>Explore tha hobbymaker app</h1>
+                <h1>Explore the hobbymaker app</h1>
                 <div className="Home__ListOfGroup">
                   <p className="Home__QuoteParagraph">
                     "People with great passion can make the impossible happen".
@@ -210,10 +206,7 @@ function Home() {
                       <CheckCircleIcon className="Home__icons" />
                       The web app is free to use
                     </li>
-                    <li className="Home__UnlistItems">
-                      <CheckCircleIcon className="Home__icons" />
-                      Your hobbies and interests
-                    </li>
+
                     <li className="Home__UnlistItems">
                       <CheckCircleIcon className="Home__icons" />
                       Having a plan for your hobbies
@@ -235,6 +228,71 @@ function Home() {
           </Grid>
         </Container>
       </section>
+
+      <section className="Home__GetStartedToday">
+        <Container>
+          <Grid container spacing={0} justify="center" alignItems="center">
+            <Grid item container lg={8} md={8} sm={12} xs={12} justify="center">
+              <div className="Home__LETSGET">
+                <h1>LET'S GET STARTED!</h1>
+                <p>Make sure that you sign up today for free!</p>
+                <Button variant="contained" color="primary">
+                  Sign up for free!
+                </Button>
+              </div>
+            </Grid>
+            <Grid item className="Home__DeleteGrid" lg={4} md={4}>
+              <img
+                src={iPhoneTwo}
+                alt="iPhoneTwo"
+                className="Home__GetStartediPhone"
+              />
+            </Grid>
+          </Grid>
+        </Container>
+      </section>
+      <footer className="Home__Footer">
+        <Container>
+          <Grid container justify="center">
+            <Grid item lg={4} md={6}>
+              <div className="Home__FooterLogoInfo">
+                <img
+                  src={LogoBlue}
+                  className="Home__FooterLogo"
+                  alt="logo_blue"
+                />
+                <p>
+                  Hobbymaker allows you to control your daily routines with your
+                  hobbies. Try the web application for free today. If this gets
+                  very popular we will be going to make app version of this. If
+                  you want to support the creator make sure to follow him on
+                  Twitter, Linkedin or YouTube.
+                </p>
+              </div>
+            </Grid>
+            <Grid item container justify="center" lg={8}>
+              <div className="Home__SocialSection">
+                <h1>FOLLOW ON SOCIAL MEDIA!</h1>
+                <p>Follow on social media for more information!</p>
+                <div className="Home__FooterSocialMedias">
+                  <div className="Home__SocialIcons">
+                    <TwitterIcon />
+                  </div>
+                  <div className="Home__SocialIcons">
+                    <YouTubeIcon />
+                  </div>
+                  <div className="Home__SocialIcons">
+                    <LinkedInIcon />
+                  </div>
+                </div>
+              </div>
+            </Grid>
+          </Grid>
+          <p className="Home__CopyrightText">
+            Copyright © 2020 Magomed Khamidov. All rights reserved.
+          </p>
+        </Container>
+      </footer>
     </div>
   );
 }

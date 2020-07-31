@@ -140,6 +140,7 @@
   .Home__SetGoalsForHobi {
     max-width: 550px;
 
+
     h1 {
       margin-bottom: 15px;
       color: #252A32;
@@ -222,6 +223,8 @@
 
 
   .Home__ListOfGroup {
+    margin-bottom: 40px;
+
     .Home__UnlistItems {
       display: flex;
       font-weight: 600;
@@ -276,8 +279,143 @@
         height: auto;
       }
     }
+  }
+}
+
+.Home__GetStartedToday {
+  max-width: 100%;
+  margin-top: 50px !important;
+  background: #7733FF;
+
+  h1 {
+    font-size: 70px;
+    color: white;
+
+  }
+
+  p {
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  Button {
+    font-size: 18px;
+    font-weight: 700;
+    background: white;
+    margin-top: 15px;
+    color: #7733FF;
+    transition: 350ms ease;
+    border: 2px solid #7733FF;
+
+  }
+
+  Button:hover {
+    background: #7E2EFF;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .Home__GetStartediPhone {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.Home__Footer {
+  margin-top: 75px;
+
+  .Home__CopyrightText {
+    margin-top: 75px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: #252A32;
+    font-weight: 700;
+    font-size: px;
+  }
+
+  .Home__FooterLogo {
+    margin-bottom: 10px;
+  }
+
+  .Home__FooterLogoInfo {
+
+    p {
+      font-weight: 700;
+      color: #4d525a;
+      line-height: 35px;
+    }
+  }
+
+  .Home__SocialSection {
+    margin-top: 10px;
+
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: #4d525a;
+    }
+
+    h1 {
+      color: #252A32;
+      font-size: 30px;
+    }
 
 
+  }
+
+  .Home__FooterLogo {
+    max-width: 250px;
+    height: auto;
+  }
+
+  .Home__FooterSocialMedias {
+    display: flex;
+
+    .Home__SocialIcons {
+      padding: 15px;
+      border: 1px solid #4d525a57;
+      margin-right: 15px;
+      border-radius: 50px;
+      color: #252A32;
+      cursor: pointer;
+      transition: 350ms ease;
+    }
+
+    .Home__SocialIcons:hover {
+      background: #7733FF;
+      color: white;
+
+    }
+  }
+}
+
+
+@media screen and (max-width: 339px) {
+  .Home__LETSGET {
+    h1 {
+      font-size: 25px !important;
+    }
+
+    p {
+      font-size: 13px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 367px) {
+  .Home__Text_Presentation {
+    .Home__GetStarted {
+      font-size: 12px !important;
+    }
+
+    .Home__LogIn {
+      font-size: 12px !important;
+    }
   }
 }
 
@@ -303,5 +441,53 @@
       font-size: 15px;
       max-width: 250px;
     }
+  }
+}
+
+
+
+@media screen and (max-width: 1300px) {
+  .Home__GridReduce {
+    width: 10px !important;
+  }
+
+  .Home__GetStartedToday {
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    h1 {
+      font-size: 50px;
+    }
+  }
+
+
+  .Home__DeleteGrid {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .Home__GetStartedToday {
+    text-align: center;
+
+    p {
+      font-size: 15px;
+    }
+
+    h1 {
+      font-size: 60px;
+    }
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .Home__FooterLogoInfo {
+    margin-bottom: 35px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .Home__ButtonSignUp {
+    margin-bottom: 20px !important;
   }
 }
