@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.Login__PageContainer {
+    height: 90vh;
+}
+
+.Login__ {
+    margin: 0 auto;
+    margin-top: 0 auto !important;
+    box-shadow: 0px 9px 26px 0px rgba(37, 42, 50, 1);
+    border: 2px solid #252a32a2;
+    max-width: 100% !important;
+    height: auto !important;
+    position: relative;
+
+
+    Button {
+        background: #7733ff;
+        font-size: 17px;
+        border: 2px solid white;
+        font-weight: 700;
+        padding: 10px 0px;
+    }
+
+    .Background {
+        width: 100%;
+        height: 100%;
+        background: #7733ff;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.75;
+
+    }
+
+
+
+    .Login_form {
+        background: url("../../Logo/LoginBG.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        position: relative;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+
+        .Login__WhiteLogo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            max-width: 250px;
+            z-index: 10;
+        }
+
+        .Login_formText {
+            z-index: 10;
+
+            h1 {
+                color: white;
+                font-size: 65px;
+
+            }
+
+
+            .Login__FormParagraph {
+                p {
+                    color: white !important;
+                    font-size: 25px;
+                }
+            }
+
+        }
+    }
+
+
+
+    .Login__BlueLogo {
+        display: none;
+        position: absolute;
+        top: 0px;
+        right: 20px;
+        max-width: 75px;
+    }
+
+    .Login_Welcome {
+        background: white;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 100px 50px;
+        width: 100%;
+
+        h1 {
+            margin-top: 15px;
+            margin-bottom: 35px;
+            color: #252a32;
+            font-size: 45px;
+        }
+
+
+        .Login__DontAccount {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        p {
+            color: #4d525a;
+            font-weight: 600;
+
+            span {
+                color: #7733ff;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .Form {
+        background: white;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .Login__Variant {
+        width: 100%;
+        flex: 1 !important;
+    }
+
+    .Login__Variant,
+    .Login__Password {
+        margin-top: 10px !important;
+        margin-bottom: 20px;
+    }
+
+    Button {
+        margin-top: 15px;
+        transition: 350ms ease;
+    }
+
+    Button:hover {
+        background: white;
+        border: 2px solid #7733ff;
+        color: #7733ff;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 1532px) {
+    .Login_formText {
+        h1 {
+            font-size: 50px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 1279px) {
+
+    .Login__BlueLogo {
+        display: block !important;
+    }
+
+    .Login__FirstGrid {
+        display: none !important;
+    }
+}

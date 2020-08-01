@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Signup__ {
+    max-width: 100%;
+    background: white;
+    box-shadow: 0px 9px 26px 0px rgba(37, 42, 50, 1);
+    border: 2px solid #252a32a2;
+    height: auto !important;
+    position: relative;
+
+    .Signup__Container {
+        width: 100%;
+        height: 100%;
+        background: url("../../Logo/LoginBG.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+
+    .Signup__BlueBackground {
+        width: 100%;
+        height: 100%;
+        background: #7733ff;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        opacity: 0.5;
+    }
+
+    .Signup__InfoText {
+        z-index: 15 !important;
+    }
+
+    .Signup__Form {
+        display: flex;
+    }
+
+    .Signup__ImageLogoWhite {
+        width: 250px;
+        position: absolute;
+        top: 15px;
+        left: 15px;
+    }
+}

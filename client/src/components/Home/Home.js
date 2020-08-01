@@ -18,7 +18,7 @@ function Home() {
   return (
     <div>
       <img src={Header} className="Home__ImageWave" alt="wave" />
-      <Container className="Home__Container">
+      <Container className="Home__Container" id="Home">
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid
             item
@@ -72,7 +72,7 @@ function Home() {
           </Grid>
         </Grid>
       </Container>
-      <div className="Home__WhySection">
+      <div className="Home__WhySection" id="About">
         <section>
           <h1 className="Home__WhyText">WHY HOBBYMAKER?</h1>
           <Container>
@@ -229,7 +229,7 @@ function Home() {
         </Container>
       </section>
 
-      <section className="Home__GetStartedToday">
+      <section className="Home__GetStartedToday" id="Start">
         <Container>
           <Grid container spacing={0} justify="center" alignItems="center">
             <Grid item container lg={8} md={8} sm={12} xs={12} justify="center">

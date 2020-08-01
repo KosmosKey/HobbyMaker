@@ -9,13 +9,12 @@
   margin-top: 20px;
 
   .Home__GetStarted {
-    background: #7733FF !important;
+    background: #7733ff !important;
     padding: 10px 25px !important;
     font-weight: 700 !important;
     font-size: 18px !important;
     transition: 500ms ease;
-    border: 2px solid #7E2EFF !important;
-
+    border: 2px solid #7e2eff !important;
   }
 
   .Home__PlayCircle {
@@ -24,32 +23,29 @@
   }
 
   .Home__LogIn {
-    background: #FFFF !important;
+    background: #ffff !important;
     padding: 10px 30px !important;
     font-weight: 700 !important;
     font-size: 18px !important;
-    border: 2px solid #7E2EFF;
-    color: #7E2EFF;
+    border: 2px solid #7e2eff;
+    color: #7e2eff;
     margin-left: 15px;
     transition: 500ms ease;
   }
 
   .Home__GetStarted:hover {
-    background: #FFFF !important;
+    background: #ffff !important;
     border-radius: 0px !important;
-    border: 2px solid #7E2EFF;
-    color: #7E2EFF;
+    border: 2px solid #7e2eff;
+    color: #7e2eff;
   }
 
   .Home__LogIn:hover {
-    background: #7E2EFF !important;
+    background: #7e2eff !important;
     font-weight: 700 !important;
-    color: #FFFF;
+    color: #ffff;
   }
 }
-
-
-
 
 .Home__Container {
   display: flex !important;
@@ -63,7 +59,7 @@
       padding: 10px 0px;
       font-weight: 800;
       font-size: 60px;
-      color: #252A32;
+      color: #252a32;
     }
 
     p {
@@ -91,7 +87,7 @@
   text-align: center;
 
   h1 {
-    color: #252A32;
+    color: #252a32;
   }
 
   .Home__WhyText {
@@ -100,13 +96,11 @@
     position: relative;
   }
 
-
-
   .Home__firstImage {
     margin-top: 30px;
     max-width: 300px;
     margin-bottom: 10px;
-    border: 3px solid #7E2EFF;
+    border: 3px solid #7e2eff;
     border-radius: 5px;
   }
 
@@ -114,20 +108,18 @@
     margin-top: 35px;
     max-width: 270px;
     margin-bottom: 10px;
-    border: 3px solid #7E2EFF;
+    border: 3px solid #7e2eff;
     border-radius: 5px;
-
   }
 
   .Home__thirdImage {
     max-width: 250px;
     margin-bottom: 10px;
     margin-top: 35px;
-    border: 3px solid #7E2EFF;
+    border: 3px solid #7e2eff;
     border-radius: 5px;
   }
 }
-
 
 .Home__SetContactGoal {
   margin-top: 200px;
@@ -140,10 +132,9 @@
   .Home__SetGoalsForHobi {
     max-width: 550px;
 
-
     h1 {
       margin-bottom: 15px;
-      color: #252A32;
+      color: #252a32;
       font-weight: 700;
     }
 
@@ -160,18 +151,18 @@
 
   .Home__ButtonSignUp {
     margin-top: 15px;
-    background: #7733FF;
+    background: #7733ff;
     padding: 10px 50px;
     font-size: 16px;
     font-weight: 700;
-    border: 2px solid #7733FF;
+    border: 2px solid #7733ff;
     transition: 350ms ease;
   }
 
   .Home__ButtonSignUp:hover {
-    background: #FFFF;
-    border: 2px solid #7733FF;
-    color: #7733FF;
+    background: #ffff;
+    border: 2px solid #7733ff;
+    color: #7733ff;
   }
 }
 
@@ -184,8 +175,6 @@
   }
 }
 
-
-
 .Home__SetYourSelfGoal {
   .Home__TwitterIcon {
     margin-left: 10px;
@@ -193,7 +182,7 @@
 
   h1 {
     font-size: 35px;
-    color: #252A32;
+    color: #252a32;
     margin-bottom: 10px;
   }
 
@@ -208,7 +197,7 @@
 
   .Home__icons {
     margin-right: 10px;
-    color: #7E2EFF;
+    color: #7e2eff;
   }
 
   .Home__QuoteParagraph {
@@ -218,9 +207,7 @@
     letter-spacing: 1px;
     line-height: 35px;
     color: #4d525a;
-
   }
-
 
   .Home__ListOfGroup {
     margin-bottom: 40px;
@@ -236,9 +223,8 @@
 
 @media screen and (max-width: 1279px) {
   .Home__Container {
-
     p {
-      color: #252A32 !important;
+      color: #252a32 !important;
       line-height: 25px !important;
     }
 
@@ -265,11 +251,9 @@
       line-height: 25px !important;
     }
 
-
     .Home__iPhoneImage {
       max-width: 300px;
     }
-
 
     .Home__SectionBenefits {
       margin-top: 75px;
@@ -285,12 +269,11 @@
 .Home__GetStartedToday {
   max-width: 100%;
   margin-top: 50px !important;
-  background: #7733FF;
+  background: #7733ff;
 
   h1 {
     font-size: 70px;
     color: white;
-
   }
 
   p {
@@ -305,14 +288,13 @@
     font-weight: 700;
     background: white;
     margin-top: 15px;
-    color: #7733FF;
+    color: #7733ff;
     transition: 350ms ease;
-    border: 2px solid #7733FF;
-
+    border: 2px solid #7733ff;
   }
 
   Button:hover {
-    background: #7E2EFF;
+    background: #7e2eff;
     color: white;
     border: 2px solid white;
   }
@@ -332,7 +314,7 @@
     margin-top: 75px;
     margin-bottom: 25px;
     text-align: center;
-    color: #252A32;
+    color: #252a32;
     font-weight: 700;
     font-size: px;
   }
@@ -342,7 +324,6 @@
   }
 
   .Home__FooterLogoInfo {
-
     p {
       font-weight: 700;
       color: #4d525a;
@@ -361,11 +342,9 @@
     }
 
     h1 {
-      color: #252A32;
+      color: #252a32;
       font-size: 30px;
     }
-
-
   }
 
   .Home__FooterLogo {
@@ -381,19 +360,17 @@
       border: 1px solid #4d525a57;
       margin-right: 15px;
       border-radius: 50px;
-      color: #252A32;
+      color: #252a32;
       cursor: pointer;
       transition: 350ms ease;
     }
 
     .Home__SocialIcons:hover {
-      background: #7733FF;
+      background: #7733ff;
       color: white;
-
     }
   }
 }
-
 
 @media screen and (max-width: 339px) {
   .Home__LETSGET {
@@ -444,8 +421,6 @@
   }
 }
 
-
-
 @media screen and (max-width: 1300px) {
   .Home__GridReduce {
     width: 10px !important;
@@ -459,7 +434,6 @@
       font-size: 50px;
     }
   }
-
 
   .Home__DeleteGrid {
     display: none !important;

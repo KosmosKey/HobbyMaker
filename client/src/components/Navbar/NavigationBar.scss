@@ -1,126 +1,125 @@
- .NavigationBar__NavBar.active {
-   background: #7E2EFF !important;
- }
+.NavigationBar__NavBar.active {
+  background: #7e2eff !important;
+}
 
 
- .NavigationBar__NavBar {
-   position: sticky !important;
-   top: 0 !important;
-   background: transparent !important;
-   box-shadow: none !important;
-   transition: 350ms ease-in-out !important;
 
-   .NavigationBar__AppBar {
-     display: flex !important;
-     justify-content: space-between !important;
-     padding: 15px 100px;
-     position: relative;
-   }
+.NavigationBar__NavBar {
+  position: sticky !important;
+  top: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: 350ms ease-in-out !important;
 
+  .NavigationBar__AppBar {
+    display: flex !important;
+    justify-content: space-between !important;
+    padding: 15px 100px;
+    position: relative;
+  }
 
-   .NavigationBar__Icon {
-     display: none;
-     position: absolute !important;
-     right: -30px !important;
-     top: 20px !important;
-     z-index: 10;
-     padding: 0px;
-     margin: 0px;
+  .NavigationBar__Icon {
+    display: none;
+    position: absolute !important;
+    right: -30px !important;
+    top: 20px !important;
+    z-index: 10;
+    padding: 0px;
+    margin: 0px;
 
-     .NavigationBar__IconMenu {
-       color: white;
-       padding-top: 5px;
-       font-size: 50px !important;
-     }
-   }
+    .NavigationBar__IconMenu {
+      color: white;
+      padding-top: 5px;
+      font-size: 50px !important;
+    }
+  }
 
-   .NavigationBar__WhiteLogo {
-     display: none;
-   }
+  .NavigationBar__WhiteLogo {
+    display: none;
+  }
 
-   img {
-     width: 275px;
-   }
+  img {
+    width: 275px;
+  }
 
-   button {
-     margin-right: 50px !important;
-   }
+  button {
+    margin-right: 50px !important;
+  }
 
-   .Home__LinkButtons {
-     color: white !important;
-     font-weight: 700;
-     transition: 500ms ease;
-   }
+  .Home__LinkButtons {
+    color: white !important;
+    font-weight: 700;
+    transition: 500ms ease;
+  }
 
-   .Home__LinkButtons:hover {
-     border-radius: 0px !important;
-     color: rgb(221, 221, 221) !important;
-   }
+  .Home__LinkButtons:hover {
+    border-radius: 0px !important;
+    color: rgb(221, 221, 221) !important;
+  }
 
-   .NavigationBar__LoginButton {
-     background: transparent !important;
-     color: white;
-     font-weight: 700;
-     padding: 5px 20px;
-     color: #FFFF;
-     letter-spacing: 2px;
-     border-radius: 0px !important;
-     border: 3px solid white;
-     transition: 350ms ease;
-   }
+  .NavigationBar__LoginButton {
+    background: transparent !important;
+    color: white;
+    font-weight: 700;
+    padding: 5px 20px;
+    color: #ffff;
+    letter-spacing: 2px;
+    border-radius: 0px !important;
+    border: 3px solid white;
+    transition: 350ms ease;
+  }
 
-   .NavigationBar__LoginButton:hover {
-     background: white !important;
-     color: white;
-     font-weight: 700;
-     padding: 5px 20px;
-     color: #7E2EFF;
-     letter-spacing: 2px;
-     border-radius: 0px !important;
-     border: 3px solid white;
-   }
+  .NavigationBar__LoginButton:hover {
+    background: white !important;
+    color: white;
+    font-weight: 700;
+    padding: 5px 20px;
+    color: #7e2eff;
+    letter-spacing: 2px;
+    border-radius: 0px !important;
+    border: 3px solid white;
+  }
 
-   .NavigationBar__LogoWithout {
-     width: 70px;
-     display: none;
-   }
- }
+  .NavigationBar__LogoWithout {
+    width: 70px;
+    display: none;
+  }
+}
 
+@media screen and (max-width: 1190px) {
+  .NavigationBar__AppBar {
+    padding: 15px !important;
+  }
 
- @media screen and (max-width: 1190px) {
-   .NavigationBar__AppBar {
-     padding: 15px !important;
-   }
+  .NavigationBar__Toolbar {
+    display: none !important;
+  }
 
-   .NavigationBar__Toolbar {
-     display: none !important;
-   }
+  .NavigationBar__Icon {
+    display: block !important;
+  }
 
-   .NavigationBar__Icon {
-     display: block !important;
-   }
+  .NavigatioBar__LogoBlue {
+    display: none;
+  }
+}
 
-   .NavigatioBar__LogoBlue {
-     display: none;
-   }
- }
+@media screen and (max-width: 1400px) {
+  .NavigationBar__WhiteLogo {
+    display: block !important;
+  }
 
- @media screen and (max-width: 1400px) {
-   .NavigationBar__WhiteLogo {
-     display: block !important;
-   }
+  .NavigatioBar__LogoBlue {
+    display: none !important;
+  }
+}
 
-   .NavigatioBar__LogoBlue {
-     display: none !important;
-   }
- }
+@media screen and (max-width: 700px) {
+  .NavigationBar__WhiteLogo {
+    display: none !important;
+  }
 
- @media screen and (max-width: 700px) {
-   .NavigationBar__WhiteLogo {
-     display: none !important;
-   }
-
-   .NavigationBar__LogoWithout {
-     display: block !important;
-   }
- }
+  .NavigationBar__LogoWithout {
+    display: block !important;
+  }
+}
