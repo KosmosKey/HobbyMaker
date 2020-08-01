@@ -13,6 +13,9 @@ import {
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
   return (
     <Container
       style={{
@@ -24,42 +27,84 @@ const Signup = () => {
       }}
     >
       <Grid container justify="center" alignItems="center">
-        <Grid container lg={12} spacing={0} className="Signup__">
-          <Grid
-            container
-            item
-            lg={6}
-            justify="center"
-            alignItems="center"
-          >
-            <img
-              src={WhiteBlue}
-              className="Signup__ImageLogoWhite"
-              alt="white_logo"
-            />
-
-            <div className="Signup__TextDiv">
-              <div className="Signup__Container">
-                <div className="Signup__BlueBackground"></div>
+        <Grid container className="Signup__">
+          <Grid item lg={6} md={6} className="Signup__GridFirst">
+            <div className="Signup__Container">
+              <div className="Signup__BlueBackground"></div>
+              <img
+                src={WhiteBlue}
+                className="Signup__ImageLogoWhite"
+                alt="white_logo"
+              />
+              <div className="Signup__InfoText">
+                <h1>Let's get started!</h1>
+                <p style={{ marginTop: "5px" }}>
+                  Make a user and jump straight to hobbymaker!
+                </p>
               </div>
             </div>
-            <div className="Signup__InfoText">
-              <h1>LET'S GET STARTED</h1>
-              <p>Make a user and jump straight to hobbymaker!</p>
-            </div>
           </Grid>
-          <Grid item lg={6}>
+          <Grid
+            item
+            lg={6}
+            md={6}
+            sm={12}
+            xs={12}
+            className="Signup__GridSecond"
+          >
             <h1>Sign up</h1>
-            <form>
+            <form className="Signup__Form">
               <FormControl className="Signup__Form">
-                <p style={{ textAlign: "left", marginBottom: "px" }}>
+                <p
+                  style={{
+                    textAlign: "left",
+                    marginTop: "25px",
+                    marginBottom: "15px",
+                  }}
+                >
+                  First Name
+                </p>
+                <TextField
+                  id="outlined-basic"
+                  placeholder="Enter Your First Name"
+                  variant="outlined"
+                  type="name"
+                  className="Signup__Variant"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <p
+                  style={{
+                    textAlign: "left",
+                    marginTop: "25px",
+                    marginBottom: "15px",
+                  }}
+                >
+                  Last Name
+                </p>
+                <TextField
+                  id="outlined-basic"
+                  placeholder="Enter Your Last Name"
+                  variant="outlined"
+                  type="name"
+                  className="Signup__Variant"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+
+                <p
+                  style={{
+                    textAlign: "left",
+                    marginTop: "25px",
+                  }}
+                >
                   Email Address
                 </p>
                 <TextField
                   id="outlined-basic"
                   type="email"
                   variant="outlined"
-                  className="Login__Variant"
+                  className="Signup__Variant"
                   placeholder="Enter Your Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -68,8 +113,8 @@ const Signup = () => {
                 <p
                   style={{
                     textAlign: "left",
-                    marginTop: "15px",
-                    marginBottom: "5px",
+                    marginTop: "25px",
+                    marginBottom: "10px",
                   }}
                 >
                   Password
@@ -79,13 +124,13 @@ const Signup = () => {
                   placeholder="Enter Your Password"
                   variant="outlined"
                   type="password"
-                  className="Login__Password"
+                  className="Signup__Variant"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
 
                 <Button color="primary" type="submit" variant="contained">
-                  Login
+                  Sign up
                 </Button>
               </FormControl>
             </form>

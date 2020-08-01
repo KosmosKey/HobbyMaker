@@ -11,6 +11,25 @@
     border: 2px solid #252a32a2;
     height: auto !important;
     position: relative;
+    margin-bottom: 75px;
+
+    .Signup__Form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Signup__Variant {
+        width: 100%;
+        flex: 1 !important;
+    }
+
+
+    p {
+        color: #4d525a;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
 
     .Signup__Container {
         width: 100%;
@@ -19,7 +38,22 @@
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        h1 {
+            color: white;
+            font-size: 60px;
+        }
+
+        p {
+            color: white;
+            font-size: 20px;
+            font-weight: 500;
+        }
     }
+
 
     .Signup__BlueBackground {
         width: 100%;
@@ -30,11 +64,12 @@
         top: 0;
         bottom: 0;
         right: 0;
-        opacity: 0.5;
+        opacity: 0.75;
+
     }
 
     .Signup__InfoText {
-        z-index: 15 !important;
+        z-index: 20 !important;
     }
 
     .Signup__Form {
@@ -46,5 +81,51 @@
         position: absolute;
         top: 15px;
         left: 15px;
+        z-index: 10;
+    }
+
+    .Signup__GridSecond {
+        padding: 75px 50px;
+
+        h1 {
+            font-size: 50px;
+            color: #252a32;
+        }
+
+    }
+
+    Button {
+        background: #7733ff;
+        font-size: 17px;
+        font-weight: 700;
+        border: 2px solid white;
+        margin-top: 25px;
+    }
+
+    Button:hover {
+        background: white;
+        color: #7733ff;
+        border: 2px solid #7733ff;
+    }
+
+}
+
+@media screen and (max-width: 1112px) {
+    .Signup__Container {
+        h1 {
+            font-size: 50px !important;
+        }
+
+        p {
+            font-size: 17px !important;
+        }
+
+
+    }
+}
+
+@media screen and (max-width: 959px) {
+    .Signup__GridFirst {
+        display: none;
     }
 }
