@@ -13,6 +13,14 @@
     position: relative;
     margin-bottom: 75px;
 
+    .Signup__BlueLogo {
+        display: none;
+        position: absolute;
+        max-width: 75px;
+        top: 0;
+        right: 15px;
+    }
+
     .Signup__Form {
         display: flex;
         flex-direction: column;
@@ -34,7 +42,7 @@
     .Signup__Container {
         width: 100%;
         height: 100%;
-        background: url("../../Logo/LoginBG.jpg");
+        background: url("../../Logo/Nature.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         position: relative;
@@ -110,7 +118,7 @@
 
 }
 
-@media screen and (max-width: 1112px) {
+@media screen and (max-width: 1150px) {
     .Signup__Container {
         h1 {
             font-size: 50px !important;
@@ -125,6 +133,16 @@
 }
 
 @media screen and (max-width: 959px) {
+    .Signup__BlueLogo {
+        display: block !important;
+    }
+
+    .Signup__GridSecond {
+        h1 {
+            font-size: 40px !important;
+        }
+    }
+
     .Signup__GridFirst {
         display: none;
     }

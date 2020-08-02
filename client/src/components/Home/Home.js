@@ -13,6 +13,7 @@ import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import { Grid, Container, Button } from "@material-ui/core";
 import "./Home.scss";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -40,20 +41,24 @@ function Home() {
                 than that. Just sign up and give a try to this web app!
               </p>
               <div className="Home__Buttons">
-                <Button
-                  variant="contained"
-                  className="Home__GetStarted"
-                  color="primary"
-                >
-                  GET STARTED
-                </Button>
-                <Button
-                  vairant="contained"
-                  className="Home__LogIn"
-                  color="primary"
-                >
-                  LOG IN
-                </Button>
+                <Link to="/Register" style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="contained"
+                    className="Home__GetStarted"
+                    color="primary"
+                  >
+                    GET STARTED
+                  </Button>
+                </Link>
+                <Link to="/Login" style={{ textDecoration: "none" }}>
+                  <Button
+                    vairant="contained"
+                    className="Home__LogIn"
+                    color="primary"
+                  >
+                    LOG IN
+                  </Button>
+                </Link>
               </div>
             </div>
           </Grid>
@@ -153,13 +158,15 @@ function Home() {
                   and etc. So set yourself a future goal with your passion and
                   hobbies!
                 </p>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className="Home__ButtonSignUp"
-                >
-                  SIGN UP TODAY!
-                </Button>
+                <Link to="/Register" style={{ textDecoration: "none" }}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    className="Home__ButtonSignUp"
+                  >
+                    SIGN UP TODAY!
+                  </Button>
+                </Link>
               </div>
             </Grid>
             <Grid item lg={6} sm={6}>
@@ -218,7 +225,8 @@ function Home() {
                     </li>
                     <li className="Home__UnlistItems">
                       <CheckCircleIcon className="Home__icons" />
-                      Plan your future plans for more hobbies
+                      Follow your best hobbies and
+                      <br /> structure them within the app
                       <br />
                     </li>
                   </ul>
@@ -236,9 +244,11 @@ function Home() {
               <div className="Home__LETSGET">
                 <h1>LET'S GET STARTED!</h1>
                 <p>Make sure that you sign up today for free!</p>
-                <Button variant="contained" color="primary">
-                  Sign up for free!
-                </Button>
+                <Link to="/Register" style={{ textDecoration: "none" }}>
+                  <Button variant="contained" color="primary">
+                    Sign up for free!
+                  </Button>
+                </Link>
               </div>
             </Grid>
             <Grid item className="Home__DeleteGrid" lg={4} md={4}>

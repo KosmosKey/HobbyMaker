@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Header from "../../Logo/header-bg.png";
 import WhiteBlue from "../../Logo/Logo-with-white-text.png";
+import LogoBlue from "../../Logo/Blue.png";
+
 import "./Signup.scss";
 import {
   Container,
@@ -15,6 +17,10 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+
+  const submitFormRegister = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <Container
@@ -52,8 +58,13 @@ const Signup = () => {
             xs={12}
             className="Signup__GridSecond"
           >
+            <img
+              src={LogoBlue}
+              className="Signup__BlueLogo"
+              alt="Signup__BlueLogo"
+            />
             <h1>Sign up</h1>
-            <form className="Signup__Form">
+            <form onSubmit={submitFormRegister} className="Signup__Form">
               <FormControl className="Signup__Form">
                 <p
                   style={{

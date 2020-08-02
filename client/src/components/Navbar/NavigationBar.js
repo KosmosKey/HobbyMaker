@@ -53,29 +53,31 @@ const NavigationBar = ({ nav, openNavBar, closeNavBar }) => {
         <MenuIcon className="NavigationBar__IconMenu" />
       </Button>
       <Toolbar className="NavigationBar__AppBar">
-        <img
-          src={logoWithout}
-          alt="Logo-without-text"
-          className="NavigationBar__LogoWithout"
-        />
+        <NavLink to="/" className="NavigationBar__LogoWithout">
+          <img
+            src={logoWithout}
+            alt="Logo-without-text"
+            className="NavigationBar__LogoWithout"
+          />
+        </NavLink>
+
         {showNav ? (
-          <img
-            src={WhiteBlue}
-            alt="LogoBlue"
-            className="NavigatioBar__LogoBlue"
-          />
+          <NavLink to="/" className="NavigatioBar__LogoBlue">
+            <img src={WhiteBlue} alt="LogoBlue" />
+          </NavLink>
         ) : (
-          <img
-            src={LogoBlue}
-            alt="LogoBlue"
-            className="NavigatioBar__LogoBlue"
-          />
+          <NavLink to="/" className="NavigatioBar__LogoBlue">
+            <img
+              src={LogoBlue}
+              alt="LogoBlue"
+              className="NavigatioBar__LogoBlue"
+            />
+          </NavLink>
         )}
-        <img
-          src={WhiteLogo}
-          alt="WhiteLogo"
-          className="NavigationBar__WhiteLogo"
-        />
+        <NavLink to="/" className="NavigationBar__WhiteLogo">
+          <img src={WhiteLogo} alt="WhiteLogo" />
+        </NavLink>
+
         <div className="NavigationBar__Toolbar">
           <div className="Buttons">
             <ScrollLink
