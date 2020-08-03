@@ -53,6 +53,7 @@ router.post("/Login", (req, res) => {
       const payload = {
         id: user._id,
         email: user.email,
+        items: user.items,
       };
 
       const token = jwt.sign(payload, process.env.JWT_SECRET);
@@ -62,21 +63,29 @@ router.post("/Login", (req, res) => {
         user: {
           id: user.id,
           email: user.email,
+          items: user.items,
         },
       });
     });
   });
 });
 
-router.post("/Todo", auth, (req, res) => {
-  const todo = new Todo(req.body);
-  if (!todo)
-    return res.status(400).json({ message: "You did not fill out todo list" });
-
-  todo.save().then((todos) => {
-    req.user.items.push(todos);
-    res.status(400).json(todos);
+router.post("/Todo", auth, (req, res, next) => {
+  const TodoList = new Todo({
+    name: req.body.name,
   });
+
+  User.findById(req.user).then((user) => {
+    TodoList.save().then((todos) => {
+      user.items.push(todos);
+      user.save();
+    });
+    res.json(user);
+  });
+});
+
+router.get("/Todo", (req, res, next) => {
+  Todo.find().then((todo) => res.json(todo));
 });
 
 module.exports = router;

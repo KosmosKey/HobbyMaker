@@ -23,7 +23,7 @@ const User = new Schema({
     type: Date,
     default: Date.now,
   },
-  items: [{ type: mongoose.Schema.Types.ObjectId, ref: "Todo" }],
+  items: [{ type: Object, ref: "Todo" }],
 });
 
 module.exports = mongoose.model("User", User);
