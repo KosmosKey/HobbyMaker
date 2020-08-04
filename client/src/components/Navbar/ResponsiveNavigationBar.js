@@ -1,7 +1,6 @@
 import React from "react";
 import "./ResponsiveNavigationBar.scss";
 import WhiteBlue from "../../Logo/White.png";
-import { Link as ScrollLink } from "react-scroll";
 import { Button, IconButton } from "@material-ui/core";
 import CancelIcon from "@material-ui/icons/Cancel";
 import { NavLink } from "react-router-dom";

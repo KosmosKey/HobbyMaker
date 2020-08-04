@@ -1,6 +1,6 @@
-import { CLOSE_NAVIGATIONBAR, OPEN_NAVIGATIONBAR, GET_ERRORS } from "./Types";
+import { CLOSE_NAVIGATIONBAR, OPEN_NAVIGATIONBAR } from "./Types";
 import { REGISTRATION_SUCCESS } from "./Types";
-import { getErrors } from "../actions/errorActions";
+import { getErrors, clearErrors } from "../actions/errorActions";
 import axios from "axios";
 
 export const openNavBar = () => {
@@ -22,9 +22,12 @@ export const registerUser = (config) => (dispatch) => {
       dispatch({
         type: REGISTRATION_SUCCESS,
       });
+      dispatch(clearErrors());
     })
     .catch((err) => {
       if (err)
-        return dispatch(getErrors(err.response.data, err.response.status));
+        return dispatch(
+          getErrors(err.response.data.message, err.response.status)
+        );
     });
 };

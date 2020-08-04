@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     .then((user) => res.json(user));
 });
 
-router.post("/Register", (req, res) => {
+router.post("/Register", async (req, res) => {
   if (
     !req.body.first_name ||
     !req.body.last_name ||
@@ -22,9 +22,9 @@ router.post("/Register", (req, res) => {
   )
     return res.status(400).json({ message: "Please fill out all the fields" });
 
-  User.findOne({ email: req.body.email }).then((user) => {
-    if (user) res.status(400).json({ message: "The email already exists" });
-  });
+  const user = await User.findOne({ email: req.body.email });
+  if (user)
+    return res.status(400).json({ message: "The email already exists" });
 
   bcrypt.hash(req.body.password, 10).then((hash) => {
     const newUser = new User({

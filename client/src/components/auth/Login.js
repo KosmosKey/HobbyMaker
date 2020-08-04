@@ -79,7 +79,6 @@ const Login = () => {
                     Email Address
                   </p>
                   <TextField
-                    id="outlined-basic"
                     type="email"
                     variant="outlined"
                     className="Login__Variant"
@@ -98,7 +97,6 @@ const Login = () => {
                     Password
                   </p>
                   <TextField
-                    id="outlined-basic"
                     placeholder="Enter Your Password"
                     variant="outlined"
                     type="password"

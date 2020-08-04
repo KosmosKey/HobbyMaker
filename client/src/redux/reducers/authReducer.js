@@ -1,4 +1,8 @@
-import { LOGIN_SUCCESS, REGISTRATION_SUCCESS } from "../actions/Types";
+import {
+  LOGIN_SUCCESS,
+  REGISTRATION_SUCCESS,
+  GET_ERRORS,
+} from "../actions/Types";
 
 const initalState = {
   token: localStorage.getItem("token"),
@@ -14,6 +18,11 @@ export default function (state = initalState, action) {
         ...state,
         Authenticated: true,
         user: action.payload,
+      };
+
+    case GET_ERRORS:
+      return {
+        registeredSuccessful: false,
       };
 
     case REGISTRATION_SUCCESS:

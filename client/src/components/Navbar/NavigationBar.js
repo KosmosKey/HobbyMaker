@@ -9,7 +9,6 @@ import WhiteBlue from "../../Logo/Logo-with-white-text.png";
 import logoWithout from "../../Logo/White.png";
 import { NavLink } from "react-router-dom";
 import WhiteLogo from "../../Logo/Logo-with-white-text.png";
-import { Link as ScrollLink } from "react-scroll";
 import { openNavBar, closeNavBar } from "../../redux/actions/actions";
 import { connect } from "react-redux";
 import ResponsiveNavigationBar from "./ResponsiveNavigationBar";

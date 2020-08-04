@@ -4,7 +4,7 @@ import WhiteBlue from "../../Logo/Logo-with-white-text.png";
 import LogoBlue from "../../Logo/Blue.png";
 import { connect } from "react-redux";
 import { registerUser } from "../../redux/actions/actions";
-
+import Alert from "@material-ui/lab/Alert";
 import "./Signup.scss";
 import {
   Container,
@@ -14,7 +14,7 @@ import {
   Button,
 } from "@material-ui/core";
 
-const Signup = ({ registerUser, error }) => {
+const Signup = ({ registerUser, error, auth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -23,11 +23,11 @@ const Signup = ({ registerUser, error }) => {
 
   useEffect(() => {
     if (error.status === 400) {
-      return setErrorRegister(error.message.message);
+      return setErrorRegister(error.message);
     } else {
-      setErrorRegister("");
+      setErrorRegister(null);
     }
-  }, [error]);
+  }, [error.message, error.status]);
 
   const submitFormRegister = (e) => {
     e.preventDefault();
@@ -85,7 +85,24 @@ const Signup = ({ registerUser, error }) => {
             />
             <h1>Sign up</h1>
             <form onSubmit={submitFormRegister} className="Signup__Form">
-              {errorRegister}
+              {auth.registeredSuccessful && (
+                <Alert
+                  variant="filled"
+                  severity="success"
+                  className="Signup__AlertSuccess"
+                >
+                  You have successfully registered a user!
+                </Alert>
+              )}
+              {errorRegister && (
+                <Alert
+                  variant="filled"
+                  severity="error"
+                  className="Signup__ErrorRegister"
+                >
+                  {errorRegister}
+                </Alert>
+              )}
               <FormControl className="Signup__Form">
                 <p
                   style={{
@@ -97,7 +114,6 @@ const Signup = ({ registerUser, error }) => {
                   First Name
                 </p>
                 <TextField
-                  id="outlined-basic"
                   placeholder="Enter Your First Name"
                   variant="outlined"
                   type="name"
@@ -115,7 +131,6 @@ const Signup = ({ registerUser, error }) => {
                   Last Name
                 </p>
                 <TextField
-                  id="outlined-basic"
                   placeholder="Enter Your Last Name"
                   variant="outlined"
                   type="name"
@@ -133,7 +148,6 @@ const Signup = ({ registerUser, error }) => {
                   Email Address
                 </p>
                 <TextField
-                  id="outlined-basic"
                   type="email"
                   variant="outlined"
                   className="Signup__Variant"
@@ -152,7 +166,6 @@ const Signup = ({ registerUser, error }) => {
                   Password
                 </p>
                 <TextField
-                  id="outlined-basic"
                   placeholder="Enter Your Password"
                   variant="outlined"
                   type="password"
@@ -177,6 +190,7 @@ const Signup = ({ registerUser, error }) => {
 const mapStateToProps = (state) => {
   return {
     error: state.error,
+    auth: state.auth,
   };
 };
 
