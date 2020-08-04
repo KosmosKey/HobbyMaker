@@ -80,54 +80,28 @@ const NavigationBar = ({ nav, openNavBar, closeNavBar }) => {
 
         <div className="NavigationBar__Toolbar">
           <div className="Buttons">
-            <ScrollLink
-              activeClass="active"
-              to="Home"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
-              <NavLink to="/" style={{ textDecoration: "none" }}>
-                <Button color="primary" className="Home__LinkButtons">
-                  Home
-                </Button>
-              </NavLink>
-            </ScrollLink>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <Button color="primary" className="Home__LinkButtons">
+                Home
+              </Button>
+            </NavLink>
 
-            <ScrollLink
-              activeClass="active"
-              to="About"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
-              <NavLink to="/" style={{ textDecoration: "none" }}>
-                <Button color="primary" className="Home__LinkButtons">
-                  About
-                </Button>
-              </NavLink>
-            </ScrollLink>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <Button color="primary" className="Home__LinkButtons">
+                About
+              </Button>
+            </NavLink>
 
-            <ScrollLink
-              activeClass="active"
-              to="Start"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
-              <NavLink to="/" style={{ textDecoration: "none" }}>
-                <Button color="primary" className="Home__LinkButtons">
-                  START
-                </Button>
-              </NavLink>
-            </ScrollLink>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <Button color="primary" className="Home__LinkButtons">
+                START
+              </Button>
+            </NavLink>
 
             <NavLink to="/Register" style={{ textDecoration: "none" }}>
               <Button className="NavigationBar__LoginButton">Sign up</Button>
             </NavLink>
+
             <NavLink to="/Login" style={{ textDecoration: "none" }}>
               <Button className="NavigationBar__LoginButton">Login</Button>
             </NavLink>

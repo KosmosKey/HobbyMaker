@@ -25,64 +25,37 @@ function ResponsiveNavigationBar({ classNameNav, closeNavBar, active }) {
               />
             </li>
             <li>
-              <ScrollLink
-                activeClass="active"
-                to="Home"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <NavLink to="/" style={{ textDecoration: "none" }}>
-                  <Button
-                    onClick={closeNavBar}
-                    color="primary"
-                    className="ResponsiveNavgitionBar__Container__LinkButtons"
-                  >
-                    Home
-                  </Button>
-                </NavLink>
-              </ScrollLink>
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                <Button
+                  onClick={closeNavBar}
+                  color="primary"
+                  className="ResponsiveNavgitionBar__Container__LinkButtons"
+                >
+                  Home
+                </Button>
+              </NavLink>
             </li>
             <li>
-              <ScrollLink
-                activeClass="active"
-                to="About"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <NavLink to="/" style={{ textDecoration: "none" }}>
-                  <Button
-                    onClick={closeNavBar}
-                    color="primary"
-                    className="ResponsiveNavgitionBar__Container__LinkButtons"
-                  >
-                    About
-                  </Button>
-                </NavLink>
-              </ScrollLink>
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                <Button
+                  onClick={closeNavBar}
+                  color="primary"
+                  className="ResponsiveNavgitionBar__Container__LinkButtons"
+                >
+                  About
+                </Button>
+              </NavLink>
             </li>
             <li>
-              <ScrollLink
-                activeClass="active"
-                to="Start"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                <NavLink to="/" style={{ textDecoration: "none" }}>
-                  <Button
-                    onClick={closeNavBar}
-                    color="primary"
-                    className="ResponsiveNavgitionBar__Container__LinkButtons"
-                  >
-                    START
-                  </Button>
-                </NavLink>
-              </ScrollLink>
+              <NavLink to="/" style={{ textDecoration: "none" }}>
+                <Button
+                  onClick={closeNavBar}
+                  color="primary"
+                  className="ResponsiveNavgitionBar__Container__LinkButtons"
+                >
+                  START
+                </Button>
+              </NavLink>
             </li>
             <li>
               <NavLink to="/Register" style={{ textDecoration: "none" }}>
@@ -113,5 +86,6 @@ function ResponsiveNavigationBar({ classNameNav, closeNavBar, active }) {
     </div>
   );
 }
+
 
 export default ResponsiveNavigationBar;

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../../Logo/header-bg.png";
 import WhiteBlue from "../../Logo/Logo-with-white-text.png";
 import LogoBlue from "../../Logo/Blue.png";
+import { connect } from "react-redux";
+import { registerUser } from "../../redux/actions/actions";
 
 import "./Signup.scss";
 import {
@@ -12,14 +14,32 @@ import {
   Button,
 } from "@material-ui/core";
 
-const Signup = () => {
+const Signup = ({ registerUser, error }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [errorRegister, setErrorRegister] = useState("");
+
+  useEffect(() => {
+    if (error.status === 400) {
+      return setErrorRegister(error.message.message);
+    } else {
+      setErrorRegister("");
+    }
+  }, [error]);
 
   const submitFormRegister = (e) => {
     e.preventDefault();
+
+    const userDetail = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      password: password,
+    };
+
+    registerUser(userDetail);
   };
 
   return (
@@ -65,6 +85,7 @@ const Signup = () => {
             />
             <h1>Sign up</h1>
             <form onSubmit={submitFormRegister} className="Signup__Form">
+              {errorRegister}
               <FormControl className="Signup__Form">
                 <p
                   style={{
@@ -153,4 +174,10 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+const mapStateToProps = (state) => {
+  return {
+    error: state.error,
+  };
+};
+
+export default connect(mapStateToProps, { registerUser })(Signup);
