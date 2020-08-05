@@ -7,8 +7,8 @@ const bcrypt = require("bcryptjs");
 const Todo = require("../models/Todo");
 require("dotenv").config();
 
-router.get("/", (req, res) => {
-  User.find()
+router.get("/", auth, (req, res) => {
+  User.findById(req.user)
     .sort({ Date: -1 })
     .then((user) => res.json(user));
 });
@@ -48,7 +48,9 @@ router.post("/Login", (req, res) => {
 
     bcrypt.compare(req.body.password, user.password).then((isMatch) => {
       if (!isMatch)
-        return res.status(400).json({ message: "The password did not match" });
+        return res
+          .status(400)
+          .json({ message: "Your email or password did not match" });
 
       const payload = {
         id: user._id,

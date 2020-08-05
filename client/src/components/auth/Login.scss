@@ -19,6 +19,13 @@
     height: auto !important;
     position: relative;
 
+    .Signup__ErrorRegister {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: -35px;
+        margin-bottom: 25px;
+    }
+
 
     Button {
         background: #7733ff;
@@ -100,7 +107,6 @@
 
         h1 {
             margin-top: 15px;
-            margin-bottom: 35px;
             color: #252a32;
             font-size: 45px;
         }

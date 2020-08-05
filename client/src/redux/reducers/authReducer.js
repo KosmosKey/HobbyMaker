@@ -2,11 +2,11 @@ import {
   LOGIN_SUCCESS,
   REGISTRATION_SUCCESS,
   GET_ERRORS,
+  AUTH_ERROR,
 } from "../actions/Types";
 
 const initalState = {
-  token: localStorage.getItem("token"),
-  Authenticated: null,
+  isAuthenticated: false,
   registeredSuccessful: false,
   user: null,
 };
@@ -16,8 +16,15 @@ export default function (state = initalState, action) {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        Authenticated: true,
+        isAuthenticated: true,
         user: action.payload,
+      };
+
+    case AUTH_ERROR:
+      return {
+        ...state,
+        isAuthenticated: false,
+        user: null,
       };
 
     case GET_ERRORS:

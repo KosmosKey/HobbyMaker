@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.scss";
 import Header from "../../Logo/header-bg.png";
 import LogoBlue from "../../Logo/Blue.png";
 import WhiteBlue from "../../Logo/Logo-with-white-text.png";
+import { connect } from "react-redux";
+import { loggedUser } from "../../redux/actions/actions";
+import Alert from "@material-ui/lab/Alert";
 import {
   Container,
   Grid,
@@ -11,14 +14,29 @@ import {
   TextField,
 } from "@material-ui/core";
 
-const Login = () => {
+const Login = ({ loggedError, loggedUser, auth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmitForm = (e) => {
     e.preventDefault();
-    console.log("Submitted");
+
+    const user = {
+      email: email,
+      password: password,
+    };
+
+    loggedUser(user);
   };
+
+  useEffect(() => {
+    if (loggedError.status === 400) {
+      return setErrorMessage(loggedError.message);
+    } else {
+      setErrorMessage(null);
+    }
+  }, [loggedError.status, loggedError.message]);
 
   return (
     <Container
@@ -73,7 +91,17 @@ const Login = () => {
               <img src={LogoBlue} className="Login__BlueLogo" alt="" />
 
               <h1>Log In</h1>
-              <form onSubmit={onSubmitForm}>
+              <form onSubmit={onSubmitForm} style={{ marginTop: "30px" }}>
+                {errorMessage && (
+                  <Alert
+                    variant="filled"
+                    severity="error"
+                    className="Signup__ErrorRegister"
+                  >
+                    {errorMessage}
+                  </Alert>
+                )}
+
                 <FormControl className="Form">
                   <p style={{ textAlign: "left", marginBottom: "px" }}>
                     Email Address
@@ -121,4 +149,11 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+    loggedError: state.loggedError,
+  };
+};
+
+export default connect(mapStateToProps, { loggedUser })(Login);
