@@ -55,7 +55,6 @@ router.post("/Login", (req, res) => {
       const payload = {
         id: user._id,
         email: user.email,
-        items: user.items,
       };
 
       const token = jwt.sign(payload, process.env.JWT_SECRET);
@@ -65,7 +64,6 @@ router.post("/Login", (req, res) => {
         user: {
           id: user.id,
           email: user.email,
-          items: user.items,
         },
       });
     });

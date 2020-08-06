@@ -2,6 +2,7 @@ import {
   CLOSE_NAVIGATIONBAR,
   OPEN_NAVIGATIONBAR,
   LOGIN_SUCCESS,
+  LOADED_USERNAME,
 } from "./Types";
 import { REGISTRATION_SUCCESS } from "./Types";
 import {
@@ -41,9 +42,24 @@ export const registerUser = (config) => (dispatch) => {
     });
 };
 
-export const loadUser = (id) => {
-  axios.get("http://localhost:5000/api/user", id).then((user) => {
-    console.log(user);
+export const loadUser = () => (dispatch) => {
+  const token = localStorage.getItem("token");
+
+  const config = {
+    headers: {
+      "Content-type": "application/json",
+    },
+  };
+
+  if (token) {
+    config.headers["x-auth-token"] = token;
+  }
+
+  axios.get("http://localhost:5000/api/user", config).then((res) => {
+    dispatch({
+      type: LOADED_USERNAME,
+      payload: res.data,
+    });
   });
 };
 

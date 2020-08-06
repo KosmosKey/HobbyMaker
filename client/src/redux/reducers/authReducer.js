@@ -3,12 +3,14 @@ import {
   REGISTRATION_SUCCESS,
   GET_ERRORS,
   AUTH_ERROR,
+  LOADED_USERNAME,
 } from "../actions/Types";
 
 const initalState = {
   isAuthenticated: false,
   registeredSuccessful: false,
-  user: null,
+  isLoading: true,
+  user: [],
 };
 
 export default function (state = initalState, action) {
@@ -17,7 +19,6 @@ export default function (state = initalState, action) {
       return {
         ...state,
         isAuthenticated: true,
-        user: action.payload,
       };
 
     case AUTH_ERROR:
@@ -30,6 +31,13 @@ export default function (state = initalState, action) {
     case GET_ERRORS:
       return {
         registeredSuccessful: false,
+      };
+
+    case LOADED_USERNAME:
+      return {
+        ...state,
+        isLoading: !state.isLoading,
+        user: action.payload,
       };
 
     case REGISTRATION_SUCCESS:
