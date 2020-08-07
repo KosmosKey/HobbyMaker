@@ -1,19 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import NavigationBar from "./components/Navbar/NavigationBar";
 import "./Styelsheet.scss";
 import Home from "./components/Home/Home";
 import Login from "./components/auth/Login";
 import { connect } from "react-redux";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { loadUser } from "./redux/actions/actions";
 import Signup from "./components/auth/Signup";
 import HomeApplication from "./components/UI app/HomeApplication";
 function App({ auth, loadUser }) {
-  const isAuthenticated = localStorage.getItem("token");
-
-  useEffect(() => {
-    loadUser();
-  }, [loadUser]);
+  const isAuthenticated = auth.token;
 
   return (
     <div className="App">
@@ -39,4 +34,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { loadUser })(App);
+export default connect(mapStateToProps, null)(App);

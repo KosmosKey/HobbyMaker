@@ -1,0 +1,331 @@
+html,
+body,
+#root,
+.App {
+    height: 100% !important;
+}
+
+.HomeApplication {
+    display: flex;
+    background: #ebeff2;
+    height: auto;
+
+    button {
+        width: 100%;
+    }
+
+    .HomeApplication_ProfilePicture {
+        max-width: 100%;
+        max-height: 150px;
+    }
+
+    .HomeApplication_Tabs {
+        margin-top: 20px;
+    }
+
+
+    .HomeApplication_DashboardButton {
+        background: #7733ff !important;
+        color: white !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+
+        .HomeApplication_Icons {
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+    }
+
+    .HomeApplication_DashboardButtonWhite {
+        background: white !important;
+        color: #7733ff !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+
+        .HomeApplication_Icons {
+            display: flex;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+    }
+
+    .HomeApplication_DashboardButtonWhite:hover {
+        background: #7733ff !important;
+        color: white !important;
+
+    }
+
+    .HomeApplication_DashboardButton:hover {
+        background: #7733ff !important;
+        color: white !important;
+    }
+
+    .HomeApplication_userInfo {
+        text-align: center;
+        margin-right: 50px;
+        margin-left: 50px;
+        margin-top: 50px;
+
+        .HomeApplication_ProfilePicture {
+            border-radius: 50%;
+            border: 2px solid #7733ff;
+        }
+
+
+        p {
+            max-width: 150px;
+            color: #252a32;
+            font-weight: 800;
+            font-size: 20px;
+        }
+    }
+
+    .HomeApplication_TotalHobbies {
+        background: #7733ff !important;
+        color: white !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication_TotalHobbiesWhite {
+        background: white !important;
+        color: #7733ff !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+
+    .HomeApplication_TotalHobbiesWhite:hover {
+        background: #7733ff !important;
+        color: white !important;
+    }
+
+
+    .HomeApplication__ListIcon {
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .HomeApplication__SuccessHobiesBtnWhite {
+        background: white !important;
+        color: #7733ff !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication__SuccessHobiesBtn {
+        background: #7733ff !important;
+        color: white !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication__SuccessHobiesBtnWhite:hover {
+        background: #7733ff !important;
+        color: white !important;
+
+    }
+
+    .HomeApplication__TotalIcons {
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .HomeApplication__BadHobiesBtnWhite {
+        background: white !important;
+        color: #7733ff !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication__BadHobiesBtn {
+        background: #7733ff !important;
+        color: white !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication__FailedIcons {
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+
+    .HomeApplication__BadHobiesBtnWhite:hover {
+        background: #7733ff !important;
+        color: white !important;
+    }
+
+    .HomeApplication__SettingsWhite {
+        background: white !important;
+        color: #7733ff !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication__Settings {
+        background: #7733ff !important;
+        color: white !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication__SettingsWhite:hover {
+        background: #7733ff !important;
+        color: white !important;
+    }
+
+    .HomeApplication__SettingsIcon {
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+
+    .HomeApplication__LogoutWhite {
+        background: white !important;
+        color: #7733ff !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication__LogoutWhite:hover {
+        background: #7733ff !important;
+        color: white !important;
+    }
+
+    .HomeApplication__Logout {
+        background: #7733ff !important;
+        color: white !important;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        font-weight: 800;
+        font-size: 17px;
+        padding: 15px 0px;
+        border-radius: 0px;
+        transition: 350ms ease;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .HomeApplication__LogOut {
+        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .HomeApplication_SideNavigationBar {
+        background: #ffffff;
+        width: 290px;
+    }
+}
+
+.HomeApplication_Section {
+    width: 100%;
+    padding: 0 50px;
+}

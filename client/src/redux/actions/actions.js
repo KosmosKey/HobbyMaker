@@ -42,8 +42,8 @@ export const registerUser = (config) => (dispatch) => {
     });
 };
 
-export const loadUser = () => (dispatch) => {
-  const token = localStorage.getItem("token");
+export const loadUser = () => (dispatch, getState) => {
+  const token = getState().auth.token;
 
   const config = {
     headers: {
@@ -67,7 +67,6 @@ export const loggedUser = (user) => (dispatch) => {
   axios
     .post("http://localhost:5000/api/user/Login", user)
     .then((res) => {
-      localStorage.setItem("token", res.data.token);
       dispatch({
         type: LOGIN_SUCCESS,
         payload: res.data,
