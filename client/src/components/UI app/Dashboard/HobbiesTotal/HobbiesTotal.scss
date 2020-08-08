@@ -1,7 +1,32 @@
+html,
+body,
+#root,
+.App {
+    height: 100% !important;
+}
+
 .HobbiesTotal__ {
-    padding: 50px 50px;
     height: 100%;
     margin-top: 40px;
+
+    .HobbiesTotal__Results {
+        background: white;
+        border-radius: 5px;
+        padding: 50px 50px;
+    }
+
+    .HobbieTotal__ChartJS {
+        background: white;
+        border-radius: 5px;
+        padding: 30px 15px;
+    }
+
+    .HomeTotal__ChartJSTwo {
+        background: white;
+        padding: 30px 15px;
+        border-radius: 5px;
+        color: rgb(102, 58, 189);
+    }
 
     .HobbiesTotal__TotalHobbies {
         h1 {

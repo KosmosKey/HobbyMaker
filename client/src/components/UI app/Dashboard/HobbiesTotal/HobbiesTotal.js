@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Grid, Typography, Container } from "@material-ui/core";
 import "./HobbiesTotal.scss";
-import { Bar } from "react-chartjs-2";
+import { Pie, Line } from "react-chartjs-2";
 import SortIcon from "@material-ui/icons/Sort";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
 import MoodIcon from "@material-ui/icons/Mood";
@@ -11,11 +11,11 @@ const HobbiesTotal = () => {
     datasets: [
       {
         label: "Population",
-        data: [18, 18, 17],
+        data: [5, 2, 3],
         backgroundColor: [
           "rgba(119, 51, 255, 1)",
-          "rgba(119, 51, 255, 1)",
-          "rgba(119, 51, 255, 1)",
+          "rgb(102, 58, 189, 1)",
+          "rgb(165, 120, 255, 1)",
         ],
       },
     ],
@@ -23,48 +23,65 @@ const HobbiesTotal = () => {
 
   return (
     <div className="HobbiesTotal__">
-      <Grid container spacing={10}>
-        <Grid item lg={4} md={12} sm={12}>
-          <div className="HobbiesTotal__TotalHobbies">
-            <div className="HobbiesTotal__TotalHobbies_Text">
-              <SortIcon className="HobbiesTotal__SortIcons" />
-              <h1>4235</h1>
-              <p>Total Hobbies</p>
+      <div className="HobbiesTotal__Results">
+        <Grid container spacing={10}>
+          <Grid item lg={4} md={12} sm={12}>
+            <div className="HobbiesTotal__TotalHobbies">
+              <div className="HobbiesTotal__TotalHobbies_Text">
+                <SortIcon className="HobbiesTotal__SortIcons" />
+                <h1>4235</h1>
+                <p>Total Hobbies</p>
+              </div>
             </div>
-          </div>
-        </Grid>
-        <Grid item lg={4} md={12} sm={12}>
-          <div className="HobbiesTotal__HobbiesWentWell">
-            <div className="HobbiesTotal__HobbiesWentWellText">
-              <MoodIcon className="HobbiesTotal__HobbiesWentWellGoodIcon" />
-              <h1>2060</h1>
-              <p>Hobbies went well</p>
+          </Grid>
+          <Grid item lg={4} md={12} sm={12}>
+            <div className="HobbiesTotal__HobbiesWentWell">
+              <div className="HobbiesTotal__HobbiesWentWellText">
+                <MoodIcon className="HobbiesTotal__HobbiesWentWellGoodIcon" />
+                <h1>2060</h1>
+                <p>Hobbies went well</p>
+              </div>
             </div>
-          </div>
-        </Grid>
-        <Grid item lg={4} md={12} sm={12}>
-          <div className="HobbiesTotal__HobbiesWentBad">
-            <div className="HobbiesTotal__HobbiesWentBadText">
-              <MoodBadIcon className="HobbiesTotal__HobbiesWentGoodIcon" />
-              <h1>1050</h1>
-              <p>Hobbies went bad</p>
+          </Grid>
+          <Grid item lg={4} md={12} sm={12}>
+            <div className="HobbiesTotal__HobbiesWentBad">
+              <div className="HobbiesTotal__HobbiesWentBadText">
+                <MoodBadIcon className="HobbiesTotal__HobbiesWentGoodIcon" />
+                <h1>1050</h1>
+                <p>Hobbies went bad</p>
+              </div>
             </div>
-          </div>
+          </Grid>
         </Grid>
-        <Grid item lg={6} md={12} sm={12}>
-          <div style={{ background: "white" }}>
-            <Bar
-              data={charData}
-              width={100}
-              height={500}
-              options={{ maintainAspectRatio: false }}
-            />
-          </div>
+      </div>
+
+      <div className="HobbiesTotal__Statistics" style={{ marginTop: "75px" }}>
+        <Grid container spacing={5}>
+          <Grid item lg={6} md={12} sm={12}>
+            <div className="HobbieTotal__ChartJS">
+              <Line
+                options={{
+                  responsive: true,
+                }}
+                data={charData}
+                width={50}
+                height={350}
+                options={{ maintainAspectRatio: false }}
+              />
+            </div>
+          </Grid>
+          <Grid item lg={6} md={12} sm={12}>
+            <div className="HomeTotal__ChartJSTwo">
+              <Pie
+                data={charData}
+                width={50}
+                height={350}
+                options={{ maintainAspectRatio: false }}
+              />
+            </div>
+          </Grid>
         </Grid>
-        <Grid item lg={6} md={12} sm={12}>
-          <h1>Hello</h1>
-        </Grid>
-      </Grid>
+      </div>
     </div>
   );
 };
