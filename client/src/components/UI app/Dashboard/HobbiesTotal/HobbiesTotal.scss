@@ -12,8 +12,7 @@ body,
     .HobbiesTotal__Results {
         background: white;
         border-radius: 5px;
-        padding: 50px 50px;
-    }
+        padding: 50px 50px;    }
 
     .HobbieTotal__ChartJS {
         background: white;
@@ -125,8 +124,9 @@ body,
         background: white;
     }
 
-
 }
+
+
 
 @media screen and (max-width: 1473px) {
     .HobbiesTotal__HobbiesWentBad {
@@ -157,5 +157,107 @@ body,
         p {
             font-size: 17px !important;
         }
+    }
+}
+
+
+@media screen and (max-width: 1279px) {
+    .HobbiesTotal__Statistics {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 472px) {
+    .HobbiesTotal__Results {
+        padding: 0px !important;
+        background: transparent !important;
+    }
+
+    .HobbiesTotal__ {
+        margin-top: 25px;
+    }
+
+
+    .HobbiesTotal__HobbiesWentWell {
+        padding: 30px 20px !important;
+
+    }
+
+    .HobbiesTotal__TotalHobbies {
+        padding: 30px 35px !important;
+    }
+
+    .HobbiesTotal__HobbiesWentBad {
+        padding: 30px 20px !important;
+        margin: 0 auto !important;
+    }
+
+    .HobbiesTotal__Results {
+        padding: 0px 20px !important;
+
+        .HobbiesTotal__SortIcons {
+            font-size: 22px !important;
+        }
+
+
+        .HobbiesTotal__HobbiesWentWellGoodIcon {
+            font-size: 22px !important;
+        }
+
+        .HobbiesTotal__HobbiesWentGoodIcon {
+            font-size: 22px !important;
+        }
+
+
+        h1 {
+            font-size: 30px !important;
+        }
+
+        p {
+            font-size: 15px !important;
+        }
+    }
+}
+
+@media screen and (max-width: 351px) {
+    .HobbiesTotal__Results {
+        padding: 0px 5px !important;
+
+        h1 {
+            font-size: 25px !important;
+        }
+
+        p {
+            font-size: 10px !important;
+        }
+    }
+
+
+
+    .HobbiesTotal__SortIcons {
+        display: none !important;
+    }
+
+    .HobbiesTotal__HobbiesWentWellGoodIcon {
+        display: none !important;
+    }
+
+    .HobbiesTotal__HobbiesWentGoodIcon {
+        display: none !important;
+    }
+
+    .HobbiesTotal__TotalHobbies {
+        padding: 5px 25px !important;
+        border: 2px solid #7733ff !important;
+    }
+
+    .HobbiesTotal__HobbiesWentWell {
+        padding: 5px 25px !important;
+        border: 2px solid #7733ff !important;
+    }
+
+    .HobbiesTotal__HobbiesWentBad {
+        padding: 5px 15px !important;
+        border: 2px solid #7733ff !important;
     }
 }

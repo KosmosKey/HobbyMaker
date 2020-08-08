@@ -7,7 +7,7 @@ body,
 
 .HomeApplication {
     display: flex;
-    background: #e5e8eb;
+    background: #edf1f3;
     height: 100%;
 
     button {
@@ -84,6 +84,11 @@ body,
         margin-right: 50px;
         margin-left: 50px;
         margin-top: 50px;
+
+        p {
+            color: #2f3179 !important;
+            margin-top: 10px !important;
+        }
 
         .HomeApplication_ProfilePicture {
             border-radius: 50%;
@@ -322,10 +327,99 @@ body,
     .HomeApplication_SideNavigationBar {
         background: #ffffff;
         width: 290px;
+        height: 100%;
     }
+}
+
+.HomeApplication__Text {
+    margin-right: 50px;
+}
+
+.HomeAppliction_IconMargin {
+    margin-right: 25px !important;
+    margin-left: 25px !important;
 }
 
 .HomeApplication_Section {
     width: 100%;
     padding: 0 50px;
+}
+
+
+
+
+
+@media screen and (max-width: 1280px) {
+    .HomeApplication {
+        height: 100% !important;
+    }
+
+    .HobbiesTotal__Statistics {
+        padding-bottom: 50px;
+    }
+
+    .HomeAppliction_IconMargin {
+        margin-right: 15px !important;
+        margin-left: 15px !important;
+    }
+
+
+    .HomeApplication__Text {
+        font-size: 13px !important;
+    }
+
+    .HomeApplication_SideNavigationBar {
+        width: 250px;
+    }
+
+    .HomeApplication_ProfilePicture {
+        max-width: 100px !important;
+    }
+
+
+
+    .HomeApplication_userInfo {
+        p {
+            display: none;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1248px) {
+
+    .HomeAppliction_IconMargin {
+        margin: 0 auto !important;
+    }
+
+
+
+    .HomeApplication_DashboardButton,
+    .HomeApplication_DashboardButtonWhite,
+    .HomeApplication_TotalHobbies,
+    .HomeApplication_TotalHobbiesWhite,
+    .HomeApplication__SuccessHobiesBtn,
+    .HomeApplication__SuccessHobiesBtnWhite,
+    .HomeApplication__BadHobiesBtn,
+    .HomeApplication__BadHobiesBtnWhite,
+    .HomeApplication__Settings,
+    .HomeApplication__SettingsWhite,
+    .HomeApplication__Logout,
+    .HomeApplication__LogoutWhite {
+        max-width: 100%;
+    }
+
+    .HomeApplication_SideNavigationBar {
+        width: 65px !important;
+    }
+
+    .HomeApplication_ProfilePicture {
+        display: none;
+    }
+
+    .HomeApplication__Text {
+        display: none;
+    }
+
+
 }

@@ -8,10 +8,15 @@ import CloseIcon from "@material-ui/icons/Close";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { IconButton } from "@material-ui/core";
+import { Link, Route, Switch } from "react-router-dom";
 import "./HomeApplication.scss";
-import Dashboard from "./Dashboard/Dashboard";
+import HobbiesTotal from "./Dashboard/HobbiesTotal/HobbiesTotal";
+import TotalHobbies from "./Dashboard/TotalHobbies/TotalHobbies";
+import CompletedHobbies from "./Dashboard/CompletedHobbies/CompletedHobbies";
+import FailedHobbies from "./Dashboard/FailedHobbies/FailedHobbies";
+import userSettings from "./Dashboard/Settings/userSettings";
 
-const HomeApplication = ({ auth, loadUser, first_name }) => {
+const HomeApplication = ({ auth, loadUser, match }) => {
   const [indexOfBtn, setIndexOfBtn] = useState(1);
 
   useEffect(() => {
@@ -30,20 +35,28 @@ const HomeApplication = ({ auth, loadUser, first_name }) => {
           <p>James Smith Andres</p>
         </div>
         <div className="HomeApplication_Tabs">
-          <IconButton
-            variant="contained"
-            className={
-              indexOfBtn === 1
-                ? "HomeApplication_DashboardButton"
-                : "HomeApplication_DashboardButtonWhite"
-            }
-            onClick={() => setIndexOfBtn(1)}
-          >
-            <div style={{ marginRight: " 25px", marginLeft: "25px" }}>
-              <AppsIcon className="HomeApplication_Icons" />
-            </div>
-            <div style={{ marginBottom: "2px" }}>DASHBOARD</div>
-          </IconButton>
+          <Link to="/User">
+            <IconButton
+              variant="contained"
+              className={
+                indexOfBtn === 1
+                  ? "HomeApplication_DashboardButton"
+                  : "HomeApplication_DashboardButtonWhite"
+              }
+              onClick={() => setIndexOfBtn(1)}
+            >
+              <div className="HomeAppliction_IconMargin">
+                <AppsIcon className="HomeApplication_Icons" />
+              </div>
+              <div
+                style={{ marginBottom: "2px" }}
+                className="HomeApplication__Text"
+              >
+                DASHBOARD
+              </div>
+            </IconButton>
+          </Link>
+
           <div
             style={{
               width: "100%",
@@ -53,49 +66,61 @@ const HomeApplication = ({ auth, loadUser, first_name }) => {
               marginBottom: "25px",
             }}
           ></div>
-          <IconButton
-            variant="contained"
-            className={
-              indexOfBtn === 2
-                ? "HomeApplication_TotalHobbies"
-                : "HomeApplication_TotalHobbiesWhite"
-            }
-            onClick={() => setIndexOfBtn(2)}
-          >
-            <div style={{ marginRight: "25px", marginLeft: "25px" }}>
-              <ListIcon className="HomeApplication__ListIcon" />
-            </div>
-            <div style={{ marginBottom: "2px" }}>TOTAL</div>
-          </IconButton>
-          <IconButton
-            variant="contained"
-            className={
-              indexOfBtn === 3
-                ? "HomeApplication__SuccessHobiesBtn"
-                : "HomeApplication__SuccessHobiesBtnWhite"
-            }
-            onClick={() => setIndexOfBtn(3)}
-          >
-            <div style={{ marginRight: "25px", marginLeft: "25px" }}>
-              <CheckIcon className="HomeApplication__TotalIcons" />
-            </div>
-            <div style={{ marginBottom: "2px" }}>COMPLETED</div>
-          </IconButton>
 
-          <IconButton
-            variant="contained"
-            className={
-              indexOfBtn === 4
-                ? "HomeApplication__BadHobiesBtn"
-                : "HomeApplication__BadHobiesBtnWhite"
-            }
-            onClick={() => setIndexOfBtn(4)}
-          >
-            <div style={{ marginRight: "25px", marginLeft: "25px" }}>
-              <CloseIcon className="HomeApplication__FailedIcons" />
-            </div>
-            <div style={{ marginBottom: "2px" }}>FAILED</div>
-          </IconButton>
+          <Link to={`${match.url}/Total`}>
+            <IconButton
+              variant="contained"
+              className={
+                indexOfBtn === 2
+                  ? "HomeApplication_TotalHobbies"
+                  : "HomeApplication_TotalHobbiesWhite"
+              }
+              onClick={() => setIndexOfBtn(2)}
+            >
+              <div className="HomeAppliction_IconMargin">
+                <ListIcon className="HomeApplication__ListIcon" />
+              </div>
+              <div className="HomeApplication__Text">TOTAL</div>
+            </IconButton>
+          </Link>
+          <Link to={`${match.url}/Completed`}>
+            <IconButton
+              variant="contained"
+              className={
+                indexOfBtn === 3
+                  ? "HomeApplication__SuccessHobiesBtn"
+                  : "HomeApplication__SuccessHobiesBtnWhite"
+              }
+              onClick={() => setIndexOfBtn(3)}
+            >
+              <div className="HomeAppliction_IconMargin">
+                <CheckIcon className="HomeApplication__TotalIcons" />
+              </div>
+              <div
+                style={{ marginBottom: "2px" }}
+                className="HomeApplication__Text"
+              >
+                COMPLETED
+              </div>
+            </IconButton>
+          </Link>
+
+          <Link to={`${match.url}/Failed`}>
+            <IconButton
+              variant="contained"
+              className={
+                indexOfBtn === 4
+                  ? "HomeApplication__BadHobiesBtn"
+                  : "HomeApplication__BadHobiesBtnWhite"
+              }
+              onClick={() => setIndexOfBtn(4)}
+            >
+              <div className="HomeAppliction_IconMargin">
+                <CloseIcon className="HomeApplication__FailedIcons" />
+              </div>
+              <div className="HomeApplication__Text">FAILED</div>
+            </IconButton>
+          </Link>
         </div>
         <div
           style={{
@@ -109,20 +134,22 @@ const HomeApplication = ({ auth, loadUser, first_name }) => {
           className="HomeApplication_userSection"
           style={{ marginTop: "25px" }}
         >
-          <IconButton
-            variant="contained"
-            className={
-              indexOfBtn === 5
-                ? "HomeApplication__Settings"
-                : "HomeApplication__SettingsWhite"
-            }
-            onClick={() => setIndexOfBtn(5)}
-          >
-            <div style={{ marginRight: "25px", marginLeft: "25px" }}>
-              <SettingsIcon className="HomeApplication__SettingsIcon" />
-            </div>
-            <div style={{ marginBottom: "2px" }}>SETTINGS</div>
-          </IconButton>
+          <Link to={`${match.url}/Settings`}>
+            <IconButton
+              variant="contained"
+              className={
+                indexOfBtn === 5
+                  ? "HomeApplication__Settings"
+                  : "HomeApplication__SettingsWhite"
+              }
+              onClick={() => setIndexOfBtn(5)}
+            >
+              <div className="HomeAppliction_IconMargin">
+                <SettingsIcon className="HomeApplication__SettingsIcon" />
+              </div>
+              <div className="HomeApplication__Text">SETTINGS</div>
+            </IconButton>
+          </Link>
           <IconButton
             className={
               indexOfBtn === 6
@@ -131,17 +158,21 @@ const HomeApplication = ({ auth, loadUser, first_name }) => {
             }
             onClick={() => setIndexOfBtn(6)}
           >
-            <div style={{ marginRight: "25px", marginLeft: "25px" }}>
+            <div className="HomeAppliction_IconMargin">
               <ExitToAppIcon className="HomeApplication__LogOut" />
             </div>
-            <div style={{ marginBottom: "2px" }}>LOG OUT</div>
+            <div className="HomeApplication__Text">LOG OUT</div>
           </IconButton>
         </div>
       </nav>
       <section className="HomeApplication_Section">
-        <div>
-          <Dashboard />
-        </div>
+        <Switch>
+          <Route path="/User" exact component={HobbiesTotal} />
+          <Route path={`${match.url}/Total`} component={TotalHobbies} />
+          <Route path={`${match.url}/Completed`} component={CompletedHobbies} />
+          <Route path={`${match.url}/Failed`} component={FailedHobbies} />
+          <Route path={`${match.url}/Settings`} component={userSettings} />
+        </Switch>
       </section>
     </div>
   );

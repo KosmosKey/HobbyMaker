@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Grid, Typography, Container } from "@material-ui/core";
+import React from "react";
+import { Grid } from "@material-ui/core";
 import "./HobbiesTotal.scss";
 import { Pie, Line } from "react-chartjs-2";
 import SortIcon from "@material-ui/icons/Sort";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
 import MoodIcon from "@material-ui/icons/Mood";
 const HobbiesTotal = () => {
-  const [charData, setCharData] = useState({
+  const charData = {
     labels: ["Total Hobbies", "Hobbies went bad", "Hobbies went well"],
     datasets: [
       {
@@ -19,7 +19,7 @@ const HobbiesTotal = () => {
         ],
       },
     ],
-  });
+  };
 
   return (
     <div className="HobbiesTotal__">
@@ -57,26 +57,23 @@ const HobbiesTotal = () => {
 
       <div className="HobbiesTotal__Statistics" style={{ marginTop: "75px" }}>
         <Grid container spacing={5}>
-          <Grid item lg={6} md={12} sm={12}>
+          <Grid item lg={6} md={6} sm={6}>
             <div className="HobbieTotal__ChartJS">
               <Line
-                options={{
-                  responsive: true,
-                }}
                 data={charData}
                 width={50}
                 height={350}
-                options={{ maintainAspectRatio: false }}
+                options={{ maintainAspectRatio: false, responsive: true }}
               />
             </div>
           </Grid>
-          <Grid item lg={6} md={12} sm={12}>
+          <Grid item lg={6} md={6} sm={6}>
             <div className="HomeTotal__ChartJSTwo">
               <Pie
                 data={charData}
                 width={50}
                 height={350}
-                options={{ maintainAspectRatio: false }}
+                options={{ maintainAspectRatio: false, responsive: true }}
               />
             </div>
           </Grid>
