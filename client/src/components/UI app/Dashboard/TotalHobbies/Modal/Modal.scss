@@ -1,0 +1,62 @@
+.Modal__Text__Title {
+  font-size: 32px !important;
+  display: flex;
+  align-items: center;
+  color: #2f3179;
+  font-weight: 700;
+
+  .Modal__Icon {
+    font-size: 35px;
+    margin-left: 10px;
+    color: #2f3179;
+  }
+}
+
+.Modal__Dialog {
+  padding: 35px !important;
+}
+
+.Moda__AddButton {
+  background: #7733ff !important;
+  color: #fff !important;
+  padding: 10px 30px !important;
+  font-weight: 700 !important;
+  border: 2px solid #fff !important;
+  transition: 350ms ease;
+}
+
+.Modal_DialogText {
+  padding: 0px 30px !important;
+  margin-top: 25px !important;
+
+  .Modal__FormControlInput {
+    width: 100% !important;
+  }
+}
+
+.Moda__AddButton:hover {
+  background: #ffff !important;
+  color: #7733ff !important;
+  border: 2px solid #7733ff !important;
+}
+
+.Modal__DialogText {
+  color: #2f3179 !important;
+  font-weight: 600 !important;
+  font-size: 17px !important;
+}
+
+
+
+.Modal__Form {
+  text-align: center;
+
+  .Moda__AddButton {
+    width: 100% !important;
+  }
+
+  .Modal__FirstInputField {
+    width: 100%;
+    color: #2f3179 !important;
+  }
+}

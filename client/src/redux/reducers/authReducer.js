@@ -39,7 +39,6 @@ export default function (state = initalState, action) {
     case LOADED_USERNAME:
       return {
         ...state,
-        isLoading: !state.isLoading,
         user: action.payload,
         isLoading: false,
       };
