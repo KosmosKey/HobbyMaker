@@ -15,7 +15,6 @@ import TotalHobbies from "./Dashboard/TotalHobbies/TotalHobbies";
 import CompletedHobbies from "./Dashboard/CompletedHobbies/CompletedHobbies";
 import FailedHobbies from "./Dashboard/FailedHobbies/FailedHobbies";
 import userSettings from "./Dashboard/Settings/userSettings";
-import { motion } from "framer-motion";
 import { Loading } from "./Dashboard/Loading/Loading";
 
 const HomeApplication = ({ auth, loadUser, match, isLoading }) => {

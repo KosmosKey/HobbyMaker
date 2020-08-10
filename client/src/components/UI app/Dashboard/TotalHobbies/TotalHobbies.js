@@ -11,7 +11,7 @@ import Modal from "./Modal/Modal";
 import Paper from "@material-ui/core/Paper";
 
 const TotalHobbies = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const handleClick = () => {
     setOpen(!open);
