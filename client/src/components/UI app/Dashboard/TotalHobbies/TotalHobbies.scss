@@ -3,6 +3,15 @@
 
 }
 
+.TotalHobbies__PositionSpinner {
+    display: flex;
+    justify-content: center;
+
+    .TotalHobbies__CircularProgress {
+        width: 50px !important;
+    }
+}
+
 .TotalHobbies__Paper {
     margin-top: 50px;
 

@@ -95,21 +95,31 @@ router.get("/UserFind", (req, res) => {
 });
 
 router.post("/Todo", auth, (req, res, next) => {
+  if (!req.body.name)
+    return res.json({ message: "Please enter the name of the hobby!" });
+
   const TodoList = new Todo({
     name: req.body.name,
+    number: req.body.number,
+    message: req.body.message,
   });
 
   User.findById(req.user.id).then((user) => {
-    TodoList.save().then((todos) => {
-      user.items.push(todos);
-      user.save();
-    });
-    res.json({ message: "Successfully added your hobby" });
+    TodoList.save()
+
+      .then((todos) => {
+        user.items.push(todos);
+        user.save();
+        res.json({ message: "Successfully added your hobby" });
+      })
+      .catch((err) => res.json({ message: "Couldn't add a hobby" }));
   });
 });
 
 router.get("/Todo", auth, (req, res, next) => {
-  User.findById(req.user.id).then((todo) => res.json(todo));
+  User.findById(req.user.id)
+    .populate("items")
+    .then((todo) => res.json(todo.items));
 });
 
 module.exports = router;

@@ -41,6 +41,7 @@ export default function (state = initalState, action) {
         ...state,
         user: action.payload,
         isLoading: false,
+        isAuthenticated: true,
       };
 
     case REGISTRATION_SUCCESS:

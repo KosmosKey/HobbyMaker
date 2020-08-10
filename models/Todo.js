@@ -6,6 +6,13 @@ const TodoSchma = new Schema({
     type: String,
     required: true,
   },
+  number: {
+    type: String,
+  },
+  message: {
+    type: String,
+    required: false,
+  },
 });
 
 module.exports = mongoose.model("Todo", TodoSchma);

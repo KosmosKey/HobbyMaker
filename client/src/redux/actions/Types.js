@@ -8,3 +8,4 @@ export const LOGGED_USER = "LOGGED_USER";
 export const AUTH_ERROR = "AUTH_ERROR";
 export const CLEAR_AUTH_ERROR = "CLEAR_AUTH_ERROR";
 export const LOADED_USERNAME = "LOADED_USERNAME";
+export const GET_HOBBIES = "GET_HOBBIES";

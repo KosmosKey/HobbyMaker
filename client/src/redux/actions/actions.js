@@ -3,6 +3,7 @@ import {
   OPEN_NAVIGATIONBAR,
   LOGIN_SUCCESS,
   LOADED_USERNAME,
+  GET_HOBBIES,
 } from "./Types";
 import { REGISTRATION_SUCCESS } from "./Types";
 import {
@@ -23,6 +24,27 @@ export const closeNavBar = () => {
   return {
     type: CLOSE_NAVIGATIONBAR,
   };
+};
+
+export const getHobbies = () => (dispatch, getState) => {
+  const token = getState().auth.token;
+
+  const config = {
+    headers: {
+      "Content-type": "application/json",
+    },
+  };
+
+  if (token) {
+    config.headers["x-auth-token"] = token;
+  }
+
+  axios.get("http://localhost:5000/api/user/Todo", config).then((res) => {
+    dispatch({
+      type: GET_HOBBIES,
+      payload: res.data,
+    });
+  });
 };
 
 export const registerUser = (config) => (dispatch) => {
@@ -60,6 +82,9 @@ export const loadUser = () => (dispatch, getState) => {
       type: LOADED_USERNAME,
       payload: res.data,
     });
+    if (getState().auth.isAuthenticated) {
+      dispatch(getHobbies());
+    }
   });
 };
 
@@ -74,9 +99,9 @@ export const loggedUser = (user) => (dispatch) => {
       dispatch(clearAuthErrors());
     })
     .catch((err) => {
-      if (err)
-        return dispatch(
-          authErrors(err.response.data.message, err.response.status)
-        );
+      return dispatch(
+        authErrors(err.response.data.message, err.response.status),
+        console.log(err)
+      );
     });
 };

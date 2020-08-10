@@ -31,12 +31,12 @@ const Login = ({ loggedError, loggedUser, auth }) => {
   };
 
   useEffect(() => {
-    if (loggedError.status === 400) {
+    if (loggedError.id === "LOGGED_FAIL") {
       return setErrorMessage(loggedError.message);
     } else {
-      setErrorMessage(null);
+      setErrorMessage("");
     }
-  }, [loggedError.status, loggedError.message]);
+  }, [loggedError.id, loggedError.message]);
 
   return (
     <Container
