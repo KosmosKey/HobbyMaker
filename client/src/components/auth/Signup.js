@@ -48,8 +48,7 @@ const Signup = ({ registerUser, error, auth }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100%",
-        marginTop: "75px",
+        marginTop: "150px",
       }}
     >
       <Grid container justify="center" alignItems="center">

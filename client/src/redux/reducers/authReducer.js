@@ -41,6 +41,7 @@ export default function (state = initalState, action) {
         ...state,
         isLoading: !state.isLoading,
         user: action.payload,
+        isLoading: false,
       };
 
     case REGISTRATION_SUCCESS:

@@ -1,0 +1,158 @@
+.TotalHobbies {
+    margin-top: 50px;
+
+}
+
+.TotalHobbies__Paper {
+    margin-top: 50px;
+
+    .TotalHobbies__Paper__Item {
+        padding: 20px;
+        margin-top: 35px;
+    }
+
+    .TotalHobbies__BadMoodIcon {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .TotalHobbies__GoodMoodIcon {
+        margin-right: 5px;
+        margin-left: 5px;
+    }
+
+    .TotalHobbies__FirstButton {
+        background: #FF5252;
+        color: white;
+        font-size: 17px;
+        box-shadow: none !important;
+        border: 2px solid #ffff;
+        font-weight: 700;
+    }
+
+    .TotalHobbies__FirstButton:hover {
+        background: #ffff;
+        border: 2px solid #FF5252;
+        color: #FF5252;
+    }
+
+
+
+    .TotalHobbies__SecondButton {
+        background: #7733ff;
+        color: white;
+        font-size: 17px;
+        box-shadow: none !important;
+        border: 2px solid #ffff;
+        font-weight: 700;
+    }
+
+    .TotalHobbies__SecondButton:hover {
+        background: #ffff;
+        color: #7733ff;
+        border: 2px solid #7733ff;
+
+    }
+
+
+
+
+    .TotalHobbies__Btn {
+        display: flex;
+        margin-top: 20px;
+
+        Button {
+            border-radius: 5px;
+        }
+    }
+
+    .TotalHobbies__Name__Btns {
+        display: flex;
+        justify-content: space-between;
+
+
+        .TotalHobbies__Hobby {
+            display: flex;
+            padding: 10px;
+            align-items: center;
+
+            p {
+                font-weight: 700;
+                font-size: 20px;
+                margin-left: 5px;
+                color: #2f3179;
+            }
+
+            .Heart {
+                color: #2f3179;
+            }
+        }
+
+        .TotalHobbies__ButtonsEdit__Delete {
+            display: flex;
+            height: 40px;
+
+            Button {
+                height: 40px;
+                min-width: 50px;
+            }
+
+            .TotalHobbies__EditIcon {
+                background: #7733ff;
+                margin-right: 10px;
+                padding: 0px !important;
+
+                .Edit {
+                    font-size: 25px !important;
+                    color: #ffff;
+                }
+            }
+
+            .TotalHobbies__DeleteIcon {
+                background: #FF5252;
+                padding: 0px !important;
+
+                .Delete {
+                    font-size: 25px !important;
+                    color: #ffff;
+                }
+            }
+        }
+    }
+
+}
+
+.TotalHobbies__Text {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #2f3179;
+    padding-bottom: 30px;
+
+
+
+    .TotalHobbies__HowManyHobbies {
+
+        h1 {
+            font-size: 35px;
+            color: #2f3179;
+        }
+    }
+
+
+
+
+    .TotalHobbies__AddNewHobbies {
+
+        Button {
+            background: #7733ff;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 10px 30px;
+            border-radius: 5px;
+            text-transform: capitalize;
+        }
+    }
+}

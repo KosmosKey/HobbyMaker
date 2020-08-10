@@ -6,7 +6,7 @@ const auth = (req, res, next) => {
   if (!token) return res.json({ message: "Did not authenticate the token" });
   const verify = jwt.verify(token, process.env.JWT_SECRET);
   if (!verify) return res.json({ message: "Didn verify" });
-  req.user = verify.id;
+  req.user = verify;
   next();
 };
 

@@ -51,6 +51,7 @@
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
+  margin-top: 100px;
 
   .Home__Text_Presentation {
     max-width: 900px;
@@ -238,7 +239,6 @@
 
 @media screen and (max-width: 850px) {
   .Home__Container {
-    margin-top: 20px;
 
     h1 {
       color: white !important;

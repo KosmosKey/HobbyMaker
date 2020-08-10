@@ -1,14 +1,18 @@
-html,
-body,
-#root,
-.App {
-    height: 100% !important;
+body {
+    height: 100%
+}
+
+#app div {
+    height: 100%
 }
 
 .HomeApplication {
     display: flex;
-    background: #edf1f3;
-    height: 100%;
+    background: #eaeef2;
+    min-height: 100vh;
+
+
+
 
     button {
         width: 100%;
@@ -22,6 +26,7 @@ body,
     .HomeApplication_Tabs {
         margin-top: 20px;
     }
+
 
 
     .HomeApplication_DashboardButton {
@@ -327,7 +332,6 @@ body,
     .HomeApplication_SideNavigationBar {
         background: #ffffff;
         width: 290px;
-        height: 100%;
     }
 }
 
@@ -345,14 +349,8 @@ body,
     padding: 0 50px;
 }
 
-
-
-
-
 @media screen and (max-width: 1280px) {
-    .HomeApplication {
-        height: 100% !important;
-    }
+
 
     .HobbiesTotal__Statistics {
         padding-bottom: 50px;

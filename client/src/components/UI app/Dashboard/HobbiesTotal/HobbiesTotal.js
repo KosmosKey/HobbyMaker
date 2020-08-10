@@ -5,6 +5,8 @@ import { Pie, Line } from "react-chartjs-2";
 import SortIcon from "@material-ui/icons/Sort";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
 import MoodIcon from "@material-ui/icons/Mood";
+import { motion } from "framer-motion";
+
 const HobbiesTotal = () => {
   const charData = {
     labels: ["Total Hobbies", "Hobbies went bad", "Hobbies went well"],
@@ -26,31 +28,52 @@ const HobbiesTotal = () => {
       <div className="HobbiesTotal__Results">
         <Grid container spacing={10}>
           <Grid item lg={4} md={12} sm={12}>
-            <div className="HobbiesTotal__TotalHobbies">
-              <div className="HobbiesTotal__TotalHobbies_Text">
-                <SortIcon className="HobbiesTotal__SortIcons" />
-                <h1>4235</h1>
-                <p>Total Hobbies</p>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              style={{ border: "2px solid white", cursor: "pointer" }}
+              className="HobbiesTotal__BtnHover"
+            >
+              <div className="HobbiesTotal__TotalHobbies">
+                <div className="HobbiesTotal__TotalHobbies_Text">
+                  <SortIcon className="HobbiesTotal__SortIcons" />
+                  <h1>4235</h1>
+                  <p>Total Hobbies</p>
+                </div>
               </div>
-            </div>
+            </motion.button>
           </Grid>
           <Grid item lg={4} md={12} sm={12}>
-            <div className="HobbiesTotal__HobbiesWentWell">
-              <div className="HobbiesTotal__HobbiesWentWellText">
-                <MoodIcon className="HobbiesTotal__HobbiesWentWellGoodIcon" />
-                <h1>2060</h1>
-                <p>Hobbies went well</p>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              style={{ border: "2px solid white", cursor: "pointer" }}
+              className="HobbiesTotal__BtnHover"
+            >
+              <div className="HobbiesTotal__HobbiesWentWell">
+                <div className="HobbiesTotal__HobbiesWentWellText">
+                  <MoodIcon className="HobbiesTotal__HobbiesWentWellGoodIcon" />
+                  <h1>2060</h1>
+                  <p>Hobbies went well</p>
+                </div>
               </div>
-            </div>
+            </motion.button>
           </Grid>
           <Grid item lg={4} md={12} sm={12}>
-            <div className="HobbiesTotal__HobbiesWentBad">
-              <div className="HobbiesTotal__HobbiesWentBadText">
-                <MoodBadIcon className="HobbiesTotal__HobbiesWentGoodIcon" />
-                <h1>1050</h1>
-                <p>Hobbies went bad</p>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              style={{ border: "2px solid white", cursor: "pointer" }}
+              className="HobbiesTotal__BtnHover"
+            >
+              <div className="HobbiesTotal__HobbiesWentBad">
+                <div className="HobbiesTotal__HobbiesWentBadText">
+                  <MoodBadIcon className="HobbiesTotal__HobbiesWentGoodIcon" />
+                  <h1>1050</h1>
+                  <p>Hobbies went bad</p>
+                </div>
               </div>
-            </div>
+            </motion.button>
           </Grid>
         </Grid>
       </div>

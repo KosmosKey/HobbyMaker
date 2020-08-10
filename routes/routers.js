@@ -8,9 +8,7 @@ const Todo = require("../models/Todo");
 require("dotenv").config();
 
 router.get("/", auth, (req, res) => {
-  User.findById(req.user)
-    .sort({ Date: -1 })
-    .then((user) => res.json(user));
+  res.json(req.user);
 });
 
 router.post("/Register", async (req, res) => {
@@ -38,6 +36,12 @@ router.post("/Register", async (req, res) => {
   });
 });
 
+router.get("/UserTodos", auth, (req, res) => {
+  User.findById(req.user.id).then((user) => {
+    res.json(user);
+  });
+});
+
 router.post("/Login", (req, res) => {
   if (!req.body.email || !req.body.password)
     return res.status(400).json({ message: "Please fill out all the fields" });
@@ -54,6 +58,8 @@ router.post("/Login", (req, res) => {
 
       const payload = {
         id: user._id,
+        first_name: user.first_name,
+        last_name: user.last_name,
         email: user.email,
       };
 
@@ -63,6 +69,8 @@ router.post("/Login", (req, res) => {
         token,
         user: {
           id: user.id,
+          first_name: user.first_name,
+          last_name: user.last_name,
           email: user.email,
         },
       });
@@ -70,22 +78,38 @@ router.post("/Login", (req, res) => {
   });
 });
 
+router.delete("/:id", (req, res) => {
+  Todo.findByIdAndDelete(req.params.id).then((item) => {
+    res.json(item);
+  });
+});
+
+router.get("/todos", (req, res) => {
+  Todo.find().then((todos) => res.json(todos));
+});
+
+router.get("/UserFind", (req, res) => {
+  User.find()
+    .populate("items")
+    .then((user) => res.json(user));
+});
+
 router.post("/Todo", auth, (req, res, next) => {
   const TodoList = new Todo({
     name: req.body.name,
   });
 
-  User.findById(req.user).then((user) => {
+  User.findById(req.user.id).then((user) => {
     TodoList.save().then((todos) => {
       user.items.push(todos);
       user.save();
     });
-    res.json(user);
+    res.json({ message: "Successfully added your hobby" });
   });
 });
 
-router.get("/Todo", (req, res, next) => {
-  Todo.find().then((todo) => res.json(todo));
+router.get("/Todo", auth, (req, res, next) => {
+  User.findById(req.user.id).then((todo) => res.json(todo));
 });
 
 module.exports = router;

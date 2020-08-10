@@ -44,8 +44,7 @@ const Login = ({ loggedError, loggedUser, auth }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100%",
-        marginTop: "75px",
+        marginTop: "150px",
       }}
       className="Logo__Container"
     >

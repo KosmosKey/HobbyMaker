@@ -15,8 +15,10 @@ import TotalHobbies from "./Dashboard/TotalHobbies/TotalHobbies";
 import CompletedHobbies from "./Dashboard/CompletedHobbies/CompletedHobbies";
 import FailedHobbies from "./Dashboard/FailedHobbies/FailedHobbies";
 import userSettings from "./Dashboard/Settings/userSettings";
+import { motion } from "framer-motion";
+import { Loading } from "./Dashboard/Loading/Loading";
 
-const HomeApplication = ({ auth, loadUser, match }) => {
+const HomeApplication = ({ auth, loadUser, match, isLoading }) => {
   const [indexOfBtn, setIndexOfBtn] = useState(1);
 
   useEffect(() => {
@@ -25,6 +27,7 @@ const HomeApplication = ({ auth, loadUser, match }) => {
 
   return (
     <div className="HomeApplication">
+      {isLoading ? <Loading /> : ""}
       <nav className="HomeApplication_SideNavigationBar">
         <div className="HomeApplication_userInfo">
           <img
@@ -32,10 +35,12 @@ const HomeApplication = ({ auth, loadUser, match }) => {
             alt="HomeApplication_profile_picture"
             className="HomeApplication_ProfilePicture"
           />
-          <p>James Smith Andres</p>
+          <p>
+            {auth.user.first_name} {auth.user.last_name}
+          </p>
         </div>
         <div className="HomeApplication_Tabs">
-          <Link to="/User">
+          <Link to="/User" style={{ textDecoration: "none", border: "none" }}>
             <IconButton
               variant="contained"
               className={
@@ -67,7 +72,7 @@ const HomeApplication = ({ auth, loadUser, match }) => {
             }}
           ></div>
 
-          <Link to={`${match.url}/Total`}>
+          <Link to={`${match.url}/Total`} style={{ textDecoration: "none" }}>
             <IconButton
               variant="contained"
               className={
@@ -83,7 +88,10 @@ const HomeApplication = ({ auth, loadUser, match }) => {
               <div className="HomeApplication__Text">TOTAL</div>
             </IconButton>
           </Link>
-          <Link to={`${match.url}/Completed`}>
+          <Link
+            to={`${match.url}/Completed`}
+            style={{ textDecoration: "none" }}
+          >
             <IconButton
               variant="contained"
               className={
@@ -105,7 +113,7 @@ const HomeApplication = ({ auth, loadUser, match }) => {
             </IconButton>
           </Link>
 
-          <Link to={`${match.url}/Failed`}>
+          <Link to={`${match.url}/Failed`} style={{ textDecoration: "none" }}>
             <IconButton
               variant="contained"
               className={
@@ -122,6 +130,7 @@ const HomeApplication = ({ auth, loadUser, match }) => {
             </IconButton>
           </Link>
         </div>
+
         <div
           style={{
             width: "100%",
@@ -134,7 +143,7 @@ const HomeApplication = ({ auth, loadUser, match }) => {
           className="HomeApplication_userSection"
           style={{ marginTop: "25px" }}
         >
-          <Link to={`${match.url}/Settings`}>
+          <Link to={`${match.url}/Settings`} style={{ textDecoration: "none" }}>
             <IconButton
               variant="contained"
               className={
@@ -181,7 +190,7 @@ const HomeApplication = ({ auth, loadUser, match }) => {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    first_name: state.auth.user.first_name,
+    isLoading: state.auth.isLoading,
   };
 };
 

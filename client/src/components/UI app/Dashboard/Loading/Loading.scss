@@ -1,0 +1,18 @@
+.Loading__ {
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Loading__SpinnerBar {
+        width: 50%;
+        height: 5px;
+        border-radius: 50px;
+    }
+}

@@ -19,7 +19,7 @@ function Home() {
   return (
     <div>
       <img src={Header} className="Home__ImageWave" alt="wave" />
-      <Container className="Home__Container" id="Home">
+      <Container className="Home__Container">
         <Grid container direction="row" justify="center" alignItems="center">
           <Grid
             item

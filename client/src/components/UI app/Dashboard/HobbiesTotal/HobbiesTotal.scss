@@ -2,262 +2,256 @@ html,
 body,
 #root,
 .App {
-    height: 100% !important;
+  height: 100% !important;
 }
 
 .HobbiesTotal__ {
-    height: 100%;
-    margin-top: 40px;
+  margin-top: 40px;
 
-    .HobbiesTotal__Results {
-        background: white;
-        border-radius: 5px;
-        padding: 50px 50px;    }
+  .HobbiesTotal__Results {
+    background: white;
+    border-radius: 5px;
+    padding: 50px 50px;
+  }
 
-    .HobbieTotal__ChartJS {
-        background: white;
-        border-radius: 5px;
-        padding: 30px 15px;
+  .HobbieTotal__ChartJS {
+    background: white;
+    border-radius: 5px;
+    padding: 30px 15px;
+  }
+
+  .HomeTotal__ChartJSTwo {
+    background: white;
+    padding: 30px 15px;
+    border-radius: 5px;
+    color: rgb(102, 58, 189);
+  }
+
+  .HobbiesTotal__TotalHobbies {
+    h1 {
+      font-weight: 800;
+      font-size: 50px;
+      color: #7733ff;
     }
 
-    .HomeTotal__ChartJSTwo {
-        background: white;
-        padding: 30px 15px;
-        border-radius: 5px;
-        color: rgb(102, 58, 189);
+    p {
+      font-weight: 600;
+      font-size: 20px;
+      color: #2f3179;
+      margin-top: 10px;
+    }
+  }
+
+  .HobbiesTotal__BtnHover:focus {
+    outline: none !important;
+  }
+
+  .HobbiesTotal__HobbiesWentWell {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 5px;
+    box-shadow: 0px 6px 0px 0px rgba(119, 51, 255, 1);
+    position: relative;
+
+    .HobbiesTotal__HobbiesWentWellGoodIcon {
+      position: absolute;
+      top: 15px;
+      font-size: 35px;
+      color: #bcbcd4;
+      right: 15px;
+    }
+  }
+
+  .HobbiesTotal__HobbiesWentWellText {
+    h1 {
+      font-weight: 800;
+      font-size: 50px;
+      color: #7733ff;
     }
 
-    .HobbiesTotal__TotalHobbies {
-        h1 {
-            font-weight: 800;
-            font-size: 50px;
-            color: #7733ff;
-        }
+    p {
+      font-weight: 600;
+      font-size: 20px;
+      color: #2f3179;
+      margin-top: 10px;
+    }
+  }
 
-        p {
-            font-weight: 600;
-            font-size: 20px;
-            color: #2f3179;
-            margin-top: 10px;
-        }
+  .HobbiesTotal__HobbiesWentBad {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 5px;
+    box-shadow: 0px 6px 0px 0px rgba(119, 51, 255, 1);
+    position: relative;
+
+    .HobbiesTotal__HobbiesWentGoodIcon {
+      position: absolute;
+      top: 15px;
+      font-size: 35px;
+      color: #bcbcd4;
+      right: 15px;
+    }
+  }
+
+  .HobbiesTotal__HobbiesWentBad {
+    h1 {
+      font-weight: 800;
+      font-size: 50px;
+      color: #7733ff;
     }
 
-    .HobbiesTotal__HobbiesWentWell {
-        background: white;
-        padding: 40px 50px;
-        border-radius: 5px;
-        box-shadow: 0px 6px 0px 0px rgba(119, 51, 255, 1);
-        position: relative;
-
-        .HobbiesTotal__HobbiesWentWellGoodIcon {
-            position: absolute;
-            top: 15px;
-            font-size: 35px;
-            color: #bcbcd4;
-            right: 15px;
-        }
+    p {
+      font-weight: 600;
+      font-size: 20px;
+      color: #2f3179;
+      margin-top: 10px;
     }
+  }
 
-    .HobbiesTotal__HobbiesWentWellText {
-        h1 {
-            font-weight: 800;
-            font-size: 50px;
-            color: #7733ff;
-        }
+  .HobbiesTotal__TotalHobbies {
+    background: white;
+    padding: 40px 50px;
+    border-radius: 5px;
+    box-shadow: 0px 6px 0px 0px rgba(119, 51, 255, 1);
+    position: relative;
 
-        p {
-            font-weight: 600;
-            font-size: 20px;
-            color: #2f3179;
-            margin-top: 10px;
-        }
+    .HobbiesTotal__SortIcons {
+      position: absolute;
+      top: 15px;
+      font-size: 35px;
+      color: #bcbcd4;
+      right: 15px;
     }
+  }
 
-    .HobbiesTotal__HobbiesWentBad {
-        background: white;
-        padding: 40px 50px;
-        border-radius: 5px;
-        box-shadow: 0px 6px 0px 0px rgba(119, 51, 255, 1);
-        position: relative;
-
-        .HobbiesTotal__HobbiesWentGoodIcon {
-            position: absolute;
-            top: 15px;
-            font-size: 35px;
-            color: #bcbcd4;
-            right: 15px;
-        }
-    }
-
-    .HobbiesTotal__HobbiesWentBad {
-        h1 {
-            font-weight: 800;
-            font-size: 50px;
-            color: #7733ff;
-        }
-
-        p {
-            font-weight: 600;
-            font-size: 20px;
-            color: #2f3179;
-            margin-top: 10px;
-        }
-    }
-
-    .HobbiesTotal__TotalHobbies {
-        background: white;
-        padding: 40px 50px;
-        border-radius: 5px;
-        box-shadow: 0px 6px 0px 0px rgba(119, 51, 255, 1);
-        position: relative;
-
-        .HobbiesTotal__SortIcons {
-            position: absolute;
-            top: 15px;
-            font-size: 35px;
-            color: #bcbcd4;
-            right: 15px;
-        }
-    }
-
-    .HobbiesTotal__ChartJS {
-        background: white;
-    }
-
+  .HobbiesTotal__ChartJS {
+    background: white;
+  }
 }
-
-
 
 @media screen and (max-width: 1473px) {
-    .HobbiesTotal__HobbiesWentBad {
-        h1 {
-            font-size: 40px !important;
-        }
-
-        p {
-            font-size: 17px !important;
-        }
+  .HobbiesTotal__HobbiesWentBad {
+    h1 {
+      font-size: 40px !important;
     }
 
-    .HobbiesTotal__HobbiesWentWell {
-        h1 {
-            font-size: 40px !important;
-        }
+    p {
+      font-size: 17px !important;
+    }
+  }
 
-        p {
-            font-size: 17px !important;
-        }
+  .HobbiesTotal__HobbiesWentWell {
+    h1 {
+      font-size: 40px !important;
     }
 
-    .HobbiesTotal__TotalHobbies {
-        h1 {
-            font-size: 40px !important;
-        }
-
-        p {
-            font-size: 17px !important;
-        }
+    p {
+      font-size: 17px !important;
     }
+  }
+
+  .HobbiesTotal__TotalHobbies {
+    h1 {
+      font-size: 40px !important;
+    }
+
+    p {
+      font-size: 17px !important;
+    }
+  }
 }
 
-
 @media screen and (max-width: 1279px) {
-    .HobbiesTotal__Statistics {
-        display: none;
-    }
+  .HobbiesTotal__Statistics {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 472px) {
-    .HobbiesTotal__Results {
-        padding: 0px !important;
-        background: transparent !important;
-    }
+  .HobbiesTotal__Results {
+    padding: 0px !important;
+    background: transparent !important;
+  }
 
-    .HobbiesTotal__ {
-        margin-top: 25px;
-    }
+  .HobbiesTotal__ {
+    margin-top: 25px;
+  }
 
+  .HobbiesTotal__HobbiesWentWell {
+    padding: 30px 20px !important;
+  }
 
-    .HobbiesTotal__HobbiesWentWell {
-        padding: 30px 20px !important;
+  .HobbiesTotal__TotalHobbies {
+    padding: 30px 35px !important;
+  }
 
-    }
+  .HobbiesTotal__HobbiesWentBad {
+    padding: 30px 20px !important;
+    margin: 0 auto !important;
+  }
 
-    .HobbiesTotal__TotalHobbies {
-        padding: 30px 35px !important;
-    }
-
-    .HobbiesTotal__HobbiesWentBad {
-        padding: 30px 20px !important;
-        margin: 0 auto !important;
-    }
-
-    .HobbiesTotal__Results {
-        padding: 0px 20px !important;
-
-        .HobbiesTotal__SortIcons {
-            font-size: 22px !important;
-        }
-
-
-        .HobbiesTotal__HobbiesWentWellGoodIcon {
-            font-size: 22px !important;
-        }
-
-        .HobbiesTotal__HobbiesWentGoodIcon {
-            font-size: 22px !important;
-        }
-
-
-        h1 {
-            font-size: 30px !important;
-        }
-
-        p {
-            font-size: 15px !important;
-        }
-    }
-}
-
-@media screen and (max-width: 351px) {
-    .HobbiesTotal__Results {
-        padding: 0px 5px !important;
-
-        h1 {
-            font-size: 25px !important;
-        }
-
-        p {
-            font-size: 10px !important;
-        }
-    }
-
-
+  .HobbiesTotal__Results {
+    padding: 0px 20px !important;
 
     .HobbiesTotal__SortIcons {
-        display: none !important;
+      font-size: 22px !important;
     }
 
     .HobbiesTotal__HobbiesWentWellGoodIcon {
-        display: none !important;
+      font-size: 22px !important;
     }
 
     .HobbiesTotal__HobbiesWentGoodIcon {
-        display: none !important;
+      font-size: 22px !important;
     }
 
-    .HobbiesTotal__TotalHobbies {
-        padding: 5px 25px !important;
-        border: 2px solid #7733ff !important;
+    h1 {
+      font-size: 30px !important;
     }
 
-    .HobbiesTotal__HobbiesWentWell {
-        padding: 5px 25px !important;
-        border: 2px solid #7733ff !important;
+    p {
+      font-size: 15px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 351px) {
+  .HobbiesTotal__Results {
+    padding: 0px 5px !important;
+
+    h1 {
+      font-size: 25px !important;
     }
 
-    .HobbiesTotal__HobbiesWentBad {
-        padding: 5px 15px !important;
-        border: 2px solid #7733ff !important;
+    p {
+      font-size: 10px !important;
     }
+  }
+
+  .HobbiesTotal__SortIcons {
+    display: none !important;
+  }
+
+  .HobbiesTotal__HobbiesWentWellGoodIcon {
+    display: none !important;
+  }
+
+  .HobbiesTotal__HobbiesWentGoodIcon {
+    display: none !important;
+  }
+
+  .HobbiesTotal__TotalHobbies {
+    padding: 5px 25px !important;
+    border: 2px solid #7733ff !important;
+  }
+
+  .HobbiesTotal__HobbiesWentWell {
+    padding: 5px 25px !important;
+    border: 2px solid #7733ff !important;
+  }
+
+  .HobbiesTotal__HobbiesWentBad {
+    padding: 5px 15px !important;
+    border: 2px solid #7733ff !important;
+  }
 }
