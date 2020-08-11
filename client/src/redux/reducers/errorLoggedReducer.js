@@ -2,7 +2,6 @@ import {
   AUTH_ERROR,
   CLEAR_AUTH_ERROR,
   LOGGED_USER,
-  LOGIN_SUCCESS,
   LOADED_USERNAME,
 } from "../actions/Types";
 
@@ -21,10 +20,9 @@ export default function (state = initialState, action) {
         status: action.payload.status,
       };
     case CLEAR_AUTH_ERROR:
-    case LOGIN_SUCCESS:
+    case LOGGED_USER:
+    case LOADED_USERNAME:
       return {
-        ...state,
-        ...action.payload,
         id: null,
         message: null,
         status: null,

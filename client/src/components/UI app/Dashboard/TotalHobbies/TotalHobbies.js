@@ -11,7 +11,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import Modal from "./Modal/Modal";
 import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
-// import { getHobbies } from "../../../../redux/actions/actions";
+import { getHobbies } from "../../../../redux/actions/actions";
 
 const TotalHobbies = ({ getHobbies, auth, hobbies }) => {
   const [open, setOpen] = useState(false);
@@ -20,9 +20,9 @@ const TotalHobbies = ({ getHobbies, auth, hobbies }) => {
     setOpen(!open);
   };
 
-  // useEffect(() => {
-  //   getHobbies();
-  // }, [getHobbies]);
+  useEffect(() => {
+    getHobbies();
+  }, [getHobbies]);
 
   return (
     <Container className="TotalHobbies">
@@ -41,58 +41,48 @@ const TotalHobbies = ({ getHobbies, auth, hobbies }) => {
       </div>
       <div>
         <div className="TotalHobbies__Paper">
-          {hobbies.itemsLoading === false &&
-          hobbies.itemsHobbies.length === 0 ? (
-            <p>You have no Hobbies in your list</p>
-          ) : hobbies.itemsLoading ? (
-            <div className="TotalHobbies__PositionSpinner">
-              <CircularProgress
-                className="TotalHobbies__CircularProgress"
-                size="40"
-              />
-            </div>
-          ) : (
-            hobbies.itemsHobbies.map((item) => (
-              <Paper key={item._id} className="TotalHobbies__Paper__Item">
-                <div className="TotalHobbies__Name__Btns">
-                  <div className="TotalHobbies__Hobby">
-                    <FavoriteIcon className="Heart" />
-                    <p>{item.name}</p>
+          {hobbies.itemsHobbies !== null
+            ? hobbies.itemsHobbies.map((item) => (
+                <Paper key={item._id} className="TotalHobbies__Paper__Item">
+                  <div className="TotalHobbies__Name__Btns">
+                    <div className="TotalHobbies__Hobby">
+                      <FavoriteIcon className="Heart" />
+                      <p>{item.name}</p>
+                    </div>
+                    <div className="TotalHobbies__ButtonsEdit__Delete">
+                      <Button
+                        variant="contained"
+                        className="TotalHobbies__EditIcon"
+                      >
+                        <EditIcon className="Edit" />
+                      </Button>
+                      <Button
+                        variant="contained"
+                        className="TotalHobbies__DeleteIcon"
+                      >
+                        <DeleteIcon className="Delete" />
+                      </Button>
+                    </div>
                   </div>
-                  <div className="TotalHobbies__ButtonsEdit__Delete">
+                  <div className="TotalHobbies__Btn">
                     <Button
                       variant="contained"
-                      className="TotalHobbies__EditIcon"
+                      className="TotalHobbies__SecondButton"
                     >
-                      <EditIcon className="Edit" />
+                      Went Good{" "}
+                      <MoodIcon className="TotalHobbies__GoodMoodIcon" />
                     </Button>
                     <Button
                       variant="contained"
-                      className="TotalHobbies__DeleteIcon"
+                      className="TotalHobbies__FirstButton"
                     >
-                      <DeleteIcon className="Delete" />
+                      Went Bad{" "}
+                      <MoodBadIcon className="TotalHobbies__BadMoodIcon" />
                     </Button>
                   </div>
-                </div>
-                <div className="TotalHobbies__Btn">
-                  <Button
-                    variant="contained"
-                    className="TotalHobbies__SecondButton"
-                  >
-                    Went Good{" "}
-                    <MoodIcon className="TotalHobbies__GoodMoodIcon" />
-                  </Button>
-                  <Button
-                    variant="contained"
-                    className="TotalHobbies__FirstButton"
-                  >
-                    Went Bad{" "}
-                    <MoodBadIcon className="TotalHobbies__BadMoodIcon" />
-                  </Button>
-                </div>
-              </Paper>
-            ))
-          )}
+                </Paper>
+              ))
+            : ""}
         </div>
       </div>
     </Container>
@@ -102,7 +92,8 @@ const TotalHobbies = ({ getHobbies, auth, hobbies }) => {
 const mapStateToProps = (state) => {
   return {
     hobbies: state.hobbies,
+    auth: state.auth,
   };
 };
 
-export default connect(mapStateToProps, null)(TotalHobbies);
+export default connect(mapStateToProps, { getHobbies })(TotalHobbies);

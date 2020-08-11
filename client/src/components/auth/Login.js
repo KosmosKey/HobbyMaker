@@ -34,7 +34,7 @@ const Login = ({ loggedError, loggedUser, auth }) => {
     if (loggedError.id === "LOGGED_FAIL") {
       return setErrorMessage(loggedError.message);
     } else {
-      setErrorMessage("");
+      setErrorMessage(null);
     }
   }, [loggedError.id, loggedError.message]);
 

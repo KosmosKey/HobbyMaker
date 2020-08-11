@@ -27,7 +27,7 @@ export const closeNavBar = () => {
 };
 
 export const getHobbies = () => (dispatch, getState) => {
-  const token = getState().auth.token;
+  const token = await getState().auth.token;
 
   const config = {
     headers: {
@@ -64,8 +64,8 @@ export const registerUser = (config) => (dispatch) => {
     });
 };
 
-export const loadUser = () => (dispatch, getState) => {
-  const token = getState().auth.token;
+export const loadUser = () =>  (dispatch, getState) => {
+  const token =  getState().auth.token;
 
   const config = {
     headers: {
@@ -82,9 +82,6 @@ export const loadUser = () => (dispatch, getState) => {
       type: LOADED_USERNAME,
       payload: res.data,
     });
-    if (getState().auth.isAuthenticated) {
-      dispatch(getHobbies());
-    }
   });
 };
 
