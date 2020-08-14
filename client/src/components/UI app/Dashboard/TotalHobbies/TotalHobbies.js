@@ -5,10 +5,12 @@ import AddIcon from "@material-ui/icons/Add";
 import MoodIcon from "@material-ui/icons/Mood";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import DeleteIcon from "@material-ui/icons/Delete";
 import MessageIcon from "@material-ui/icons/Message";
 import Popover from "@material-ui/core/Popover";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { Container, Button } from "@material-ui/core";
+import { Container, Button, IconButton } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 import Modal from "./Modal/Modal";
 import { connect } from "react-redux";
@@ -28,9 +30,6 @@ const TotalHobbies = ({ auth, hobbies }) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const openPopOver = Boolean(anchorEl);
-  const id = openPopOver ? "simple-popover" : undefined;
-
   const newItemsArray =
     hobbies.itemsHobbies &&
     hobbies.itemsHobbies.slice(offset, offset + lastPage);
@@ -47,7 +46,8 @@ const TotalHobbies = ({ auth, hobbies }) => {
     setAnchorEl(null);
   };
 
-
+  const openPopOver = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   return (
     <Container className="TotalHobbies">
@@ -55,7 +55,12 @@ const TotalHobbies = ({ auth, hobbies }) => {
       <div className="TotalHobbies__">
         <div className="TotalHobbies__Text">
           <div className="TotalHobbies__HowManyHobbies">
-            <h1>Active Hobbies (0)</h1>
+            <h1>
+              Active Hobbies&nbsp;
+              {hobbies.itemsLoading
+                ? "(...)"
+                : `(${hobbies.itemsHobbies.length})`}
+            </h1>
           </div>
           <div className="TotalHobbies__AddNewHobbies">
             <Button onClick={handleClick}>
@@ -76,15 +81,17 @@ const TotalHobbies = ({ auth, hobbies }) => {
             newItemsArray.map((item) => (
               <Paper key={item._id} className="TotalHobbies__Paper__Item">
                 <div className="TotalHobbies__BtnPopover">
-                  <Button
+                  <IconButton
                     aria-describedby={id}
                     variant="contained"
                     color="primary"
                     onClick={popOverClick}
+                    className="TotalHobbies__OpenButton"
                   >
-                    Open Popover
-                  </Button>
+                    <MoreHorizIcon className="Dots__" />
+                  </IconButton>
                   <Popover
+                    id={id}
                     open={openPopOver}
                     anchorEl={anchorEl}
                     onClose={handleClosePopOver}
@@ -97,7 +104,18 @@ const TotalHobbies = ({ auth, hobbies }) => {
                       horizontal: "center",
                     }}
                   >
-                    CHAT!
+                    <div className="TotalHobbies__PopOverTrash">
+                      <IconButton className="TotalHobbies__IconButtonTrash">
+                        <DeleteIcon className="DeletePopover__" />
+                        <p>DELETE</p>
+                      </IconButton>
+                    </div>
+                    <div className="TotalHobbies__PopOverEdit">
+                      <IconButton className="TotalHobbies__IconButtonEdit">
+                        <DeleteIcon className="EditPopover__" />
+                        <p>DELETE</p>
+                      </IconButton>
+                    </div>
                   </Popover>
                 </div>
                 <div className="TotalHobbies__Name__Btns">

@@ -23,6 +23,7 @@
     "passport-local": "^1.0.0",
     "prop-types": "^15.7.2",
     "react-paginate": "^6.3.2",
+    "react-pure-loaders": "^3.0.1",
     "react-router-dom": "^5.2.0"
   }
 }
