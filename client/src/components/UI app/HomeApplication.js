@@ -17,7 +17,7 @@ import FailedHobbies from "./Dashboard/FailedHobbies/FailedHobbies";
 import userSettings from "./Dashboard/Settings/userSettings";
 import { Loading } from "./Dashboard/Loading/Loading";
 
-const HomeApplication = ({ auth, loadUser, match, isLoading }) => {
+const HomeApplication = ({ auth, loadUser, match, isLoading, getHobbies }) => {
   const [indexOfBtn, setIndexOfBtn] = useState(1);
 
   useEffect(() => {

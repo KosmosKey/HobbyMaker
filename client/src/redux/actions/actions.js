@@ -27,7 +27,7 @@ export const closeNavBar = () => {
 };
 
 export const getHobbies = () => (dispatch, getState) => {
-  const token = await getState().auth.token;
+  const token = getState().auth.token;
 
   const config = {
     headers: {
@@ -40,10 +40,7 @@ export const getHobbies = () => (dispatch, getState) => {
   }
 
   axios.get("http://localhost:5000/api/user/Todo", config).then((res) => {
-    dispatch({
-      type: GET_HOBBIES,
-      payload: res.data,
-    });
+    dispatch({ type: GET_HOBBIES, payload: res.data });
   });
 };
 
@@ -64,8 +61,8 @@ export const registerUser = (config) => (dispatch) => {
     });
 };
 
-export const loadUser = () =>  (dispatch, getState) => {
-  const token =  getState().auth.token;
+export const loadUser = () => (dispatch, getState) => {
+  const token = getState().auth.token;
 
   const config = {
     headers: {
@@ -82,6 +79,7 @@ export const loadUser = () =>  (dispatch, getState) => {
       type: LOADED_USERNAME,
       payload: res.data,
     });
+    dispatch(getHobbies());
   });
 };
 
