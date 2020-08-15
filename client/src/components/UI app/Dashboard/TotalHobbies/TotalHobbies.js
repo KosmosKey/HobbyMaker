@@ -8,6 +8,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import DeleteIcon from "@material-ui/icons/Delete";
 import MessageIcon from "@material-ui/icons/Message";
+import EditIcon from "@material-ui/icons/Edit";
 import Popover from "@material-ui/core/Popover";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Container, Button, IconButton } from "@material-ui/core";
@@ -104,15 +105,15 @@ const TotalHobbies = ({ auth, hobbies }) => {
                       horizontal: "center",
                     }}
                   >
+                    <div className="TotalHobbies__PopOverEdit">
+                      <IconButton className="TotalHobbies__IconButtonEdit">
+                        <EditIcon className="EditPopover__" />
+                        <p>EDIT</p>
+                      </IconButton>
+                    </div>
                     <div className="TotalHobbies__PopOverTrash">
                       <IconButton className="TotalHobbies__IconButtonTrash">
                         <DeleteIcon className="DeletePopover__" />
-                        <p>DELETE</p>
-                      </IconButton>
-                    </div>
-                    <div className="TotalHobbies__PopOverEdit">
-                      <IconButton className="TotalHobbies__IconButtonEdit">
-                        <DeleteIcon className="EditPopover__" />
                         <p>DELETE</p>
                       </IconButton>
                     </div>

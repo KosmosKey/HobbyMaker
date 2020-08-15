@@ -6,8 +6,9 @@ import SortIcon from "@material-ui/icons/Sort";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
 import MoodIcon from "@material-ui/icons/Mood";
 import { motion } from "framer-motion";
+import { connect } from "react-redux";
 
-const HobbiesTotal = () => {
+const HobbiesTotal = ({ hobbies }) => {
   const charData = {
     labels: ["Total Hobbies", "Hobbies went bad", "Hobbies went well"],
     datasets: [
@@ -37,8 +38,14 @@ const HobbiesTotal = () => {
               <div className="HobbiesTotal__TotalHobbies">
                 <div className="HobbiesTotal__TotalHobbies_Text">
                   <SortIcon className="HobbiesTotal__SortIcons" />
-                  <h1>4235</h1>
-                  <p>Total Hobbies</p>
+                  {hobbies.itemsLoading ? (
+                    <h1>Loading...</h1>
+                  ) : (
+                    <div>
+                      <h1>{hobbies && hobbies.itemsHobbies.length}</h1>
+                      <p>Total Hobbies</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.button>
@@ -106,4 +113,10 @@ const HobbiesTotal = () => {
   );
 };
 
-export default HobbiesTotal;
+const mapStateToProps = (state) => {
+  return {
+    hobbies: state.hobbies,
+  };
+};
+
+export default connect(mapStateToProps, null)(HobbiesTotal);

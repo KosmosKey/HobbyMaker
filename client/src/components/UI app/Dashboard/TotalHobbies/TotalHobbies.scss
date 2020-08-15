@@ -177,14 +177,42 @@
   }
 }
 
-.TotalHobbies__IconButtonEdit
+
+
+
+.TotalHobbies__PopOverEdit {
+  .TotalHobbies__IconButtonEdit {
+    background: #7733ff;
+    border-radius: 0px !important;
+    padding: 15px 30px;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .TotalHobbies__IconButtonEdit:hover,
+  p:hover {
+    background: #7733ff !important;
+  }
+
+  .EditPopover__ {
+    color: #ffff;
+    margin-right: 5px;
+  }
+
+  p {
+    font-size: 15px !important;
+    font-weight: 700;
+    color: #ffff;
+  }
+}
 
 .TotalHobbies__PopOverTrash {
 
   .TotalHobbies__IconButtonTrash {
     background: #C55C58;
     border-radius: 0px !important;
-    padding: 15px;
+    padding: 15px 30px;
+    text-align: center !important;
   }
 
   .TotalHobbies__IconButtonTrash:hover,
