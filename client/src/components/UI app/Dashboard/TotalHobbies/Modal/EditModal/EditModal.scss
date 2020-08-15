@@ -1,0 +1,46 @@
+.EditModal__Dialog {
+
+    .EditModal__HobbyInput,
+    .EditModal__HobbyRate,
+    .EditModal__HobbyDescription {
+        margin-bottom: 20px;
+    }
+
+    .EditModal_FormSubmission {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .EditModal__CloseButton {
+        position: absolute !important;
+        top: 0 !important;
+        right: 0 !important;
+
+        .Cancel__ {
+            color: #2f3179;
+        }
+    }
+
+    .EditModal__DialogTitle {
+        margin-top: 25px !important;
+
+        p {
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2f3179;
+            font-size: 35px;
+            color: #2f3179;
+            font-weight: 700;
+        }
+    }
+
+    .EditModal__Buttons {
+        .EditModal__ConfirmEditButton {
+            background: #7733ff;
+            color: #fff;
+            width: 100%;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 17px;
+        }
+    }
+}

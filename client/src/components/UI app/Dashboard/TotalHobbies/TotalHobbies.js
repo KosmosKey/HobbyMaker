@@ -16,12 +16,14 @@ import ReactPaginate from "react-paginate";
 import Modal from "./Modal/Modal";
 import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
+import EditModal from "./Modal/EditModal/EditModal";
 
 const TotalHobbies = ({ auth, hobbies }) => {
   const [open, setOpen] = useState(false);
   const [offset, setOffset] = useState(0);
   const [lastPage] = useState(1);
   const [anchorEl, setAnchorEl] = useState(null);
+  const [openEditModal, setOpenEditModal] = useState(true);
 
   const handleClick = () => {
     setOpen(!open);
@@ -50,8 +52,13 @@ const TotalHobbies = ({ auth, hobbies }) => {
   const openPopOver = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
+  const handleCloseEditModal = () => {
+    setOpenEditModal(!openEditModal);
+    setAnchorEl(false);
+  };
   return (
     <Container className="TotalHobbies">
+      <EditModal open={openEditModal} handleClose={handleCloseEditModal} />
       <Modal open={open} handleClose={handleClick} />
       <div className="TotalHobbies__">
         <div className="TotalHobbies__Text">
@@ -106,7 +113,10 @@ const TotalHobbies = ({ auth, hobbies }) => {
                     }}
                   >
                     <div className="TotalHobbies__PopOverEdit">
-                      <IconButton className="TotalHobbies__IconButtonEdit">
+                      <IconButton
+                        className="TotalHobbies__IconButtonEdit"
+                        onClick={handleCloseEditModal}
+                      >
                         <EditIcon className="EditPopover__" />
                         <p>EDIT</p>
                       </IconButton>
