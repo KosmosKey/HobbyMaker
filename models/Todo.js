@@ -13,7 +13,7 @@ const TodoSchma = new Schema({
     type: String,
     required: false,
   },
-  Date: {
+  date: {
     type: Date,
     default: Date.now,
   },

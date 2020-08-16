@@ -4,20 +4,53 @@ import DialogContent from "@material-ui/core/DialogContent";
 import Select from "@material-ui/core/Select";
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import MenuItem from "@material-ui/core/MenuItem";
+import InputLabel from "@material-ui/core/InputLabel";
 import "./Modal.scss";
+import { connect } from "react-redux";
 import CloseIcon from "@material-ui/icons/Close";
+import { addHobby } from "../../../../../redux/actions/modalAction";
 import { Button, FormControl, TextField, IconButton } from "@material-ui/core";
 
-const Modal = ({ open, handleClose }) => {
+const Modal = ({ open, handleClose, addHobby }) => {
   const [option, setOption] = useState({
-    age: "1",
+    age: 1,
   });
+  const [hobbyVal, setHobbyVal] = useState("");
+  const [descriptionVal, setDescriptionVal] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     setOption({
-      ...open,
+      ...option,
       [e.target.name]: e.target.value,
     });
+  };
+
+  const changeValueHobby = (e) => {
+    setHobbyVal(e.target.value);
+  };
+
+  const descriptionValueChange = (e) => {
+    setDescriptionVal(e.target.value);
+  };
+
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+
+    const newHobby = {
+      name: hobbyVal,
+      number: option.age,
+      message: descriptionVal,
+    };
+
+    if (!hobbyVal) {
+      setErrorMessage("Please fill out the hobby");
+    } else {
+      setErrorMessage("");
+      addHobby(newHobby);
+      handleClose();
+    }
   };
 
   return (
@@ -49,44 +82,45 @@ const Modal = ({ open, handleClose }) => {
       </DialogTitle>
 
       <DialogContent>
-        <form autoComplete="off" className="Modal__Form">
+        <form onSubmit={onSubmitForm} className="Modal__Form">
+          {errorMessage && <div>{errorMessage}</div>}
           <div className="Modal__InputFields">
             <p className="Modal__HobbyText">What hobby do you want to add?</p>
             <TextField
+              name="hobby"
+              value={hobbyVal}
+              onChange={changeValueHobby}
               id="outlined-basic"
               placeholder="Enter your hobby..."
               className="Modal__FirstInputField"
             />
           </div>
           <div className="Modal__Select">
-            <FormControl
-              id="outlined-multiline-static"
-              className="Modal__SelectInputLabel"
-            >
+            <FormControl className="Modal__SelectInputLabel">
               <p className="Modal__ScaleLabel">
                 How well do you like the hobby?
               </p>
-
               <Select
-                native
+                labelId="demo-customized-select-label"
+                id="demo-customized-select"
                 value={option.age}
                 onChange={handleChange}
                 label="Scale"
+                name="age"
                 inputProps={{
-                  name: "age",
                   id: "outlined-age-native-simple",
                 }}
               >
-                <option value={1}>1</option>
-                <option value={2}>2</option>
-                <option value={3}>3</option>
-                <option value={4}>4</option>
-                <option value={5}>5</option>
-                <option value={6}>6</option>
-                <option value={7}>7</option>
-                <option value={8}>8</option>
-                <option value={9}>9</option>
-                <option value={10}>10</option>
+                <MenuItem value={1}>1</MenuItem>
+                <MenuItem value={2}>2</MenuItem>
+                <MenuItem value={3}>3</MenuItem>
+                <MenuItem value={4}>4</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={6}>6</MenuItem>
+                <MenuItem value={7}>7</MenuItem>
+                <MenuItem value={8}>8</MenuItem>
+                <MenuItem value={9}>9</MenuItem>
+                <MenuItem value={10}>10</MenuItem>
               </Select>
             </FormControl>
           </div>
@@ -98,14 +132,12 @@ const Modal = ({ open, handleClose }) => {
               id="outlined-multiline-static"
               placeholder="Why do you like this hobby..."
               className="Modal__MessageInput"
+              value={descriptionVal}
+              onChange={descriptionValueChange}
             />
           </div>
           <div className="Modal__ButtonsSubmit">
-            <Button
-              color="primary"
-              onClick={handleClose}
-              className="Moda__AddButton"
-            >
+            <Button color="primary" type="submit" className="Moda__AddButton">
               ADD A HOBBY
             </Button>
           </div>
@@ -115,4 +147,4 @@ const Modal = ({ open, handleClose }) => {
   );
 };
 
-export default Modal;
+export default connect(null, { addHobby })(Modal);

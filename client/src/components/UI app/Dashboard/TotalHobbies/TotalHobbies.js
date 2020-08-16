@@ -14,23 +14,32 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { Container, Button, IconButton } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 import Modal from "./Modal/Modal";
-import { updateHobby } from "../../../../redux/actions/modalAction";
+import {
+  updateHobby,
+  deleteHobby,
+} from "../../../../redux/actions/modalAction";
 import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
+import GoodModal from "./Modal/GoodModal/GoodModal";
 import EditModal from "./Modal/EditModal/EditModal";
 
-const TotalHobbies = ({ auth, hobbies, updateHobby }) => {
+const TotalHobbies = ({ auth, hobbies, updateHobby, deleteHobby }) => {
   const [open, setOpen] = useState(false);
   const [offset, setOffset] = useState(0);
   const [lastPage] = useState(1);
   const [anchorEl, setAnchorEl] = useState(null);
   const [openEditModal, setOpenEditModal] = useState(false);
   const [_id, set_Id] = useState(null);
-  const [hobbyValue, setHobbyValue] = useState({
-    hobby: "",
-    rate: "",
-    desc: "",
-  });
+  const [goodModal, setGoodModal] = useState(false);
+  const [hobbyValue, setHobbyValue] = useState("");
+  const [hobbyName, setHobbyName] = useState("");
+  const [hobbyDesc, setHobbyDesc] = useState("");
+
+  const deleteHobbyItem = (id) => {
+    deleteHobby(id);
+    setAnchorEl(null);
+  };
+  console.log(hobbyValue);
 
   const handleClick = () => {
     setOpen(!open);
@@ -58,57 +67,60 @@ const TotalHobbies = ({ auth, hobbies, updateHobby }) => {
 
   const openPopOver = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
-
   const handleCloseEditModal = (hobbyName, hobbyRate, hobbyDesc, _id) => {
     setOpenEditModal(!openEditModal);
     setAnchorEl(false);
-    setHobbyValue({
-      hobby: hobbyName,
-      rate: hobbyRate,
-      desc: hobbyDesc,
-    });
+    setHobbyValue(hobbyRate);
+    setHobbyName(hobbyName);
+    setHobbyDesc(hobbyDesc);
     set_Id(_id);
   };
 
   const closeModal = () => {
     setOpenEditModal(!openEditModal);
 
-    setHobbyValue({
-      hobby: "",
-      rate: "",
-      desc: "",
-    });
+    setHobbyValue("");
+    setHobbyName("");
+    setHobbyDesc("");
   };
 
   const submitForm = (e) => {
-    if (!hobbyValue.desc || !hobbyValue.rate || !hobbyValue.hobby) {
+    if (!hobbyValue || !hobbyName) {
       e.preventDefault();
     }
     const valueUpdateItem = {
-      name: hobbyValue.hobby,
-      number: hobbyValue.rate,
-      message: hobbyValue.desc,
+      name: hobbyName,
+      number: hobbyValue,
+      message: hobbyDesc,
     };
 
     updateHobby(_id, valueUpdateItem);
   };
 
   const onChangeValue = (e) => {
-    setHobbyValue({
-      ...hobbyValue,
-      [e.target.name]: e.target.value,
-    });
+    setHobbyName(e.target.value);
+  };
+
+  const onChangeValueDesc = (e) => {
+    setHobbyDesc(e.target.value);
+  };
+
+  const changeValueRate = (e) => {
+    setHobbyValue(e.target.value);
   };
 
   return (
     <Container className="TotalHobbies">
+      <GoodModal open={goodModal} />
       <EditModal
         open={openEditModal}
         handleClose={closeModal}
-        editHobbyValue={hobbyValue.hobby}
-        editRateHobbyValue={hobbyValue.rate}
-        editDescHobbyValue={hobbyValue.desc}
+        editHobbyValue={hobbyName}
+        editRateHobbyValue={hobbyValue}
+        editDescHobbyValue={hobbyDesc}
         onChangeValue={onChangeValue}
+        onChangeValueRate={changeValueRate}
+        onChangeValueDesc={onChangeValueDesc}
         closeModal={closeModal}
         actionForm={submitForm}
       />
@@ -177,7 +189,10 @@ const TotalHobbies = ({ auth, hobbies, updateHobby }) => {
                       </IconButton>
                     </div>
                     <div className="TotalHobbies__PopOverTrash">
-                      <IconButton className="TotalHobbies__IconButtonTrash">
+                      <IconButton
+                        className="TotalHobbies__IconButtonTrash"
+                        onClick={() => deleteHobbyItem(_id)}
+                      >
                         <DeleteIcon className="DeletePopover__" />
                         <p>DELETE</p>
                       </IconButton>
@@ -252,4 +267,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { updateHobby })(TotalHobbies);
+export default connect(mapStateToProps, { updateHobby, deleteHobby })(
+  TotalHobbies
+);

@@ -23,6 +23,8 @@ const EditModal = ({
   editRateHobbyValue,
   editDescHobbyValue,
   onChangeValue,
+  onChangeValueRate,
+  onChangeValueDesc,
   closeModal,
   actionForm,
   hobbyErr,
@@ -69,24 +71,22 @@ const EditModal = ({
 
               <Select
                 id="demo-simple-select-outlined-label"
-                type="rate"
                 label="Hobby Rate"
                 variant="outlined"
-                name="rate"
                 value={editRateHobbyValue}
-                onChange={onChangeValue}
+                onChange={onChangeValueRate}
                 className="EditModal__HobbyRate"
               >
                 <MenuItem value={1}>1</MenuItem>
                 <MenuItem value={2}>2</MenuItem>
                 <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={3}>4</MenuItem>
-                <MenuItem value={3}>5</MenuItem>
-                <MenuItem value={3}>6</MenuItem>
-                <MenuItem value={3}>7</MenuItem>
-                <MenuItem value={3}>8</MenuItem>
-                <MenuItem value={3}>9</MenuItem>
-                <MenuItem value={3}>10</MenuItem>
+                <MenuItem value={4}>4</MenuItem>
+                <MenuItem value={5}>5</MenuItem>
+                <MenuItem value={6}>6</MenuItem>
+                <MenuItem value={7}>7</MenuItem>
+                <MenuItem value={8}>8</MenuItem>
+                <MenuItem value={9}>9</MenuItem>
+                <MenuItem value={10}>10</MenuItem>
               </Select>
             </FormControl>
 
@@ -98,7 +98,7 @@ const EditModal = ({
               variant="outlined"
               className="EditModal__HobbyDescription"
               value={editDescHobbyValue}
-              onChange={onChangeValue}
+              onChange={onChangeValueDesc}
             />
             <div className="EditModal__Buttons">
               <Button type="submit" className="EditModal__ConfirmEditButton">

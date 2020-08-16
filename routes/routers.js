@@ -85,9 +85,6 @@ router.delete("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  if (!req.body.name || !req.body.number || !req.body.message)
-    return res.status(400).json({ message: "Please fill out all the fields" });
-
   Todo.findById(req.params.id).then((todo) =>
     todo
       .update(req.body)
@@ -106,9 +103,6 @@ router.get("/UserFind", (req, res) => {
 });
 
 router.post("/Todo", auth, (req, res, next) => {
-  if (!req.body.name)
-    return res.json({ message: "Please enter the name of the hobby!" });
-
   const TodoList = new Todo({
     name: req.body.name,
     number: req.body.number,
@@ -121,7 +115,7 @@ router.post("/Todo", auth, (req, res, next) => {
       .then((todos) => {
         user.items.push(todos);
         user.save();
-        res.json({ message: "Successfully added your hobby" });
+        res.json(todos);
       })
       .catch((err) => res.json({ message: "Couldn't add a hobby" }));
   });
