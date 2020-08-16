@@ -4,6 +4,7 @@ import authReducer from "./authReducer";
 import errorReducer from "./errorReducer";
 import errorLoggedReducer from "./errorLoggedReducer";
 import hobbiesReducer from "./hobbiesReducer";
+import errorUpdate from "./errorHobbiesReducer";
 
 export default combineReducers({
   nav: reducer,
@@ -11,4 +12,5 @@ export default combineReducers({
   error: errorReducer,
   loggedError: errorLoggedReducer,
   hobbies: hobbiesReducer,
+  hobbyErr: errorUpdate,
 });

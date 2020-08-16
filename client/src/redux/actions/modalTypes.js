@@ -1,0 +1,3 @@
+export const UPDATE_ERROR = "UPDATE_ERROR";
+export const UPDATE_SUCCESS = "UPDATE_SUCCESS";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";

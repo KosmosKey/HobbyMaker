@@ -84,6 +84,17 @@ router.delete("/:id", (req, res) => {
   });
 });
 
+router.put("/:id", (req, res) => {
+  if (!req.body.name || !req.body.number || !req.body.message)
+    return res.status(400).json({ message: "Please fill out all the fields" });
+
+  Todo.findById(req.params.id).then((todo) =>
+    todo
+      .update(req.body)
+      .then(res.json({ message: "Successfully updated your hobby!" }))
+  );
+});
+
 router.get("/todos", (req, res) => {
   Todo.find().then((todos) => res.json(todos));
 });

@@ -1,4 +1,5 @@
 import { GET_HOBBIES } from "../actions/Types";
+import { UPDATE_SUCCESS } from "../actions/modalTypes";
 
 const initalState = {
   itemsHobbies: null,
@@ -12,6 +13,12 @@ export default function (state = initalState, action) {
         ...state,
         itemsHobbies: action.payload,
         itemsLoading: false,
+      };
+
+    case UPDATE_SUCCESS:
+      return {
+        ...state,
+        itemsHobbies: [...state.itemsHobbies],
       };
 
     default:

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TotalHobbies.scss";
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
 import AddIcon from "@material-ui/icons/Add";
@@ -14,16 +14,23 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import { Container, Button, IconButton } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
 import Modal from "./Modal/Modal";
+import { updateHobby } from "../../../../redux/actions/modalAction";
 import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import EditModal from "./Modal/EditModal/EditModal";
 
-const TotalHobbies = ({ auth, hobbies }) => {
+const TotalHobbies = ({ auth, hobbies, updateHobby }) => {
   const [open, setOpen] = useState(false);
   const [offset, setOffset] = useState(0);
   const [lastPage] = useState(1);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [openEditModal, setOpenEditModal] = useState(true);
+  const [openEditModal, setOpenEditModal] = useState(false);
+  const [_id, set_Id] = useState(null);
+  const [hobbyValue, setHobbyValue] = useState({
+    hobby: "",
+    rate: "",
+    desc: "",
+  });
 
   const handleClick = () => {
     setOpen(!open);
@@ -52,13 +59,59 @@ const TotalHobbies = ({ auth, hobbies }) => {
   const openPopOver = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
-  const handleCloseEditModal = () => {
+  const handleCloseEditModal = (hobbyName, hobbyRate, hobbyDesc, _id) => {
     setOpenEditModal(!openEditModal);
     setAnchorEl(false);
+    setHobbyValue({
+      hobby: hobbyName,
+      rate: hobbyRate,
+      desc: hobbyDesc,
+    });
+    set_Id(_id);
   };
+
+  const closeModal = () => {
+    setOpenEditModal(!openEditModal);
+
+    setHobbyValue({
+      hobby: "",
+      rate: "",
+      desc: "",
+    });
+  };
+
+  const submitForm = (e) => {
+    if (!hobbyValue.desc || !hobbyValue.rate || !hobbyValue.hobby) {
+      e.preventDefault();
+    }
+    const valueUpdateItem = {
+      name: hobbyValue.hobby,
+      number: hobbyValue.rate,
+      message: hobbyValue.desc,
+    };
+
+    updateHobby(_id, valueUpdateItem);
+  };
+
+  const onChangeValue = (e) => {
+    setHobbyValue({
+      ...hobbyValue,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
     <Container className="TotalHobbies">
-      <EditModal open={openEditModal} handleClose={handleCloseEditModal} />
+      <EditModal
+        open={openEditModal}
+        handleClose={closeModal}
+        editHobbyValue={hobbyValue.hobby}
+        editRateHobbyValue={hobbyValue.rate}
+        editDescHobbyValue={hobbyValue.desc}
+        onChangeValue={onChangeValue}
+        closeModal={closeModal}
+        actionForm={submitForm}
+      />
       <Modal open={open} handleClose={handleClick} />
       <div className="TotalHobbies__">
         <div className="TotalHobbies__Text">
@@ -86,8 +139,8 @@ const TotalHobbies = ({ auth, hobbies }) => {
           ) : hobbies.itemsHobbies.length === 0 ? (
             <p>No todos</p>
           ) : (
-            newItemsArray.map((item) => (
-              <Paper key={item._id} className="TotalHobbies__Paper__Item">
+            newItemsArray.map(({ name, number, message, _id }) => (
+              <Paper key={_id} className="TotalHobbies__Paper__Item">
                 <div className="TotalHobbies__BtnPopover">
                   <IconButton
                     aria-describedby={id}
@@ -115,7 +168,9 @@ const TotalHobbies = ({ auth, hobbies }) => {
                     <div className="TotalHobbies__PopOverEdit">
                       <IconButton
                         className="TotalHobbies__IconButtonEdit"
-                        onClick={handleCloseEditModal}
+                        onClick={() =>
+                          handleCloseEditModal(name, number, message, _id)
+                        }
                       >
                         <EditIcon className="EditPopover__" />
                         <p>EDIT</p>
@@ -133,24 +188,18 @@ const TotalHobbies = ({ auth, hobbies }) => {
                   <div className="TotalHobbies__Hobby">
                     <div className="TotalHobbies_HeartResult">
                       <FavoriteIcon className="Heart" />
-                      <p>Your Hobby : {item.name}</p>
+                      <p>Your Hobby : {name}</p>
                     </div>
                     <div className="TotalHobbies__Rate">
                       <TrendingUpIcon className="Rate" />
-                      <p>Rate Hobby : {item.name}</p>
+                      <p>Rate Hobby : {number}</p>
                     </div>
                     <div className="TotalHobbies__Message">
                       <MessageIcon className="Rate" />
                       <p>Your Hobby Description : </p>
                     </div>
                     <div className="TotalHobbies__MessageText">
-                      <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Provident vel odio dolore quis, unde voluptatum
-                        similique, deleniti facilis illum inventore ea amet
-                        commodi? Maiores, aspernatur optio impedit itaque
-                        dolores aliquam.
-                      </p>
+                      <p>{message}</p>
                     </div>
                   </div>
                 </div>
@@ -203,4 +252,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(TotalHobbies);
+export default connect(mapStateToProps, { updateHobby })(TotalHobbies);

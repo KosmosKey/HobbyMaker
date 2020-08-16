@@ -1,5 +1,20 @@
 .EditModal__Dialog {
 
+    .EditModal__ErrorMessage {
+        background: #F44336;
+        color: #fff;
+        font-weight: 600;
+        font-size: 17px;
+        border-radius: 5px !important;
+        display: flex;
+        align-items: center !important;
+        margin: 15px 0px !important;
+
+        .MuiAlert-icon {
+            color: #fff;
+        }
+    }
+
     .EditModal__HobbyInput,
     .EditModal__HobbyRate,
     .EditModal__HobbyDescription {
