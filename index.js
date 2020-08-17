@@ -12,6 +12,7 @@ app.use(cors());
 mongoose
   .connect(process.env.MONGODB_KEY, {
     useNewUrlParser: true,
+    useFindAndModify: false,
     useUnifiedTopology: true,
     useCreateIndex: true,
   })

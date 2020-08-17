@@ -95,8 +95,7 @@ export const loggedUser = (user) => (dispatch) => {
     })
     .catch((err) => {
       return dispatch(
-        authErrors(err.response.data.message, err.response.status),
-        console.log(err)
+        authErrors(err.response.data.message, err.response.status)
       );
     });
 };

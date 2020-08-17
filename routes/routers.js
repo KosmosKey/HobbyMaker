@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
+const Good = require("../models/GoodTodo");
+const Bad = require("../models/BadTodo");
 const jwt = require("jsonwebtoken");
 const auth = require("../middleware/Auth");
 const bcrypt = require("bcryptjs");
 const Todo = require("../models/Todo");
+const { findById } = require("../models/User");
 require("dotenv").config();
 
 router.get("/", auth, (req, res) => {
@@ -85,11 +88,11 @@ router.delete("/:id", (req, res) => {
 });
 
 router.put("/:id", (req, res) => {
-  Todo.findById(req.params.id).then((todo) =>
-    todo
-      .update(req.body)
-      .then(res.json({ message: "Successfully updated your hobby!" }))
-  );
+  Todo.findByIdAndUpdate({ _id: req.params.id }, req.body).then((item) => {
+    Todo.findOne({ _id: req.params.id }).then((Todo) => {
+      res.json(Todo);
+    });
+  });
 });
 
 router.get("/todos", (req, res) => {
@@ -111,7 +114,6 @@ router.post("/Todo", auth, (req, res, next) => {
 
   User.findById(req.user.id).then((user) => {
     TodoList.save()
-
       .then((todos) => {
         user.items.push(todos);
         user.save();
@@ -121,10 +123,46 @@ router.post("/Todo", auth, (req, res, next) => {
   });
 });
 
+router.post("/Good", auth, (req, res) => {
+  const newGood = new Good({
+    name: req.body.name,
+  });
+
+  User.findById(req.user.id).then((user) => {
+    newGood.save().then((good) => {
+      user.goodItems.push(good);
+      user.save();
+      res.json(good);
+    });
+  });
+});
+
+router.post("/Bad", auth, (req, res) => {
+  const newBad = new Bad({
+    name: req.body.name,
+  });
+
+  User.findById(req.user.id).then((user) => {
+    newBad.save().then((bad) => {
+      user.badItems.push(bad);
+      user.save();
+      res.json(bad);
+    });
+  });
+});
+
 router.get("/Todo", auth, (req, res, next) => {
   User.findById(req.user.id)
     .populate({ path: "items", options: { sort: { date: -1 } } })
-    .then((todo) => res.json(todo.items));
+    .populate({ path: "goodItems", options: { sort: { date: -1 } } })
+    .populate({ path: "badItems", options: { sort: { date: -1 } } })
+    .then((todo) =>
+      res.json({
+        items: todo.items,
+        goodItems: todo.goodItems,
+        badItems: todo.badItems,
+      })
+    );
 });
 
 module.exports = router;

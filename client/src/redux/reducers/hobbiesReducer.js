@@ -3,6 +3,8 @@ import { UPDATE_SUCCESS, DELETE_ITEM, ADD_HOBBY } from "../actions/modalTypes";
 
 const initalState = {
   itemsHobbies: null,
+  badItems: null,
+  goodItems: null,
   itemsLoading: true,
 };
 
@@ -11,14 +13,18 @@ export default function (state = initalState, action) {
     case GET_HOBBIES:
       return {
         ...state,
-        itemsHobbies: action.payload,
+        itemsHobbies: action.payload.items,
+        badItems: action.payload.badItems,
+        goodItems: action.payload.goodItems,
         itemsLoading: false,
       };
 
     case UPDATE_SUCCESS:
       return {
         ...state,
-        itemsHobbies: [...state.itemsHobbies],
+        itemsHobbies: state.itemsHobbies.map((item) =>
+          item._id === action.payload._id ? action.payload : item
+        ),
       };
 
     case ADD_HOBBY:

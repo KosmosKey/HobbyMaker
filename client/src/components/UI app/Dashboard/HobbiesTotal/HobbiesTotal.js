@@ -42,7 +42,9 @@ const HobbiesTotal = ({ hobbies }) => {
                     <h1>Loading...</h1>
                   ) : (
                     <div>
-                      <h1>{hobbies && hobbies.itemsHobbies.length}</h1>
+                      <h1>
+                        {hobbies.itemsHobbies && hobbies.itemsHobbies.length}
+                      </h1>
                       <p>Total Hobbies</p>
                     </div>
                   )}
@@ -60,8 +62,14 @@ const HobbiesTotal = ({ hobbies }) => {
               <div className="HobbiesTotal__HobbiesWentWell">
                 <div className="HobbiesTotal__HobbiesWentWellText">
                   <MoodIcon className="HobbiesTotal__HobbiesWentWellGoodIcon" />
-                  <h1>2060</h1>
-                  <p>Hobbies went well</p>
+                  {hobbies.itemsLoading ? (
+                    <h1>Loading...</h1>
+                  ) : (
+                    <div>
+                      <h1>{hobbies.goodItems && hobbies.goodItems.length}</h1>
+                      <p>Hobbies went well</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.button>
@@ -76,8 +84,14 @@ const HobbiesTotal = ({ hobbies }) => {
               <div className="HobbiesTotal__HobbiesWentBad">
                 <div className="HobbiesTotal__HobbiesWentBadText">
                   <MoodBadIcon className="HobbiesTotal__HobbiesWentGoodIcon" />
-                  <h1>1050</h1>
-                  <p>Hobbies went bad</p>
+                  {hobbies.itemsLoading ? (
+                    <h1>Loading...</h1>
+                  ) : (
+                    <div>
+                      <h1>{hobbies.badItems && hobbies.badItems.length}</h1>
+                      <p>Hobbies went bad</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </motion.button>

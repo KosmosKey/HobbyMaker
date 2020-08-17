@@ -312,6 +312,17 @@
   }
 }
 
+.HobbiesTotal__SuccessMessage {
+  transition: 350ms ease !important;
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translate(-50%, -0%) scale(0);
+}
+
+.HobbiesTotal__SuccessMessage.active {
+  transform: translate(-50%, -0%) scale(1);
+}
 
 @media screen and (max-width: 767px) {
   .pagination li {

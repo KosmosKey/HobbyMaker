@@ -24,6 +24,8 @@ const User = new Schema({
     default: Date.now,
   },
   items: [{ type: mongoose.Schema.Types.ObjectId, ref: "Todo" }],
+  badItems: [{ type: mongoose.Schema.Types.ObjectId, ref: "Bad" }],
+  goodItems: [{ type: mongoose.Schema.Types.ObjectId, ref: "Good" }],
 });
 
 module.exports = mongoose.model("User", User);

@@ -23,6 +23,7 @@ import { connect } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import GoodModal from "./Modal/GoodModal/GoodModal";
 import EditModal from "./Modal/EditModal/EditModal";
+import Alert from "@material-ui/lab/Alert";
 
 const TotalHobbies = forwardRef(
   ({ auth, hobbies, updateHobby, deleteHobby }, ref) => {
@@ -33,6 +34,7 @@ const TotalHobbies = forwardRef(
     const [openEditModal, setOpenEditModal] = useState(false);
     const [_id, set_Id] = useState(null);
     const [goodModal] = useState(false);
+    const [successEditMessage, setSuccessEditMessage] = useState(false);
     const [hobbyValue, setHobbyValue] = useState("");
     const [hobbyName, setHobbyName] = useState("");
     const [hobbyDesc, setHobbyDesc] = useState("");
@@ -86,9 +88,8 @@ const TotalHobbies = forwardRef(
     };
 
     const submitForm = (e) => {
-      if (!hobbyValue || !hobbyName) {
-        e.preventDefault();
-      }
+      e.preventDefault();
+
       const valueUpdateItem = {
         name: hobbyName,
         number: hobbyValue,
@@ -96,6 +97,11 @@ const TotalHobbies = forwardRef(
       };
 
       updateHobby(_id, valueUpdateItem);
+      closeModal();
+      setSuccessEditMessage(true);
+      setTimeout(() => {
+        setSuccessEditMessage(false);
+      }, 2000);
     };
 
     const onChangeValue = (e) => {
@@ -239,7 +245,7 @@ const TotalHobbies = forwardRef(
                         variant="contained"
                         className="TotalHobbies__FirstButton"
                       >
-                        Went Bad{" "}
+                        Went Bad
                         <MoodBadIcon className="TotalHobbies__BadMoodIcon" />
                       </Button>
                     </div>
@@ -267,6 +273,15 @@ const TotalHobbies = forwardRef(
             )}
           </div>
         </div>
+        <Alert
+          variant="filled"
+          severity="success"
+          className={`HobbiesTotal__SuccessMessage ${
+            successEditMessage && "active"
+          }`}
+        >
+          You have successfully edited your hobby!
+        </Alert>
       </Container>
     );
   }

@@ -53,18 +53,11 @@ export const errorUpdateHobby = (message, status) => {
 };
 
 export const updateHobby = (id, body) => (dispatch) => {
-  axios
-    .put(`http://localhost:5000/api/user/${id}`, body)
-    .then((res) => {
-      dispatch({
-        type: UPDATE_SUCCESS,
-        payload: res.data,
-      });
-      dispatch(clearErrorUpdateHobby());
-    })
-    .catch((err) => {
-      dispatch(
-        errorUpdateHobby(err.response.data.message, err.response.status)
-      );
+  axios.put(`http://localhost:5000/api/user/${id}`, body).then((res) => {
+    dispatch({
+      type: UPDATE_SUCCESS,
+      payload: res.data,
     });
+    console.log(res.data);
+  });
 };
