@@ -5,7 +5,6 @@ import Select from "@material-ui/core/Select";
 import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import MenuItem from "@material-ui/core/MenuItem";
-import InputLabel from "@material-ui/core/InputLabel";
 import "./Modal.scss";
 import { connect } from "react-redux";
 import CloseIcon from "@material-ui/icons/Close";

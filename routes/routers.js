@@ -123,7 +123,7 @@ router.post("/Todo", auth, (req, res, next) => {
 
 router.get("/Todo", auth, (req, res, next) => {
   User.findById(req.user.id)
-    .populate("items")
+    .populate({ path: "items", options: { sort: { date: -1 } } })
     .then((todo) => res.json(todo.items));
 });
 

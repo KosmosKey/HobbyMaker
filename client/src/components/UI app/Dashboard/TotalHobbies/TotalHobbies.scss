@@ -177,9 +177,6 @@
   }
 }
 
-
-
-
 .TotalHobbies__PopOverEdit {
   .TotalHobbies__IconButtonEdit {
     background: #7733ff;
@@ -207,9 +204,8 @@
 }
 
 .TotalHobbies__PopOverTrash {
-
   .TotalHobbies__IconButtonTrash {
-    background: #C55C58;
+    background: #c55c58;
     border-radius: 0px !important;
     padding: 15px 30px;
     text-align: center !important;
@@ -217,7 +213,7 @@
 
   .TotalHobbies__IconButtonTrash:hover,
   p:hover {
-    background: #C55C58 !important;
+    background: #c55c58 !important;
   }
 
   .DeletePopover__ {
@@ -231,7 +227,6 @@
     color: #ffff;
   }
 }
-
 
 .TotalHobbies__Text {
   width: 100%;
@@ -316,6 +311,7 @@
     top: 0 !important;
   }
 }
+
 
 @media screen and (max-width: 767px) {
   .pagination li {

@@ -42,9 +42,7 @@ export const addHobby = (value) => (dispatch, getState) => {
         type: ADD_HOBBY,
         payload: res.data,
       });
-      console.log(res.data);
-    })
-    .catch((err) => console.log(err));
+    });
 };
 
 export const errorUpdateHobby = (message, status) => {
