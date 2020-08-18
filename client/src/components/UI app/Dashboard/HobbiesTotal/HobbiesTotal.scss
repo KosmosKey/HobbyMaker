@@ -15,17 +15,23 @@ body,
   }
 
   .HobbieTotal__ChartJS {
+    display: flex !important;
+    justify-content: center !important;
     background: white;
     border-radius: 5px;
     padding: 30px 15px;
+    color: rgb(102, 58, 189);
   }
 
   .HomeTotal__ChartJSTwo {
+    display: flex !important;
+    justify-content: center !important;
     background: white;
     padding: 30px 15px;
     border-radius: 5px;
     color: rgb(102, 58, 189);
   }
+
 
   .HobbiesTotal__TotalHobbies {
     h1 {

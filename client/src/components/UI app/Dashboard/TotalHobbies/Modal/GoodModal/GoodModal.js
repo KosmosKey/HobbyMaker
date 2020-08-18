@@ -2,8 +2,10 @@ import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import Button from "@material-ui/core/Button";
+import "./GoodModal.scss";
 
-const GoodModal = ({ handleClose, open }) => {
+const GoodModal = ({ handleClose, open, hobbyValue }) => {
   return (
     <div>
       <Dialog
@@ -12,13 +14,16 @@ const GoodModal = ({ handleClose, open }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle id="alert-dialog-title" className="GoodModal__Title">
           <p>Are you sure this hobby went well?</p>
         </DialogTitle>
         <DialogActions>
-          <form>
+          <form className="GoodModal__FormSubmission">
             <h1>HOBBY</h1>
-            <button type="submit">fas</button>
+
+            <Button type="submit" color="primary">
+              Primary
+            </Button>
           </form>
         </DialogActions>
       </Dialog>

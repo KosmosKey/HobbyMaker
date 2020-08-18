@@ -329,3 +329,73 @@
     margin-top: 30px !important;
   }
 }
+
+
+@media screen and (max-width: 772px) {
+  .TotalHobbies__AddNewHobbies {
+    h4 {
+      display: none !important;
+    }
+
+    Button {
+      width: 10px !important;
+    }
+  }
+
+  .TotalHobbies__HowManyHobbies {
+    h1 {
+      span {
+        display: none !important;
+      }
+    }
+  }
+
+  .TotalHobbies__Name__Btns {
+    margin-top: 20px !important;
+  }
+
+  .TotalHobbies__FirstButton,
+  .TotalHobbies__SecondButton {
+    p {
+      display: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 546px) {
+
+  .TotalHobbies__Hobby {
+    p {
+      font-size: 15px !important;
+    }
+  }
+
+  .TotalHobbies_HeartResult,
+  .TotalHobbies__Rate,
+  .TotalHobbies__Message {
+
+    span {
+      display: none !important;
+    }
+  }
+
+  .TotalHobbies__MessageText {
+    p {
+      font-size: 15px !important;
+    }
+  }
+
+  .pagination {
+    padding-bottom: 50px !important;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .TotalHobbies__GoodMoodIcon {
+    font-size: 20px !important;
+  }
+
+  .TotalHobbies__BadMoodIcon {
+    font-size: 20px !important;
+  }
+}

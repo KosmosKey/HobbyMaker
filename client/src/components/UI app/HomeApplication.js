@@ -107,7 +107,7 @@ const HomeApplication = ({ auth, loadUser, match, isLoading, getHobbies }) => {
                 style={{ marginBottom: "2px" }}
                 className="HomeApplication__Text"
               >
-                COMPLETED
+                GOOD
               </div>
             </IconButton>
           </Link>
@@ -125,11 +125,10 @@ const HomeApplication = ({ auth, loadUser, match, isLoading, getHobbies }) => {
               <div className="HomeAppliction_IconMargin">
                 <CloseIcon className="HomeApplication__FailedIcons" />
               </div>
-              <div className="HomeApplication__Text">FAILED</div>
+              <div className="HomeApplication__Text">BAD</div>
             </IconButton>
           </Link>
         </div>
-
         <div
           style={{
             width: "100%",

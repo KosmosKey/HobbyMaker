@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import CloseIcon from "@material-ui/icons/Close";
 import { addHobby } from "../../../../../redux/actions/modalAction";
 import { Button, FormControl, TextField, IconButton } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 
 const Modal = ({ open, handleClose, addHobby }) => {
   const [option, setOption] = useState({
@@ -46,6 +47,9 @@ const Modal = ({ open, handleClose, addHobby }) => {
     if (!hobbyVal) {
       setErrorMessage("Please fill out the hobby");
     } else {
+      setHobbyVal("");
+      setDescriptionVal("");
+      setOption({ age: 1 });
       setErrorMessage("");
       addHobby(newHobby);
       handleClose();
@@ -82,7 +86,7 @@ const Modal = ({ open, handleClose, addHobby }) => {
 
       <DialogContent>
         <form onSubmit={onSubmitForm} className="Modal__Form">
-          {errorMessage && <div>{errorMessage}</div>}
+          {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
           <div className="Modal__InputFields">
             <p className="Modal__HobbyText">What hobby do you want to add?</p>
             <TextField

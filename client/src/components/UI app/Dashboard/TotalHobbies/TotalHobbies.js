@@ -33,7 +33,7 @@ const TotalHobbies = forwardRef(
     const [anchorEl, setAnchorEl] = useState(null);
     const [openEditModal, setOpenEditModal] = useState(false);
     const [_id, set_Id] = useState(null);
-    const [goodModal] = useState(false);
+    const [goodModal] = useState(true);
     const [successEditMessage, setSuccessEditMessage] = useState(false);
     const [hobbyValue, setHobbyValue] = useState("");
     const [hobbyName, setHobbyName] = useState("");
@@ -136,15 +136,15 @@ const TotalHobbies = forwardRef(
           <div className="TotalHobbies__Text">
             <div className="TotalHobbies__HowManyHobbies">
               <h1>
-                Active Hobbies&nbsp;
+                <span>Active Hobbies&nbsp;</span>
                 {hobbies.itemsLoading
                   ? "(...)"
                   : `(${hobbies.itemsHobbies.length})`}
               </h1>
             </div>
             <div className="TotalHobbies__AddNewHobbies">
-              <Button onClick={handleClick}>
-                <AddIcon /> Add Your Hobby
+              <Button onClick={handleClick} className="TotalHobbies__AddBtn">
+                <AddIcon /> <h4>Add Your Hobby</h4>
               </Button>
             </div>
           </div>
@@ -160,7 +160,14 @@ const TotalHobbies = forwardRef(
                   />
                 </div>
               ) : hobbies.itemsHobbies.length === 0 ? (
-                <p>No todos</p>
+                <h1
+                  style={{
+                    textAlign: "center",
+                    color: "#2F3179",
+                  }}
+                >
+                  You have currently no hobbies at the moment!
+                </h1>
               ) : (
                 newItemsArray.map(({ name, number, message, _id }) => (
                   <Paper
@@ -218,15 +225,23 @@ const TotalHobbies = forwardRef(
                       <div className="TotalHobbies__Hobby">
                         <div className="TotalHobbies_HeartResult">
                           <FavoriteIcon className="Heart" />
-                          <p>Your Hobby : {name}</p>
+                          <p>
+                            <span>Your Hobby : </span>
+                            {name}
+                          </p>
                         </div>
                         <div className="TotalHobbies__Rate">
                           <TrendingUpIcon className="Rate" />
-                          <p>Rate Hobby : {number}</p>
+                          <p>
+                            <span>Rate Hobby : </span>
+                            {number}
+                          </p>
                         </div>
                         <div className="TotalHobbies__Message">
                           <MessageIcon className="Rate" />
-                          <p>Your Hobby Description : </p>
+                          <p>
+                            <span>Your Hobby Description : </span>
+                          </p>
                         </div>
                         <div className="TotalHobbies__MessageText">
                           <p>{message}</p>
@@ -238,14 +253,14 @@ const TotalHobbies = forwardRef(
                         variant="contained"
                         className="TotalHobbies__SecondButton"
                       >
-                        Went Good
+                        <p>Went Good</p>
                         <MoodIcon className="TotalHobbies__GoodMoodIcon" />
                       </Button>
                       <Button
                         variant="contained"
                         className="TotalHobbies__FirstButton"
                       >
-                        Went Bad
+                        <p>Went Bad</p>
                         <MoodBadIcon className="TotalHobbies__BadMoodIcon" />
                       </Button>
                     </div>
@@ -253,23 +268,24 @@ const TotalHobbies = forwardRef(
                 ))
               )}
             </FlipMove>
-
-            {hobbies.itemsHobbies && (
-              <div className="">
-                <ReactPaginate
-                  previousLabel={"<<"}
-                  nextLabel={">>"}
-                  breakLabel={"..."}
-                  breakClassName={"break-me"}
-                  pageCount={totalValues}
-                  marginPagesDisplayed={2}
-                  pageRangeDisplayed={5}
-                  onPageChange={handlePageClick}
-                  containerClassName={"pagination"}
-                  subContainerClassName={"pages pagination"}
-                  activeClassName={"active"}
-                />
-              </div>
+            {hobbies.itemsLoading ? (
+              ""
+            ) : hobbies.itemsHobbies.length === 0 ? (
+              ""
+            ) : (
+              <ReactPaginate
+                previousLabel={"<<"}
+                nextLabel={">>"}
+                breakLabel={"..."}
+                breakClassName={"break-me"}
+                pageCount={totalValues}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"}
+              />
             )}
           </div>
         </div>

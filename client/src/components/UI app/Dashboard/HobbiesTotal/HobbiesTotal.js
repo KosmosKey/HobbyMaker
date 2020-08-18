@@ -5,16 +5,26 @@ import { Pie, Line } from "react-chartjs-2";
 import SortIcon from "@material-ui/icons/Sort";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
 import MoodIcon from "@material-ui/icons/Mood";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { motion } from "framer-motion";
 import { connect } from "react-redux";
 
 const HobbiesTotal = ({ hobbies }) => {
+  const totalHobbies = hobbies.itemsLoading
+    ? ""
+    : hobbies.itemsHobbies && hobbies.itemsHobbies.length;
+  const badHobbies = hobbies.itemsLoading
+    ? ""
+    : hobbies.badItems && hobbies.badItems.length;
+  const goodHobbies = hobbies.itemsLoading
+    ? ""
+    : hobbies.goodItems && hobbies.goodItems.length;
   const charData = {
     labels: ["Total Hobbies", "Hobbies went bad", "Hobbies went well"],
     datasets: [
       {
         label: "Population",
-        data: [5, 2, 3],
+        data: [totalHobbies, badHobbies, goodHobbies],
         backgroundColor: [
           "rgba(119, 51, 255, 1)",
           "rgb(102, 58, 189, 1)",
@@ -39,7 +49,7 @@ const HobbiesTotal = ({ hobbies }) => {
                 <div className="HobbiesTotal__TotalHobbies_Text">
                   <SortIcon className="HobbiesTotal__SortIcons" />
                   {hobbies.itemsLoading ? (
-                    <h1>Loading...</h1>
+                    <CircularProgress size={50} />
                   ) : (
                     <div>
                       <h1>
@@ -63,7 +73,7 @@ const HobbiesTotal = ({ hobbies }) => {
                 <div className="HobbiesTotal__HobbiesWentWellText">
                   <MoodIcon className="HobbiesTotal__HobbiesWentWellGoodIcon" />
                   {hobbies.itemsLoading ? (
-                    <h1>Loading...</h1>
+                    <CircularProgress size={50} />
                   ) : (
                     <div>
                       <h1>{hobbies.goodItems && hobbies.goodItems.length}</h1>
@@ -85,7 +95,7 @@ const HobbiesTotal = ({ hobbies }) => {
                 <div className="HobbiesTotal__HobbiesWentBadText">
                   <MoodBadIcon className="HobbiesTotal__HobbiesWentGoodIcon" />
                   {hobbies.itemsLoading ? (
-                    <h1>Loading...</h1>
+                    <CircularProgress size={50} />
                   ) : (
                     <div>
                       <h1>{hobbies.badItems && hobbies.badItems.length}</h1>
@@ -103,22 +113,42 @@ const HobbiesTotal = ({ hobbies }) => {
         <Grid container spacing={5}>
           <Grid item lg={6} md={6} sm={6}>
             <div className="HobbieTotal__ChartJS">
-              <Line
-                data={charData}
-                width={50}
-                height={350}
-                options={{ maintainAspectRatio: false, responsive: true }}
-              />
+              {hobbies.itemsLoading ? (
+                <CircularProgress size={50} className="HomeTotal__Circel" />
+              ) : totalHobbies === 0 &&
+                badHobbies === 0 &&
+                goodHobbies === 0 ? (
+                <h1 style={{ textAlign: "center" }}>
+                  Add hobbies to see result!
+                </h1>
+              ) : (
+                <Line
+                  data={charData}
+                  width={50}
+                  height={350}
+                  options={{ maintainAspectRatio: false, responsive: true }}
+                />
+              )}
             </div>
           </Grid>
           <Grid item lg={6} md={6} sm={6}>
             <div className="HomeTotal__ChartJSTwo">
-              <Pie
-                data={charData}
-                width={50}
-                height={350}
-                options={{ maintainAspectRatio: false, responsive: true }}
-              />
+              {hobbies.itemsLoading ? (
+                <CircularProgress size={50} className="HomeTotal__Circel" />
+              ) : totalHobbies === 0 &&
+                badHobbies === 0 &&
+                goodHobbies === 0 ? (
+                <h1 style={{ textAlign: "center" }}>
+                  Add hobbies to see result!
+                </h1>
+              ) : (
+                <Pie
+                  data={charData}
+                  width={50}
+                  height={350}
+                  options={{ maintainAspectRatio: false, responsive: true }}
+                />
+              )}
             </div>
           </Grid>
         </Grid>
