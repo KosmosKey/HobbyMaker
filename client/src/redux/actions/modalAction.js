@@ -5,6 +5,7 @@ import {
   CLEAR_ERRORS,
   DELETE_ITEM,
   ADD_HOBBY,
+  ADD_GOOD_HOBBY,
 } from "./modalTypes";
 
 export const clearErrorUpdateHobby = () => {
@@ -58,6 +59,27 @@ export const updateHobby = (id, body) => (dispatch) => {
       type: UPDATE_SUCCESS,
       payload: res.data,
     });
-    console.log(res.data);
   });
+};
+
+export const addGoodHobby = (value) => (dispatch, getState) => {
+  const token = getState().auth.token;
+
+  const config = {
+    headers: {
+      "Content-type": "application/json",
+    },
+  };
+
+  if (token) {
+    config.headers["x-auth-token"] = token;
+  }
+  axios
+    .post("http://localhost:5000/api/user/Good", value, config)
+    .then((res) => {
+      dispatch({
+        type: ADD_GOOD_HOBBY,
+        payload: res.data,
+      });
+    });
 };

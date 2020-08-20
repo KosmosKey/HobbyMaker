@@ -1,5 +1,10 @@
 import { GET_HOBBIES } from "../actions/Types";
-import { UPDATE_SUCCESS, DELETE_ITEM, ADD_HOBBY } from "../actions/modalTypes";
+import {
+  UPDATE_SUCCESS,
+  DELETE_ITEM,
+  ADD_HOBBY,
+  ADD_GOOD_HOBBY,
+} from "../actions/modalTypes";
 
 const initalState = {
   itemsHobbies: null,
@@ -39,6 +44,12 @@ export default function (state = initalState, action) {
         itemsHobbies: state.itemsHobbies.filter(
           (item) => item._id !== action.payload
         ),
+      };
+
+    case ADD_GOOD_HOBBY:
+      return {
+        ...state,
+        goodItems: [...state.goodItems, action.payload],
       };
 
     default:

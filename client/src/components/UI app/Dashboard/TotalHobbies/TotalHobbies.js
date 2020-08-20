@@ -11,6 +11,7 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import MessageIcon from "@material-ui/icons/Message";
 import EditIcon from "@material-ui/icons/Edit";
 import Popover from "@material-ui/core/Popover";
+import { addGoodHobby } from "../../../.././redux/actions/modalAction";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { Container, Button, IconButton } from "@material-ui/core";
 import ReactPaginate from "react-paginate";
@@ -26,18 +27,19 @@ import EditModal from "./Modal/EditModal/EditModal";
 import Alert from "@material-ui/lab/Alert";
 
 const TotalHobbies = forwardRef(
-  ({ auth, hobbies, updateHobby, deleteHobby }, ref) => {
+  ({ auth, hobbies, updateHobby, deleteHobby, addGoodHobby }, ref) => {
     const [open, setOpen] = useState(false);
     const [offset, setOffset] = useState(0);
     const [lastPage] = useState(1);
     const [anchorEl, setAnchorEl] = useState(null);
     const [openEditModal, setOpenEditModal] = useState(false);
     const [_id, set_Id] = useState(null);
-    const [goodModal] = useState(true);
+    const [goodModal, setGoodModal] = useState(false);
     const [successEditMessage, setSuccessEditMessage] = useState(false);
     const [hobbyValue, setHobbyValue] = useState("");
     const [hobbyName, setHobbyName] = useState("");
     const [hobbyDesc, setHobbyDesc] = useState("");
+    const [goodHobbyValue, setGoodHobbyValue] = useState("");
 
     const deleteHobbyItem = (id) => {
       deleteHobby(id);
@@ -116,9 +118,33 @@ const TotalHobbies = forwardRef(
       setHobbyValue(e.target.value);
     };
 
+    const handleOpenModalGood = (name) => {
+      setGoodModal(!goodModal);
+      setGoodHobbyValue(name);
+    };
+
+    const closeModalGood = () => {
+      setGoodModal(!goodModal);
+      setGoodHobbyValue("");
+    };
+
+    const submitFormHobbyGood = (e) => {
+      e.preventDefault();
+      const newItem = {
+        name: goodHobbyValue,
+      };
+      addGoodHobby(newItem);
+      closeModalGood();
+    };
+
     return (
       <Container className="TotalHobbies">
-        <GoodModal open={goodModal} />
+        <GoodModal
+          open={goodModal}
+          hobbyValue={goodHobbyValue}
+          handleClose={closeModalGood}
+          formSubmit={submitFormHobbyGood}
+        />
         <EditModal
           open={openEditModal}
           handleClose={closeModal}
@@ -252,6 +278,7 @@ const TotalHobbies = forwardRef(
                       <Button
                         variant="contained"
                         className="TotalHobbies__SecondButton"
+                        onClick={() => handleOpenModalGood(name)}
                       >
                         <p>Went Good</p>
                         <MoodIcon className="TotalHobbies__GoodMoodIcon" />
@@ -310,6 +337,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { updateHobby, deleteHobby })(
-  TotalHobbies
-);
+export default connect(mapStateToProps, {
+  updateHobby,
+  deleteHobby,
+  addGoodHobby,
+})(TotalHobbies);

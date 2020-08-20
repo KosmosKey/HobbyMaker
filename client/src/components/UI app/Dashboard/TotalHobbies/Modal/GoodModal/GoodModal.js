@@ -1,11 +1,13 @@
 import React from "react";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
-import DialogTitle from "@material-ui/core/DialogTitle";
+import FavoriteIcon from "@material-ui/icons/Favorite";
 import Button from "@material-ui/core/Button";
+import CancelIcon from "@material-ui/icons/Cancel";
 import "./GoodModal.scss";
+import { IconButton } from "@material-ui/core";
 
-const GoodModal = ({ handleClose, open, hobbyValue }) => {
+const GoodModal = ({ handleClose, open, hobbyValue, formSubmit }) => {
   return (
     <div>
       <Dialog
@@ -14,15 +16,19 @@ const GoodModal = ({ handleClose, open, hobbyValue }) => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title" className="GoodModal__Title">
-          <p>Are you sure this hobby went well?</p>
-        </DialogTitle>
+        <IconButton className="GoodModal__CloseIcon" onClick={handleClose}>
+          <CancelIcon className="CloseIcon" />
+        </IconButton>
+        <div className="GoodModal__Title">
+          <p>Are you sure this hobby went well ?</p>
+        </div>
         <DialogActions>
-          <form className="GoodModal__FormSubmission">
-            <h1>HOBBY</h1>
-
-            <Button type="submit" color="primary">
-              Primary
+          <form onSubmit={formSubmit} className="GoodModal__FormSubmission">
+            <h1>
+              <FavoriteIcon /> {hobbyValue}
+            </h1>
+            <Button type="submit" color="primary" className="GoodModal__Button">
+              SUBMIT
             </Button>
           </form>
         </DialogActions>

@@ -1,0 +1,117 @@
+.CompletedHobbies__TitleAndLength {
+    margin-top: 50px;
+
+    .CompletedHobbies__Length {
+        border-bottom: 2px solid #2F3179;
+
+        h1 {
+            padding-bottom: 20px;
+            font-size: 35px;
+            color: #2F3179;
+        }
+    }
+}
+
+.CompletedHobbies__Results {
+    margin-top: 50px;
+
+
+
+    .CompletedHobbies__div {
+        background: #fff;
+        width: 100%;
+        margin-top: 50px;
+        border-radius: 5px;
+
+        .CompletedHobbies__TextAndHeart {
+            display: flex !important;
+            align-items: center;
+            padding: 20px;
+            color: #7733FF;
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .CompletedHobbies__FavourtieIcon {
+                margin-right: 5px;
+                color: #7733FF;
+                font-size: 35px;
+            }
+        }
+
+        .CompletedHobbies__RedHeader {
+            width: 100%;
+            background: #7733FF;
+            border-radius: 5px 5px 0px 0px;
+            padding: 15px;
+            display: flex !important;
+            align-items: center !important;
+
+            .CompletedHobbies__IconGood {
+                font-size: 35px !important;
+                color: #fff;
+                margin-left: 5px !important;
+                font-weight: 800;
+            }
+
+            h1 {
+                color: #fff;
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    outline: none;
+    margin-top: 30px;
+    font-weight: 700;
+}
+
+.pagination>.active>a {
+    background-color: #7733ff;
+    border-color: #7733ff;
+    color: #fff;
+}
+
+.pagination>li>a {
+    border: 1px solid #7733ff;
+    padding: 10px 15px;
+    outline: none;
+    cursor: pointer;
+    margin-top: 50px !important;
+}
+
+.pagination>.active>a,
+.pagination>.active>span,
+.pagination>.active>a:hover,
+.pagination>.active>span:hover,
+.pagination>.active>a:focus,
+.pagination>.active>span:focus {
+    background-color: #7733ff;
+    border-color: #7733ff;
+    outline: none;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+    color: #7733ff;
+}
+
+.pagination>li:first-child>a,
+.pagination>li:first-child>span,
+.pagination>li:last-child>a,
+.pagination>li:last-child>span {
+    border-radius: unset;
+}
+
+.Completed__DivLoading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

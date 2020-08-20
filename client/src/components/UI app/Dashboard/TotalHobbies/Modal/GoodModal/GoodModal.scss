@@ -1,4 +1,6 @@
 .GoodModal__Title {
+    padding: 0px 30px;
+    padding-top: 30px;
 
     p {
         font-weight: 700 !important;
@@ -7,8 +9,51 @@
         padding-bottom: 10px !important;
         border-bottom: 2px solid #2f3179;
     }
+}
 
+.GoodModal__FormSubmission {
+    width: 100% !important;
+    padding: 0px 20px;
+
+    h1 {
+        padding: 20px 0px;
+        color: #2f3179;
+        text-align: center !important;
+    }
+
+    .GoodModal__Button {
+        width: 100% !important;
+        background: #7733ff !important;
+        color: #fff;
+        font-weight: 700;
+        font-size: 17px !important;
+        margin-top: 5px !important;
+    }
+
+
+}
+
+.GoodModal__Title {
+    margin-top: 25px !important;
+}
+
+.GoodModal__CloseIcon {
+    max-width: fit-content !important;
+    position: absolute !important;
+    top: 0px !important;
+    right: 0px !important;
+
+    .CloseIcon {
+        color: #2f3179;
+    }
+}
+
+@media screen and (max-width: 435px) {
     .GoodModal__FormSubmission {
-        
+        h1 {
+            display: flex !important;
+            justify-content: center !important;
+            font-size: 20px !important;
+        }
     }
 }
