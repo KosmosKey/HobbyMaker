@@ -4,3 +4,4 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 export const DELETE_ITEM = "DELETE_ITEM";
 export const ADD_HOBBY = "ADD_HOBBY";
 export const ADD_GOOD_HOBBY = "ADD_GOOD_HOBBY";
+export const DELETE_GOOD_HOBBY = "DELETE_GOOD_HOBBY";

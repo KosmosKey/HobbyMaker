@@ -165,4 +165,8 @@ router.get("/Todo", auth, (req, res, next) => {
     );
 });
 
+router.delete("/Good/:id", (req, res) => {
+  Good.findByIdAndDelete(req.params.id).then((item) => res.json(item));
+});
+
 module.exports = router;

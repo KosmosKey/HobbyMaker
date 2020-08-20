@@ -270,7 +270,7 @@ const TotalHobbies = forwardRef(
                           </p>
                         </div>
                         <div className="TotalHobbies__MessageText">
-                          <p>{message}</p>
+                          <p>{message || "No description were added"}</p>
                         </div>
                       </div>
                     </div>
