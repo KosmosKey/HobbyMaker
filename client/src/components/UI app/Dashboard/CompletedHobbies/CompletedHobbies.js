@@ -8,7 +8,12 @@ import ReactPaginate from "react-paginate";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { deleteGoodHobby } from "../../../../redux/actions/modalAction";
-import { Container, CircularProgress, IconButton } from "@material-ui/core";
+import {
+  Container,
+  CircularProgress,
+  IconButton,
+  Popover,
+} from "@material-ui/core";
 import InfoIcon from "@material-ui/icons/Info";
 import { connect } from "react-redux";
 
@@ -17,6 +22,7 @@ const CompletedHobbies = forwardRef(({ hobbies, deleteGoodHobby }, ref) => {
   const [lastPage] = useState(2);
   const [popover, setPopover] = useState(false);
   const [_idPopover, set_IdPopover] = useState();
+  const [anchorEl, setAnchorEl] = useState(null);
   const newArrayBadHobbies =
     hobbies.goodItems && hobbies.goodItems.slice(offset, offset + lastPage);
 
@@ -39,14 +45,24 @@ const CompletedHobbies = forwardRef(({ hobbies, deleteGoodHobby }, ref) => {
     setPopover(!popover);
   };
 
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handlePopoverOpen = (e) => {
+    setAnchorEl(e.currentTarget);
+  };
+
+  const open = Boolean(anchorEl);
+
   return (
     <div>
       <Container>
         <div className="CompletedHobbies__TitleAndLength">
           <div className="CompletedHobbies__Length">
             <h1>
-              Hobbies went good{" "}
-              {hobbies.itemsLoading ? `(...)` : `(${hobbies.goodItems.length})`}{" "}
+              Hobbies went good&nbsp;
+              {hobbies.itemsLoading ? `(...)` : `(${hobbies.goodItems.length})`}
             </h1>
           </div>
         </div>
@@ -91,6 +107,34 @@ const CompletedHobbies = forwardRef(({ hobbies, deleteGoodHobby }, ref) => {
                     <div className="CompletedHobbies__TextAndHeart">
                       <FavoriteIcon className="CompletedHobbies__FavourtieIcon" />
                       <h1>{name}</h1>
+                    </div>
+                    <div className="CompletedHobbies__InformationIcon">
+                      <InfoIcon
+                        className="CompletedHobbies__Info_Icon"
+                        aria-owns={open ? "mouse-over-popover" : undefined}
+                        onMouseEnter={handlePopoverOpen}
+                      />
+                      <Popover
+                        id="mouse-over-popover"
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handlePopoverClose}
+                        anchorOrigin={{
+                          vertical: "bottom",
+                          horizontal: "center",
+                        }}
+                        transformOrigin={{
+                          vertical: "top",
+                          horizontal: "center",
+                        }}
+                      >
+                        <div className="CompletedHobbies__DivPopOver">
+                          <p className="Paragraph_InfoPopOver">
+                            Good Job!
+                            <br /> This hobby <br /> went well :)
+                          </p>
+                        </div>
+                      </Popover>
                     </div>
                   </Paper>
                 );
