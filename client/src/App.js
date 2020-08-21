@@ -14,7 +14,7 @@ function App({ auth, loadUser }) {
     <div className="App">
       {isAuthenticated ? "" : <NavigationBar />}
       {isAuthenticated ? (
-        <Redirect to={{ pathname: "/User/Completed" }} />
+        <Redirect to={{ pathname: "/User/Failed" }} />
       ) : (
         <Redirect to={{ pathname: "/" }} />
       )}

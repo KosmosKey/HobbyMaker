@@ -1,0 +1,107 @@
+.FailedHobbies__ {
+    margin-top: 50px !important;
+
+    .FailedHobbies__Text {
+        h1 {
+            font-size: 35px !important;
+            color: #2F3179;
+            border-bottom: 2px solid #2F3179;
+            padding-bottom: 20px;
+        }
+    }
+
+    .FailedHobbies__Result {
+        margin-top: 50px;
+
+    }
+
+    .FailedHobbies__TextAndBadMood {
+        display: flex !important;
+        align-items: center !important;
+        position: relative;
+
+        .BadMood_Icon {
+            font-size: 35px !important;
+            margin-left: 5px;
+        }
+    }
+
+    .FailedHobbies__TextAndBadMood {
+        background: #FF5252;
+        color: #fff;
+        width: 100%;
+        border-radius: 5px 5px 0px 0px;
+        padding: 15px;
+
+        h1 {
+            font-size: 30px;
+        }
+    }
+
+    .FailedHobbies__DotsIcon {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+
+
+    .FailedHobbies__DotsButton {
+
+        .Dots__Icon {
+            font-size: 35px !important;
+            color: #fff;
+        }
+    }
+
+    .FailedHobbies__BadHobbies {
+        padding: 15px;
+    }
+
+
+    .FailedHobbies__PopOver {
+        position: relative;
+
+        .FailedHobbies__DeleteButton {
+            width: 100%;
+            background: #7733FF !important;
+            border-radius: 5px !important;
+            transition: 250ms ease !important;
+            padding: 10px 20px !important;
+            box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
+            border: 1px solid #fff !important;
+            opacity: 0;
+
+
+            p {
+                font-size: 15px;
+                color: #fff;
+                font-weight: 700;
+            }
+
+            .IconButton_IconDelete {
+                color: #fff;
+            }
+        }
+
+        .FailedHobbies__DeleteButton.active {
+            opacity: 1;
+        }
+    }
+
+    .FailedHobbies__TextAndIconCroos {
+        display: flex;
+        align-items: center;
+
+        h1 {
+            color: #FF5252;
+            font-size: 30px;
+        }
+
+        .CloseIcon__ {
+            color: #FF5252;
+            font-size: 35px;
+            margin-right: 5px;
+        }
+    }
+}
