@@ -61,7 +61,7 @@ const CompletedHobbies = forwardRef(({ hobbies, deleteGoodHobby }, ref) => {
         <div className="CompletedHobbies__TitleAndLength">
           <div className="CompletedHobbies__Length">
             <h1>
-              Hobbies went good&nbsp;
+              <span>Hobbies went good&nbsp;</span>
               {hobbies.itemsLoading ? `(...)` : `(${hobbies.goodItems.length})`}
             </h1>
           </div>

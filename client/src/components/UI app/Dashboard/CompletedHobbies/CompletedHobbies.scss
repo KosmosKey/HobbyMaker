@@ -182,8 +182,6 @@
     bottom: 5px;
     right: 5px;
     font-size: 30px;
-
-
 }
 
 .Paragraph_InfoPopOver {
@@ -203,4 +201,51 @@
 
 .CompletedHobbies__Popover .IconButton__DeleteIcon.active {
     opacity: 1;
+}
+
+
+@media screen and (max-width: 669px) {
+    .CompletedHobbies__RedHeader {
+        h1 {
+            display: none !important;
+        }
+    }
+
+
+
+    .IconButton__DeleteIcon {
+        p {
+            display: none !important;
+        }
+    }
+
+    .CompletedHobbies__Length {
+        h1 {
+            font-size: 30px !important;
+        }
+    }
+
+    .CompletedHobbies__TextAndHeart {
+        padding-bottom: 30px !important;
+
+        .CompletedHobbies__FavourtieIcon {
+            font-size: 25px !important;
+        }
+
+        h1 {
+            font-size: 25px !important;
+        }
+    }
+
+    .CompletedHobbies__InformationIcon {
+        bottom: 0 !important;
+    }
+}
+
+@media screen and (max-width: 557px) {
+    .CompletedHobbies__Length {
+        span {
+            display: none !important;
+        }
+    }
 }
