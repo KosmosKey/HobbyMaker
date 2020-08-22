@@ -8,6 +8,7 @@ import {
   ADD_GOOD_HOBBY,
   DELETE_GOOD_HOBBY,
   ADD_BAD_HOBBY,
+  DELETE_BAD_HOBBY,
 } from "./modalTypes";
 
 export const clearErrorUpdateHobby = () => {
@@ -95,11 +96,34 @@ export const deleteGoodHobby = (id) => (dispatch) => {
   });
 };
 
-export const addBadHobbyList = (value) => (dispatch) => {
-  axios.post(`http://localhost:5000/api/user/Bad`, value).then((res) => {
+export const addBadHobbyList = (value) => (dispatch, getState) => {
+  const token = getState().auth.token;
+
+  const config = {
+    headers: {
+      "Content-type": "application/json",
+    },
+  };
+
+  if (token) {
+    config.headers["x-auth-token"] = token;
+  }
+
+  axios
+    .post(`http://localhost:5000/api/user/Bad`, value, config)
+    .then((res) => {
+      dispatch({
+        type: ADD_BAD_HOBBY,
+        payload: res.data,
+      });
+    });
+};
+
+export const deleteBadHobby = (id) => (dispatch) => {
+  axios.delete(`http://localhost:5000/api/user/Bad/${id}`).then((res) => {
     dispatch({
-      type: ADD_BAD_HOBBY,
-      payload: res.data,
+      type: DELETE_BAD_HOBBY,
+      payload: id,
     });
   });
 };

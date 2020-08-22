@@ -6,6 +6,7 @@ import {
   ADD_GOOD_HOBBY,
   DELETE_GOOD_HOBBY,
   ADD_BAD_HOBBY,
+  DELETE_BAD_HOBBY,
 } from "../actions/modalTypes";
 
 const initalState = {
@@ -66,6 +67,12 @@ export default function (state = initalState, action) {
       return {
         ...state,
         badItems: [action.payload, ...state.badItems],
+      };
+
+    case DELETE_BAD_HOBBY:
+      return {
+        ...state,
+        badItems: state.badItems.filter((item) => item._id !== action.payload),
       };
 
     default:

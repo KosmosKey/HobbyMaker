@@ -50,6 +50,12 @@
         margin-bottom: 10px !important;
         margin-top: 5px !important;
     }
+}
 
-
+@media screen and (max-width: 457px) {
+    .BadModal__FormSubmission {
+        h1 {
+            font-size: 25px;
+        }
+    }
 }

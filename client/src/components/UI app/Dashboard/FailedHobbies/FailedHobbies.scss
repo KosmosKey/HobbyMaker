@@ -41,7 +41,8 @@
     .FailedHobbies__DotsIcon {
         position: absolute;
         top: 0;
-        right: 0;
+        right: 5px;
+        width: 125px;
     }
 
 
@@ -55,8 +56,13 @@
     }
 
     .FailedHobbies__BadHobbies {
-        padding: 15px;
+        padding: 20px 15px;
     }
+
+    .CompletedHobbies__Info_Icon {
+        color: #FF5252;
+    }
+
 
 
     .FailedHobbies__PopOver {
@@ -64,14 +70,15 @@
 
         .FailedHobbies__DeleteButton {
             width: 100%;
-            background: #7733FF !important;
+            background: #FF5252 !important;
             border-radius: 5px !important;
+            position: absolute;
+            top: -10px;
+            opacity: 0;
             transition: 250ms ease !important;
             padding: 10px 20px !important;
             box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
             border: 1px solid #fff !important;
-            opacity: 0;
-
 
             p {
                 font-size: 15px;
@@ -103,5 +110,77 @@
             font-size: 35px;
             margin-right: 5px;
         }
+    }
+}
+
+.FailedHobbies__LoadingDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.FailedHobbies__Paper {
+    margin-top: 50px;
+    position: relative;
+}
+
+.FailedHobbies__PopOver {
+    .Info__Icon {
+        color: #FF5252;
+    }
+}
+
+.FailedHobbies__Background {
+    background: #FF5252 !important;
+    color: #fff !important;
+    font-weight: 700;
+    text-align: center !important;
+}
+
+@media screen and (max-width: 687px) {
+    .FailedHobbies__DotsIcon {
+        width: none !important;
+        right: -30px !important;
+    }
+
+    .FailedHobbies__PopOver {
+        width: 50px;
+
+        p {
+            display: none !important;
+        }
+
+    }
+
+    .FailedHobbies__DeleteButton {
+        right: -40px !important;
+    }
+
+    .FailedHobbies__TextAndBadMood {
+        h1 {
+            display: none !important;
+        }
+    }
+
+    .FailedHobbies__Text {
+        span {
+            display: none !important;
+        }
+    }
+}
+
+@media screen and (max-width: 483px) {
+    .FailedHobbies__TextAndIconCroos {
+        margin-bottom: 20px !important;
+    }
+
+    .FailedHobbies__BadHobbies {
+        h1 {
+            font-size: 25px !important;
+        }
+    }
+
+    .CloseIcon__ {
+        font-size: 30px !important;
     }
 }

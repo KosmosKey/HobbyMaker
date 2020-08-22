@@ -169,4 +169,8 @@ router.delete("/Good/:id", (req, res) => {
   Good.findByIdAndDelete(req.params.id).then((item) => res.json(item));
 });
 
+router.delete("/Bad/:id", (req, res) => {
+  Bad.findByIdAndDelete(req.params.id).then((item) => res.json(item));
+});
+
 module.exports = router;

@@ -31,7 +31,10 @@ import Alert from "@material-ui/lab/Alert";
 import BadModal from "./Modal/BadModal/BadModal";
 
 const TotalHobbies = forwardRef(
-  ({ auth, hobbies, updateHobby, deleteHobby, addGoodHobby }, ref) => {
+  (
+    { hobbies, updateHobby, deleteHobby, addGoodHobby, addBadHobbyList },
+    ref
+  ) => {
     const [open, setOpen] = useState(false);
     const [offset, setOffset] = useState(0);
     const [lastPage] = useState(1);
@@ -151,12 +154,22 @@ const TotalHobbies = forwardRef(
       setBadModalNameValue(name);
     };
 
+    const onSubmitBadHobby = (e) => {
+      e.preventDefault();
+      const badHobbyValue = {
+        name: badModalNameValue,
+      };
+      addBadHobbyList(badHobbyValue);
+      onOpenBadModal();
+    };
+
     return (
       <Container className="TotalHobbies">
         <BadModal
           open={badModal}
           handleClose={onOpenBadModal}
           nameValue={badModalNameValue}
+          formSubmit={onSubmitBadHobby}
         />
         <GoodModal
           open={goodModal}
@@ -353,7 +366,6 @@ const TotalHobbies = forwardRef(
 const mapStateToProps = (state) => {
   return {
     hobbies: state.hobbies,
-    auth: state.auth,
   };
 };
 
