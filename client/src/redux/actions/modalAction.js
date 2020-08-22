@@ -7,6 +7,7 @@ import {
   ADD_HOBBY,
   ADD_GOOD_HOBBY,
   DELETE_GOOD_HOBBY,
+  ADD_BAD_HOBBY,
 } from "./modalTypes";
 
 export const clearErrorUpdateHobby = () => {
@@ -90,6 +91,15 @@ export const deleteGoodHobby = (id) => (dispatch) => {
     dispatch({
       type: DELETE_GOOD_HOBBY,
       payload: id,
+    });
+  });
+};
+
+export const addBadHobbyList = (value) => (dispatch) => {
+  axios.post(`http://localhost:5000/api/user/Bad`, value).then((res) => {
+    dispatch({
+      type: ADD_BAD_HOBBY,
+      payload: res.data,
     });
   });
 };

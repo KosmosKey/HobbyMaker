@@ -5,3 +5,4 @@ export const DELETE_ITEM = "DELETE_ITEM";
 export const ADD_HOBBY = "ADD_HOBBY";
 export const ADD_GOOD_HOBBY = "ADD_GOOD_HOBBY";
 export const DELETE_GOOD_HOBBY = "DELETE_GOOD_HOBBY";
+export const ADD_BAD_HOBBY = "ADD_BAD_HOBBY";
