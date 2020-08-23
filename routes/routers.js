@@ -66,7 +66,9 @@ router.post("/Login", (req, res) => {
         email: user.email,
       };
 
-      const token = jwt.sign(payload, process.env.JWT_SECRET);
+      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "1m",
+      });
 
       res.json({
         token,
