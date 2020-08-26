@@ -4,6 +4,7 @@ import {
   LOGIN_SUCCESS,
   LOADED_USERNAME,
   GET_HOBBIES,
+  // REFRESH_TOKEN
 } from "./Types";
 import { REGISTRATION_SUCCESS } from "./Types";
 import {
@@ -61,6 +62,27 @@ export const registerUser = (config) => (dispatch) => {
     });
 };
 
+// export const refreshToken = () => (dispatch, getState) => {
+//   const token = getState().auth.refreshToken;
+//   const config = {
+//     headers: {
+//       "Content-type": "application/json",
+//     },
+//   };
+//   if (token) {
+//     config.headers["x-refresh-token"] = token;
+//   }
+
+//   axios
+//     .get("http://localhost:5000/api/user/refreshToken", config)
+//     .then((res) => {
+//       dispatch({
+//         type: REFRESH_TOKEN,
+//         payload: res.data,
+//       });
+//     });
+// };
+
 export const loadUser = () => (dispatch, getState) => {
   const token = getState().auth.token;
 
@@ -74,13 +96,18 @@ export const loadUser = () => (dispatch, getState) => {
     config.headers["x-auth-token"] = token;
   }
 
-  axios.get("http://localhost:5000/api/user", config).then((res) => {
-    dispatch({
-      type: LOADED_USERNAME,
-      payload: res.data,
+  axios
+    .get("http://localhost:5000/api/user", config)
+    .then((res) => {
+      dispatch({
+        type: LOADED_USERNAME,
+        payload: res.data,
+      });
+      dispatch(getHobbies());
+    })
+    .catch((err) => {
+      console.log(err);
     });
-    dispatch(getHobbies());
-  });
 };
 
 export const loggedUser = (user) => (dispatch) => {

@@ -7,7 +7,6 @@ const jwt = require("jsonwebtoken");
 const auth = require("../middleware/Auth");
 const bcrypt = require("bcryptjs");
 const Todo = require("../models/Todo");
-const { findById } = require("../models/User");
 require("dotenv").config();
 
 router.get("/", auth, (req, res) => {
@@ -66,12 +65,20 @@ router.post("/Login", (req, res) => {
         email: user.email,
       };
 
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
-        expiresIn: "1m",
-      });
+      // const refreshPayload = {
+      //   id: user._id,
+      // };
+
+      const token = jwt.sign(payload, process.env.JWT_SECRET);
+
+      // const refreshToken = jwt.sign(
+      //   refreshPayload,
+      //   process.env.JWT_REFRESH_TOKEN
+      // );
 
       res.json({
         token,
+        // refreshToken,
         user: {
           id: user.id,
           first_name: user.first_name,
@@ -81,6 +88,29 @@ router.post("/Login", (req, res) => {
       });
     });
   });
+});
+
+router.get("/refreshToken", (req, res) => {
+  const tokenHeader = req.header("x-refresh-token");
+  if (!tokenHeader)
+    return res.status(400).json({ message: "Could not verify header" });
+  const verify = jwt.verify(tokenHeader, process.env.JWT_REFRESH_TOKEN);
+  if (!verify)
+    return res.status(400).json({ message: "Could not verify the token" });
+  User.findById(verify.id)
+    .then((user) => {
+      const payload = {
+        id: user._id,
+        first_name: user.first_name,
+        last_name: user.last_name,
+        email: user.email,
+      };
+      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "5s",
+      });
+      res.json({ token });
+    })
+    .catch((err) => console.log(err));
 });
 
 router.delete("/:id", (req, res) => {
@@ -107,7 +137,7 @@ router.get("/UserFind", (req, res) => {
     .then((user) => res.json(user));
 });
 
-router.post("/Todo", auth, (req, res, next) => {
+router.post("/Todo", auth, (req, res) => {
   const TodoList = new Todo({
     name: req.body.name,
     number: req.body.number,
@@ -173,6 +203,12 @@ router.delete("/Good/:id", (req, res) => {
 
 router.delete("/Bad/:id", (req, res) => {
   Bad.findByIdAndDelete(req.params.id).then((item) => res.json(item));
+});
+
+router.put("/updateUser/:id", (req, res) => {
+  User.findById(req.params.id).then((user) =>
+    user.updateOne(req.body).then(res.json(user))
+  );
 });
 
 module.exports = router;

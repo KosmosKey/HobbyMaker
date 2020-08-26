@@ -14,15 +14,19 @@ import HobbiesTotal from "./Dashboard/HobbiesTotal/HobbiesTotal";
 import TotalHobbies from "./Dashboard/TotalHobbies/TotalHobbies";
 import CompletedHobbies from "./Dashboard/CompletedHobbies/CompletedHobbies";
 import FailedHobbies from "./Dashboard/FailedHobbies/FailedHobbies";
-import userSettings from "./Dashboard/Settings/userSettings";
+import UserSettings from "./Dashboard/Settings/UserSettings";
 import { Loading } from "./Dashboard/Loading/Loading";
 
-const HomeApplication = ({ auth, loadUser, match, isLoading, getHobbies }) => {
+const HomeApplication = ({ auth, loadUser, match, isLoading }) => {
   const [indexOfBtn, setIndexOfBtn] = useState(1);
 
   useEffect(() => {
     loadUser();
-  }, [loadUser]);
+  }, [loadUser, auth.token]);
+
+  // useEffect(() => {
+  //   refreshToken();
+  // }, [refreshToken, auth]);
 
   return (
     <div className="HomeApplication">
@@ -178,7 +182,7 @@ const HomeApplication = ({ auth, loadUser, match, isLoading, getHobbies }) => {
           <Route path={`${match.url}/Total`} component={TotalHobbies} />
           <Route path={`${match.url}/Completed`} component={CompletedHobbies} />
           <Route path={`${match.url}/Failed`} component={FailedHobbies} />
-          <Route path={`${match.url}/Settings`} component={userSettings} />
+          <Route path={`${match.url}/Settings`} component={UserSettings} />
         </Switch>
       </section>
     </div>

@@ -1,7 +1,75 @@
 .userSettings__ {
     margin-top: 50px;
-    background: #fff;
     border-radius: 5px;
     min-height: 90vh;
-    box-shadow: 0px 0px 10px -2px rgba(0, 0, 0, 0.75);
+    padding: 40px;
+
+    .userSettings__buttons {
+        width: fit-content !important;
+    }
+
+    .userSettings__IconsSettings {
+        display: flex;
+        margin-top: 30px;
+
+        Button {
+            display: flex !important;
+            justify-content: flex-start !important;
+            align-items: center !important;
+            border-radius: 0px !important;
+            box-shadow: none !important;
+            padding: 5px 70px 5px 10px !important;
+        }
+
+        .userSettings__AccountButton {
+            background: transparent;
+            font-size: 20px;
+            font-weight: 700;
+            color: #7733FF;
+            transition: 350ms ease-in-out !important;
+
+            .PersonIcon__ {
+                margin-bottom: 3px !important;
+                margin-right: 5px;
+            }
+        }
+
+        .userSettings__SecurityButton {
+            background: transparent;
+            font-size: 20px;
+            font-weight: 700;
+            color: #7733FF;
+            transition: 350ms ease-in-out !important;
+
+            .LockIcon__ {
+                font-size: 25px !important;
+                margin-bottom: 3px;
+                margin-right: 5px;
+            }
+        }
+
+        .userSettings__AccountButton.active {
+            background: #7733FF;
+            color: #fff;
+        }
+
+        .userSettings__SecurityButton.active {
+            background: #7733FF;
+            color: #fff;
+
+        }
+    }
+
+    .userSettings__Account {
+        margin-left: 50px;
+    }
+
+    .userSettings__Title {
+        h1 {
+            color: #2F3179;
+            font-size: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #2F3179;
+        }
+    }
 }

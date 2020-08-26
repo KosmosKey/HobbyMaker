@@ -4,10 +4,12 @@ import {
   GET_ERRORS,
   AUTH_ERROR,
   LOADED_USERNAME,
+  REFRESH_TOKEN,
 } from "../actions/Types";
 
 const initalState = {
   token: localStorage.getItem("token"),
+  // refreshToken: localStorage.getItem("refreshToken"),
   isAuthenticated: false,
   registeredSuccessful: false,
   isLoading: true,
@@ -18,10 +20,18 @@ export default function (state = initalState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
+      // localStorage.setItem("refreshToken", action.payload.refreshToken);
       return {
         ...state,
         ...action.payload,
         isAuthenticated: true,
+      };
+
+    case REFRESH_TOKEN:
+      localStorage.setItem("token", action.payload.token);
+      return {
+        ...state,
+        ...action.payload,
       };
 
     case AUTH_ERROR:
@@ -39,6 +49,7 @@ export default function (state = initalState, action) {
     case LOADED_USERNAME:
       return {
         ...state,
+        ...action.payload,
         user: action.payload,
         isLoading: false,
         isAuthenticated: true,
