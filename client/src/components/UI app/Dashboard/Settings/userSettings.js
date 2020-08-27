@@ -3,6 +3,8 @@ import "./userSettings.scss";
 import { Button } from "@material-ui/core";
 import PersonIcon from "@material-ui/icons/Person";
 import LockIcon from "@material-ui/icons/Lock";
+import AccountSettings from "./AcccountSettings/AccountSettings";
+import PrivacySettings from "./PrivacySettings/PrivacySettings";
 
 const UserSettings = () => {
   const [indexOfButton, setIndexOfButton] = useState(0);
@@ -36,7 +38,7 @@ const UserSettings = () => {
           </Button>
         </div>
         <div className="userSettings__Account">
-          <form>dd</form>
+          {indexOfButton === 0 ? <AccountSettings /> : <PrivacySettings />}
         </div>
       </div>
     </div>

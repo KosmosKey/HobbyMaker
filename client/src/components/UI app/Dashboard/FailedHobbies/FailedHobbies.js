@@ -133,8 +133,8 @@ const FailedHobbies = forwardRef(({ deleteBadHobby, hobbies }, ref) => {
                         >
                           <div className="FailedHobbies__Background">
                             <p className="Paragraph_InfoPopOver">
-                              Good Job!
-                              <br /> This hobby <br /> went well :)
+                              No Problem!
+                              <br /> Continue to <br /> explore more :)
                             </p>
                           </div>
                         </Popover>

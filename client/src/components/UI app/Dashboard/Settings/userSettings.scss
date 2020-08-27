@@ -10,23 +10,23 @@
 
     .userSettings__IconsSettings {
         display: flex;
-        margin-top: 30px;
 
-        Button {
+        .userSettings__AccountButton,
+        .userSettings__SecurityButton {
             display: flex !important;
             justify-content: flex-start !important;
             align-items: center !important;
             border-radius: 0px !important;
             box-shadow: none !important;
-            padding: 5px 70px 5px 10px !important;
+            padding: 10px 100px 10px 10px !important;
         }
 
         .userSettings__AccountButton {
             background: transparent;
             font-size: 20px;
             font-weight: 700;
-            color: #7733FF;
-            transition: 350ms ease-in-out !important;
+            color: #2F3179;
+            transition: 150ms ease-in-out !important;
 
             .PersonIcon__ {
                 margin-bottom: 3px !important;
@@ -38,7 +38,7 @@
             background: transparent;
             font-size: 20px;
             font-weight: 700;
-            color: #7733FF;
+            color: #2F3179;
             transition: 350ms ease-in-out !important;
 
             .LockIcon__ {
@@ -49,27 +49,98 @@
         }
 
         .userSettings__AccountButton.active {
-            background: #7733FF;
+            background: #2F3179;
             color: #fff;
         }
 
         .userSettings__SecurityButton.active {
-            background: #7733FF;
+            background: #2F3179;
             color: #fff;
 
         }
     }
 
     .userSettings__Account {
-        margin-left: 50px;
+        width: 100% !important;
+        min-height: 70vh;
+        padding: 20px 60px;
+        border-left: 2px solid #2F3179;
+    }
+
+    .userSettings__AccountSettingsText {
+        color: #2F3179;
+        font-size: 50px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+    }
+
+    .AccountSettings__SpanFirst {
+        font-weight: 600;
+        color: #2F3179;
+        font-size: 20px;
     }
 
     .userSettings__Title {
         h1 {
             color: #2F3179;
             font-size: 40px;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
             border-bottom: 2px solid #2F3179;
+        }
+    }
+
+    .AccountSettings__Labels {
+        margin-bottom: 5px !important;
+        font-weight: 700;
+        color: #2F3179;
+    }
+
+    .AccountSettings__Names {
+        display: flex;
+
+        .FirstName__ {
+            width: 100% !important;
+        }
+
+        .LastName__ {
+            width: 100% !important;
+        }
+
+        .TextFields__ {
+            width: 100% !important;
+            padding-right: 20px;
+        }
+
+    }
+
+    .AccountSettings__EmailInput {
+        margin-top: 40px !important;
+
+        .TextFields__ {
+            width: 100% !important;
+            padding-right: 20px;
+
+        }
+    }
+
+    .AccountSettings_ButtonSaveChanges {
+        .AccountSettings__Button {
+            background: #7733FF;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 700;
+            border-radius: 5px !important;
+            width: fit-content;
+            padding: 10px 20px;
+            margin-top: 50px;
+            border: 2px solid #EAEEF2;
+            transition: 350ms ease;
+        }
+
+        .AccountSettings__Button:hover {
+            background: #fff;
+            color: #7733FF;
+            border: 2px solid #7733FF;
         }
     }
 }
