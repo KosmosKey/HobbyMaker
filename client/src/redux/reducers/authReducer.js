@@ -5,11 +5,11 @@ import {
   AUTH_ERROR,
   LOADED_USERNAME,
   REFRESH_TOKEN,
+  UPDATED_USER,
 } from "../actions/Types";
 
 const initalState = {
   token: localStorage.getItem("token"),
-  // refreshToken: localStorage.getItem("refreshToken"),
   isAuthenticated: false,
   registeredSuccessful: false,
   isLoading: true,
@@ -20,7 +20,6 @@ export default function (state = initalState, action) {
   switch (action.type) {
     case LOGIN_SUCCESS:
       localStorage.setItem("token", action.payload.token);
-      // localStorage.setItem("refreshToken", action.payload.refreshToken);
       return {
         ...state,
         ...action.payload,
@@ -32,6 +31,17 @@ export default function (state = initalState, action) {
       return {
         ...state,
         ...action.payload,
+        user: action.payload.user,
+      };
+
+    case UPDATED_USER:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        user: null,
+        isLoading: true,
       };
 
     case AUTH_ERROR:

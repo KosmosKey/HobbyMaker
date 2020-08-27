@@ -1,18 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { TextField, Button, CircularProgress } from "@material-ui/core";
 import { connect } from "react-redux";
+import { updateUser } from "../../../../../redux/actions/actions";
+import { useHistory } from "react-router-dom";
 
-const AccountSettings = ({ auth }) => {
+const AccountSettings = ({ auth, updateUser }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
+  const [_id, setId] = useState("");
+  let history = useHistory();
 
   useEffect(() => {
     setFirstName(auth.first_name && auth.first_name);
     setLastName(auth.last_name && auth.last_name);
     setEmailAddress(auth.email && auth.email);
+    setId(auth.id && auth.id);
   }, [auth]);
-  console.log(auth);
+
+  const submitForm = (e) => {
+    e.preventDefault();
+
+    const bodyValue = {
+      first_name: firstName,
+      last_name: lastName,
+      email: emailAddress,
+    };
+
+    updateUser(_id, bodyValue);
+
+    history.push("/");
+  };
 
   return (
     <>
@@ -32,7 +50,7 @@ const AccountSettings = ({ auth }) => {
             Personal settings /
           </span>
           <h1 className="userSettings__AccountSettingsText">Account</h1>
-          <form>
+          <form onSubmit={submitForm}>
             <div className="AccountSettings__Names">
               <div className="FirstName__">
                 <p className="AccountSettings__Labels">First Name</p>
@@ -68,7 +86,9 @@ const AccountSettings = ({ auth }) => {
               />
             </div>
             <div className="AccountSettings_ButtonSaveChanges">
-              <Button className="AccountSettings__Button">Save changes</Button>
+              <Button className="AccountSettings__Button" type="Submit">
+                Save changes
+              </Button>
             </div>
           </form>
         </div>
@@ -83,4 +103,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(AccountSettings);
+export default connect(mapStateToProps, { updateUser })(AccountSettings);

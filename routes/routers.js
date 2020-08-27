@@ -64,21 +64,9 @@ router.post("/Login", (req, res) => {
         last_name: user.last_name,
         email: user.email,
       };
-
-      // const refreshPayload = {
-      //   id: user._id,
-      // };
-
       const token = jwt.sign(payload, process.env.JWT_SECRET);
-
-      // const refreshToken = jwt.sign(
-      //   refreshPayload,
-      //   process.env.JWT_REFRESH_TOKEN
-      // );
-
       res.json({
         token,
-        // refreshToken,
         user: {
           id: user.id,
           first_name: user.first_name,
@@ -90,28 +78,28 @@ router.post("/Login", (req, res) => {
   });
 });
 
-router.get("/refreshToken", (req, res) => {
-  const tokenHeader = req.header("x-refresh-token");
-  if (!tokenHeader)
-    return res.status(400).json({ message: "Could not verify header" });
-  const verify = jwt.verify(tokenHeader, process.env.JWT_REFRESH_TOKEN);
-  if (!verify)
-    return res.status(400).json({ message: "Could not verify the token" });
-  User.findById(verify.id)
-    .then((user) => {
-      const payload = {
-        id: user._id,
-        first_name: user.first_name,
-        last_name: user.last_name,
-        email: user.email,
-      };
-      const token = jwt.sign(payload, process.env.JWT_SECRET, {
-        expiresIn: "5s",
-      });
-      res.json({ token });
-    })
-    .catch((err) => console.log(err));
-});
+// router.get("/refreshToken", (req, res) => {
+//   const tokenHeader = req.header("x-refresh-token");
+//   if (!tokenHeader)
+//     return res.status(400).json({ message: "Could not verify header" });
+//   const verify = jwt.verify(tokenHeader, process.env.JWT_REFRESH_TOKEN);
+//   if (!verify)
+//     return res.status(400).json({ message: "Could not verify the token" });
+//   User.findById(verify.id)
+//     .then((user) => {
+//       const payload = {
+//         id: user._id,
+//         first_name: user.first_name,
+//         last_name: user.last_name,
+//         email: user.email,
+//       };
+//       const token = jwt.sign(payload, process.env.JWT_SECRET, {
+//         expiresIn: "5s",
+//       });
+//       res.json({ token });
+//     })
+//     .catch((err) => console.log(err));
+// });
 
 router.delete("/:id", (req, res) => {
   Todo.findByIdAndDelete(req.params.id).then((item) => {
@@ -197,6 +185,10 @@ router.get("/Todo", auth, (req, res, next) => {
     );
 });
 
+router.get("/userFindaahah", (req, res) => {
+  User.find().then((item) => res.json(item));
+});
+
 router.delete("/Good/:id", (req, res) => {
   Good.findByIdAndDelete(req.params.id).then((item) => res.json(item));
 });
@@ -206,9 +198,36 @@ router.delete("/Bad/:id", (req, res) => {
 });
 
 router.put("/updateUser/:id", (req, res) => {
-  User.findById(req.params.id).then((user) =>
-    user.updateOne(req.body).then(res.json(user))
-  );
+  User.findByIdAndUpdate(req.params.id, req.body).then((user) => {
+    User.findOne({ _id: req.params.id }).then((user) => {
+      res.json(user);
+    });
+  });
 });
+
+// router.get("/refreshToken", auth, (req, res) => {
+//   User.findById(req.user.id).then((user) => {
+//     const payload = {
+//       user: {
+//         id: user.id,
+//         first_name: user.first_name,
+//         last_name: user.last_name,
+//         email: user.email,
+//       },
+//     };
+
+//     const token = jwt.sign(payload, process.env.JWT_SECRET);
+
+//     res.json({
+//       token,
+//       user: {
+//         id: user.id,
+//         first_name: user.first_name,
+//         last_name: user.last_name,
+//         email: user.email,
+//       },
+//     });
+//   });
+// });
 
 module.exports = router;

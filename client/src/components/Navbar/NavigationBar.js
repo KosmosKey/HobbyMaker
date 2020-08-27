@@ -15,14 +15,18 @@ import ResponsiveNavigationBar from "./ResponsiveNavigationBar";
 
 const NavigationBar = ({ nav, openNavBar, closeNavBar }) => {
   const [showNav, setShowNav] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setShowNav(true);
+    } else {
+      setShowNav(false);
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        setShowNav(true);
-      } else {
-        setShowNav(false);
-      }
-    });
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const NavigationBarToggle = () => {

@@ -4,7 +4,7 @@ import {
   LOGIN_SUCCESS,
   LOADED_USERNAME,
   GET_HOBBIES,
-  // REFRESH_TOKEN
+  UPDATED_USER,
 } from "./Types";
 import { REGISTRATION_SUCCESS } from "./Types";
 import {
@@ -62,26 +62,16 @@ export const registerUser = (config) => (dispatch) => {
     });
 };
 
-// export const refreshToken = () => (dispatch, getState) => {
-//   const token = getState().auth.refreshToken;
-//   const config = {
-//     headers: {
-//       "Content-type": "application/json",
-//     },
-//   };
-//   if (token) {
-//     config.headers["x-refresh-token"] = token;
-//   }
-
-//   axios
-//     .get("http://localhost:5000/api/user/refreshToken", config)
-//     .then((res) => {
-//       dispatch({
-//         type: REFRESH_TOKEN,
-//         payload: res.data,
-//       });
-//     });
-// };
+export const updateUser = (id, body) => (dispatch) => {
+  axios
+    .put(`http://localhost:5000/api/user/updateUser/${id}`, body)
+    .then((res) => {
+      dispatch({
+        type: UPDATED_USER,
+        payload: res.data,
+      });
+    });
+};
 
 export const loadUser = () => (dispatch, getState) => {
   const token = getState().auth.token;
@@ -126,3 +116,7 @@ export const loggedUser = (user) => (dispatch) => {
       );
     });
 };
+
+// export const deleteToken = () => {
+//   localStorage.clear();
+// };
