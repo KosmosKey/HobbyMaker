@@ -143,4 +143,11 @@
             border: 2px solid #7733FF;
         }
     }
+
+    .AccountSettings__Failed {
+        position: fixed;
+        bottom: 50px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
 }

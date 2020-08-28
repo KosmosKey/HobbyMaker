@@ -5,6 +5,7 @@ import {
   LOADED_USERNAME,
   GET_HOBBIES,
   UPDATED_USER,
+  FINISHED,
 } from "./Types";
 import { REGISTRATION_SUCCESS } from "./Types";
 import {
@@ -71,6 +72,12 @@ export const updateUser = (id, body) => (dispatch) => {
         payload: res.data,
       });
     });
+};
+
+export const updateUserFalse = () => {
+  return {
+    type: FINISHED,
+  };
 };
 
 export const loadUser = () => (dispatch, getState) => {

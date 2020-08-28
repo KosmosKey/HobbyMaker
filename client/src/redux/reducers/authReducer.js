@@ -6,6 +6,7 @@ import {
   LOADED_USERNAME,
   REFRESH_TOKEN,
   UPDATED_USER,
+  FINISHED,
 } from "../actions/Types";
 
 const initalState = {
@@ -13,6 +14,7 @@ const initalState = {
   isAuthenticated: false,
   registeredSuccessful: false,
   isLoading: true,
+  updatedSuccess: false,
   user: [],
 };
 
@@ -24,6 +26,12 @@ export default function (state = initalState, action) {
         ...state,
         ...action.payload,
         isAuthenticated: true,
+      };
+
+    case FINISHED:
+      return {
+        ...state,
+        updatedSuccess: false,
       };
 
     case REFRESH_TOKEN:
@@ -42,6 +50,7 @@ export default function (state = initalState, action) {
         isAuthenticated: false,
         user: null,
         isLoading: true,
+        updatedSuccess: true,
       };
 
     case AUTH_ERROR:

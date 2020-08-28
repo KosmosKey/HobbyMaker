@@ -6,3 +6,15 @@
   padding: 0;
 }
 
+.App__UserSuccessUpdate {
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  opacity: 0;
+  transform: translate(-50%);
+  transition: 350ms ease-in-out !important;
+}
+
+.App__UserSuccessUpdate.active {
+  opacity: 1;
+}

@@ -3,12 +3,14 @@ import { TextField, Button, CircularProgress } from "@material-ui/core";
 import { connect } from "react-redux";
 import { updateUser } from "../../../../../redux/actions/actions";
 import { useHistory } from "react-router-dom";
+import Alert from "@material-ui/lab/Alert";
 
 const AccountSettings = ({ auth, updateUser }) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [_id, setId] = useState("");
+  const [error, setError] = useState("");
   let history = useHistory();
 
   useEffect(() => {
@@ -21,15 +23,20 @@ const AccountSettings = ({ auth, updateUser }) => {
   const submitForm = (e) => {
     e.preventDefault();
 
-    const bodyValue = {
-      first_name: firstName,
-      last_name: lastName,
-      email: emailAddress,
-    };
+    if (!firstName || !lastName || !emailAddress) {
+      setError("You have not filled out all the fields!");
+    } else {
+      setError("");
+      const bodyValue = {
+        first_name: firstName,
+        last_name: lastName,
+        email: emailAddress,
+      };
 
-    updateUser(_id, bodyValue);
+      updateUser(_id, bodyValue);
 
-    history.push("/");
+      history.push("/");
+    }
   };
 
   return (
@@ -91,6 +98,16 @@ const AccountSettings = ({ auth, updateUser }) => {
               </Button>
             </div>
           </form>
+
+          {error && (
+            <Alert
+              variant="filled"
+              severity="error"
+              className="AccountSettings__Failed"
+            >
+              {error}
+            </Alert>
+          )}
         </div>
       )}
     </>
