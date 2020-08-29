@@ -5,6 +5,7 @@ import errorReducer from "./errorReducer";
 import errorLoggedReducer from "./errorLoggedReducer";
 import hobbiesReducer from "./hobbiesReducer";
 import errorUpdate from "./errorHobbiesReducer";
+import errorUpdatePassword from "./errorUpdatePassword";
 
 export default combineReducers({
   nav: reducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   loggedError: errorLoggedReducer,
   hobbies: hobbiesReducer,
   hobbyErr: errorUpdate,
+  passwordErr: errorUpdatePassword,
 });

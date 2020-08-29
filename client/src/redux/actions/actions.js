@@ -15,6 +15,11 @@ import {
   clearAuthErrors,
 } from "../actions/errorActions";
 import axios from "axios";
+import {
+  UPDATE_PASSWORD,
+  ERROR_UPDATE_PASSWORD,
+  REMOVE_ERROR_UDPATE,
+} from "./modalTypes";
 
 export const openNavBar = () => {
   return {
@@ -120,6 +125,36 @@ export const loggedUser = (user) => (dispatch) => {
     .catch((err) => {
       return dispatch(
         authErrors(err.response.data.message, err.response.status)
+      );
+    });
+};
+
+export const updateErrorPassword = (message, status) => {
+  return {
+    type: ERROR_UPDATE_PASSWORD,
+    payload: { message, status },
+  };
+};
+
+export const errorUpdateRemove = () => {
+  return {
+    type: REMOVE_ERROR_UDPATE,
+  };
+};
+
+export const updateUserPassword = (id, body) => (dispatch) => {
+  axios
+    .put(`http://localhost:5000/api/user/Password/${id}`, body)
+    .then((res) => {
+      dispatch({
+        type: UPDATE_PASSWORD,
+        payload: res.data,
+      });
+      dispatch(errorUpdateRemove());
+    })
+    .catch((err) => {
+      return dispatch(
+        updateErrorPassword(err.response.data.message, err.response.status)
       );
     });
 };

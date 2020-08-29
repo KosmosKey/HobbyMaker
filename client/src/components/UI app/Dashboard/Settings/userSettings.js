@@ -7,12 +7,14 @@ import AccountSettings from "./AcccountSettings/AccountSettings";
 import PrivacySettings from "./PrivacySettings/PrivacySettings";
 
 const UserSettings = () => {
-  const [indexOfButton, setIndexOfButton] = useState(0);
+  const [indexOfButton, setIndexOfButton] = useState(1);
 
   return (
     <div className="userSettings__">
       <div className="userSettings__Title">
-        <h1>PERSONAL SETTINGS</h1>
+        <h1>
+          <span>PERSONAL</span> SETTINGS
+        </h1>
       </div>
       <div className="userSettings__IconsSettings">
         <div className="userSettings__buttons">
@@ -24,7 +26,7 @@ const UserSettings = () => {
             onClick={() => setIndexOfButton(0)}
           >
             <PersonIcon className="PersonIcon__" />
-            Account
+            <span className="Span__">Account</span>
           </Button>
           <Button
             variant="contained"
@@ -34,7 +36,7 @@ const UserSettings = () => {
             onClick={() => setIndexOfButton(1)}
           >
             <LockIcon className="LockIcon__" />
-            Security
+            <span className="Span__">Security</span>
           </Button>
         </div>
         <div className="userSettings__Account">

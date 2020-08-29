@@ -24,9 +24,6 @@ const HomeApplication = ({ auth, loadUser, match, isLoading }) => {
     loadUser();
   }, [loadUser, auth.token]);
 
-  // useEffect(() => {
-  //   refreshToken();
-  // }, [refreshToken, auth]);
 
   return (
     <div className="HomeApplication">
@@ -39,7 +36,7 @@ const HomeApplication = ({ auth, loadUser, match, isLoading }) => {
             className="HomeApplication_ProfilePicture"
           />
           <p>
-            {auth.user.first_name} {auth.user.last_name}
+            {auth?.user?.first_name} {auth?.user?.last_name}
           </p>
         </div>
         <div className="HomeApplication_Tabs">

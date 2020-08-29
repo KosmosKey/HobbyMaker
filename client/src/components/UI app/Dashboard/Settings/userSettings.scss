@@ -18,7 +18,7 @@
             align-items: center !important;
             border-radius: 0px !important;
             box-shadow: none !important;
-            padding: 10px 100px 10px 10px !important;
+            padding: 10px 100px 10px 10px;
         }
 
         .userSettings__AccountButton {
@@ -119,7 +119,6 @@
         .TextFields__ {
             width: 100% !important;
             padding-right: 20px;
-
         }
     }
 
@@ -135,6 +134,10 @@
             margin-top: 50px;
             border: 2px solid #EAEEF2;
             transition: 350ms ease;
+
+            .Icon__Save {
+                display: none;
+            }
         }
 
         .AccountSettings__Button:hover {
@@ -142,6 +145,8 @@
             color: #7733FF;
             border: 2px solid #7733FF;
         }
+
+
     }
 
     .AccountSettings__Failed {
@@ -150,4 +155,78 @@
         left: 50%;
         transform: translate(-50%, 0);
     }
+}
+
+@media screen and (max-width: 960px) {
+    .Span__ {
+        display: none !important;
+    }
+
+    .userSettings__buttons {
+        max-width: 65px !important;
+
+    }
+
+
+    .userSettings__AccountButton,
+    .userSettings__SecurityButton {
+        text-align: center !important;
+        padding: 10px 17px !important;
+    }
+
+    .AccountSettings__Names {
+        display: block !important;
+    }
+
+    .AccountSettings__Labels {
+        margin-top: 35px !important;
+    }
+
+    .AccountSettings__SpanFirst {
+        display: none !important;
+    }
+
+    .userSettings__AccountSettingsText {
+        display: none !important;
+    }
+
+    .userSettings__Account {
+        padding: 0px 20px !important;
+    }
+
+    .Save__Icon {
+        display: block !important;
+    }
+
+    .AccountSettings__Button {
+        span:nth-child(2) {
+            display: none;
+        }
+    }
+
+    .Icon__Save {
+        display: block !important;
+    }
+
+    .userSettings__Title {
+        h1 {
+            font-size: 30px !important;
+        }
+
+        span {
+            display: none !important;
+        }
+    }
+
+    .userSettings__ {
+        padding: 0px !important;
+    }
+}
+
+.Visibility__Icon {
+    position: absolute !important;
+    top: 15px !important;
+    right: 30px;
+    cursor: pointer;
+    z-index: 5;
 }

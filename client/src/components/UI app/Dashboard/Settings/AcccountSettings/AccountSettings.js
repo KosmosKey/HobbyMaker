@@ -3,6 +3,7 @@ import { TextField, Button, CircularProgress } from "@material-ui/core";
 import { connect } from "react-redux";
 import { updateUser } from "../../../../../redux/actions/actions";
 import { useHistory } from "react-router-dom";
+import SaveIcon from "@material-ui/icons/Save";
 import Alert from "@material-ui/lab/Alert";
 
 const AccountSettings = ({ auth, updateUser }) => {
@@ -87,6 +88,7 @@ const AccountSettings = ({ auth, updateUser }) => {
                 placeholder="Email address..."
                 variant="outlined"
                 className="TextFields__"
+                type="email"
                 style={{ border: "1px solid white" }}
                 value={emailAddress || ""}
                 onChange={(e) => setEmailAddress(e.target.value)}
@@ -94,7 +96,10 @@ const AccountSettings = ({ auth, updateUser }) => {
             </div>
             <div className="AccountSettings_ButtonSaveChanges">
               <Button className="AccountSettings__Button" type="Submit">
-                Save changes
+                <span className="Icon__Save">
+                  <SaveIcon className="Save__Icon" />
+                </span>
+                <span>Save changes</span>
               </Button>
             </div>
           </form>

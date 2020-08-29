@@ -78,28 +78,26 @@ router.post("/Login", (req, res) => {
   });
 });
 
-// router.get("/refreshToken", (req, res) => {
-//   const tokenHeader = req.header("x-refresh-token");
-//   if (!tokenHeader)
-//     return res.status(400).json({ message: "Could not verify header" });
-//   const verify = jwt.verify(tokenHeader, process.env.JWT_REFRESH_TOKEN);
-//   if (!verify)
-//     return res.status(400).json({ message: "Could not verify the token" });
-//   User.findById(verify.id)
-//     .then((user) => {
-//       const payload = {
-//         id: user._id,
-//         first_name: user.first_name,
-//         last_name: user.last_name,
-//         email: user.email,
-//       };
-//       const token = jwt.sign(payload, process.env.JWT_SECRET, {
-//         expiresIn: "5s",
-//       });
-//       res.json({ token });
-//     })
-//     .catch((err) => console.log(err));
-// });
+router.put("/Password/:id", (req, res) => {
+  if (!req.body.oldPassword || !req.body.password || !req.body.confirmPassword)
+    return res.status(400).json({ message: "Fill out all the fields!" });
+  User.findById(req.params.id).then((user) => {
+    bcrypt.compare(req.body.oldPassword, user.password).then((compare) => {
+      if (!compare)
+        return res
+          .status(400)
+          .json({ message: "Something went wrong. Please try again!" });
+      if (req.body.confirmPassword !== req.body.password)
+        return res
+          .status(400)
+          .json({ message: "The password did not match!" });
+      bcrypt.hash(req.body.password, 10).then((Hash) => {
+        req.body.password = Hash;
+        user.updateOne(req.body).then(res.json({ message: "Done" }));
+      });
+    });
+  });
+});
 
 router.delete("/:id", (req, res) => {
   Todo.findByIdAndDelete(req.params.id).then((item) => {
@@ -205,29 +203,8 @@ router.put("/updateUser/:id", (req, res) => {
   });
 });
 
-// router.get("/refreshToken", auth, (req, res) => {
-//   User.findById(req.user.id).then((user) => {
-//     const payload = {
-//       user: {
-//         id: user.id,
-//         first_name: user.first_name,
-//         last_name: user.last_name,
-//         email: user.email,
-//       },
-//     };
-
-//     const token = jwt.sign(payload, process.env.JWT_SECRET);
-
-//     res.json({
-//       token,
-//       user: {
-//         id: user.id,
-//         first_name: user.first_name,
-//         last_name: user.last_name,
-//         email: user.email,
-//       },
-//     });
-//   });
-// });
+router.get("/refreshToken", (req, res) => {
+  User.find().then((user) => res.json(user));
+});
 
 module.exports = router;

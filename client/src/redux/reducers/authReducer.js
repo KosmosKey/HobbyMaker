@@ -8,6 +8,7 @@ import {
   UPDATED_USER,
   FINISHED,
 } from "../actions/Types";
+import { UPDATE_PASSWORD } from "../actions/modalTypes";
 
 const initalState = {
   token: localStorage.getItem("token"),
@@ -32,6 +33,17 @@ export default function (state = initalState, action) {
       return {
         ...state,
         updatedSuccess: false,
+      };
+
+    case UPDATE_PASSWORD:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        user: null,
+        isLoading: true,
+        updatedSuccess: true,
       };
 
     case REFRESH_TOKEN:
