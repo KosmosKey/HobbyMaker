@@ -12,3 +12,4 @@ export const GET_HOBBIES = "GET_HOBBIES";
 export const REFRESH_TOKEN = "REFRESH_TOKEN";
 export const UPDATED_USER = "UPDATED_USER";
 export const FINISHED = "FINISHED";
+export const LOGOUT = "LOGOUT";

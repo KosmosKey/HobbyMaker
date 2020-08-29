@@ -7,7 +7,7 @@ import AccountSettings from "./AcccountSettings/AccountSettings";
 import PrivacySettings from "./PrivacySettings/PrivacySettings";
 
 const UserSettings = () => {
-  const [indexOfButton, setIndexOfButton] = useState(1);
+  const [indexOfButton, setIndexOfButton] = useState(0);
 
   return (
     <div className="userSettings__">

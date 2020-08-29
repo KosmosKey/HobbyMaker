@@ -7,6 +7,7 @@ import {
   REFRESH_TOKEN,
   UPDATED_USER,
   FINISHED,
+  LOGOUT,
 } from "../actions/Types";
 import { UPDATE_PASSWORD } from "../actions/modalTypes";
 
@@ -84,6 +85,16 @@ export default function (state = initalState, action) {
         user: action.payload,
         isLoading: false,
         isAuthenticated: true,
+      };
+
+    case LOGOUT:
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        user: null,
+        isLoading: true,
       };
 
     case REGISTRATION_SUCCESS:

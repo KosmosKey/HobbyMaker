@@ -29,7 +29,7 @@ function App({ auth, loadUser, updateUserFalse }) {
     <div className="App">
       {isAuthenticated ? "" : <NavigationBar />}
       {isAuthenticated ? (
-        <Redirect to={{ pathname: "/User/Settings" }} />
+        <Redirect to={{ pathname: "/User" }} />
       ) : (
         <Redirect to={{ pathname: "/" }} />
       )}

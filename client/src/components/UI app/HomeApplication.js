@@ -15,15 +15,22 @@ import TotalHobbies from "./Dashboard/TotalHobbies/TotalHobbies";
 import CompletedHobbies from "./Dashboard/CompletedHobbies/CompletedHobbies";
 import FailedHobbies from "./Dashboard/FailedHobbies/FailedHobbies";
 import UserSettings from "./Dashboard/Settings/UserSettings";
+import { logOut } from "../../redux/actions/actions";
 import { Loading } from "./Dashboard/Loading/Loading";
+import { useHistory } from "react-router-dom";
 
-const HomeApplication = ({ auth, loadUser, match, isLoading }) => {
+const HomeApplication = ({ auth, loadUser, match, isLoading, logOut }) => {
   const [indexOfBtn, setIndexOfBtn] = useState(1);
+  let history = useHistory();
 
   useEffect(() => {
     loadUser();
   }, [loadUser, auth.token]);
 
+  const logOutUser = () => {
+    logOut();
+    history.push("/");
+  };
 
   return (
     <div className="HomeApplication">
@@ -164,7 +171,7 @@ const HomeApplication = ({ auth, loadUser, match, isLoading }) => {
                 ? "HomeApplication__Logout"
                 : "HomeApplication__LogoutWhite"
             }
-            onClick={() => setIndexOfBtn(6)}
+            onClick={() => logOutUser()}
           >
             <div className="HomeAppliction_IconMargin">
               <ExitToAppIcon className="HomeApplication__LogOut" />
@@ -182,6 +189,9 @@ const HomeApplication = ({ auth, loadUser, match, isLoading }) => {
           <Route path={`${match.url}/Settings`} component={UserSettings} />
         </Switch>
       </section>
+      <section>
+        <h1>Hello</h1>
+      </section>
     </div>
   );
 };
@@ -193,4 +203,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { loadUser })(HomeApplication);
+export default connect(mapStateToProps, { loadUser, logOut })(HomeApplication);

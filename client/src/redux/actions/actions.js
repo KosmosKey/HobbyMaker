@@ -6,6 +6,7 @@ import {
   GET_HOBBIES,
   UPDATED_USER,
   FINISHED,
+  LOGOUT,
 } from "./Types";
 import { REGISTRATION_SUCCESS } from "./Types";
 import {
@@ -159,6 +160,8 @@ export const updateUserPassword = (id, body) => (dispatch) => {
     });
 };
 
-// export const deleteToken = () => {
-//   localStorage.clear();
-// };
+export const logOut = () => {
+  return {
+    type: LOGOUT,
+  };
+};
