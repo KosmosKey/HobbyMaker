@@ -88,9 +88,7 @@ router.put("/Password/:id", (req, res) => {
           .status(400)
           .json({ message: "Something went wrong. Please try again!" });
       if (req.body.confirmPassword !== req.body.password)
-        return res
-          .status(400)
-          .json({ message: "The password did not match!" });
+        return res.status(400).json({ message: "The password did not match!" });
       bcrypt.hash(req.body.password, 10).then((Hash) => {
         req.body.password = Hash;
         user.updateOne(req.body).then(res.json({ message: "Done" }));
@@ -181,10 +179,6 @@ router.get("/Todo", auth, (req, res, next) => {
         badItems: todo.badItems,
       })
     );
-});
-
-router.get("/userFindaahah", (req, res) => {
-  User.find().then((item) => res.json(item));
 });
 
 router.delete("/Good/:id", (req, res) => {

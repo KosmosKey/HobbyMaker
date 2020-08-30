@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  TextField,
-  Button,
-  CircularProgress,
-  IconButton,
-} from "@material-ui/core";
+import { TextField, Button, CircularProgress } from "@material-ui/core";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { updateUserPassword } from "../../../../../redux/actions/actions";

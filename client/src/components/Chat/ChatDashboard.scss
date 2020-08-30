@@ -1,0 +1,259 @@
+ .ChatDashobard__ {
+     display: flex;
+     justify-content: space-between;
+     background: #EAEEF2;
+     min-height: 90vh;
+
+     ::-webkit-scrollbar {
+         width: 10px;
+         background: #EAEEF2;
+     }
+
+     ::-webkit-scrollbar-track {
+         box-shadow: inset 0 0 10px #EAEEF2;
+         border-radius: 10px;
+     }
+
+     ::-webkit-scrollbar-thumb {
+         background: #7733FF;
+         border-radius: 10px;
+     }
+
+     nav {
+         background: #fff;
+         padding: 20px 40px;
+         max-width: 500px;
+
+         .ChatDashboard__Logo {
+             font-size: 20px;
+             margin-bottom: 20px;
+             color: #7733FF;
+             font-weight: bold;
+         }
+
+         .MenuBar__ {
+             font-size: 35px;
+             color: #7733FF;
+         }
+
+         .ChatDashboard__UserInfoAndProfile {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             flex-direction: column;
+             background: #f5f8fc;
+             border-radius: 25px;
+             padding: 30px 0px;
+             min-width: 250px;
+             border: 2px solid #dfe8f1;
+         }
+
+         .ChatDashobard__ProfilePicture {
+             .ChatDashboard__Avatar {
+                 background: #7733FF;
+                 padding: 55px;
+                 font-size: 40px;
+             }
+         }
+
+         .ChatDashboard__Archive {
+             .Icon__UpArrow {
+                 color: #7733FF;
+             }
+         }
+
+         .ChatDashboard__Name {
+             display: flex;
+             justify-content: space-evenly;
+             text-align: center;
+             min-width: 300px;
+             margin-top: 10px;
+             font-size: 15px;
+
+             .IconUp__ {
+                 font-size: 30px;
+                 font-weight: 700;
+                 color: #7733FF;
+             }
+
+             h1 {
+                 max-width: 200px;
+                 margin-top: 5px;
+                 font-size: 20px;
+                 color: #7733FF;
+                 font-weight: 800;
+             }
+         }
+     }
+
+     .ChatDashboard__InputField {
+         background: #fff !important;
+         width: 100%;
+         padding: 30px 10px;
+         position: absolute;
+         bottom: 0;
+
+         .InputField___ {
+             width: 100%;
+         }
+     }
+
+     .ChatDashboard__ChatSystem {
+         height: 100vh;
+         overflow: auto;
+         width: 100%;
+
+         header {
+             background: #fff;
+             padding: 20px;
+         }
+     }
+
+     .ChatDashboard__ActiveConversations {
+         margin-top: 30px;
+
+         .ChatDashobard_Text {
+             display: flex;
+             justify-content: space-between;
+
+             .First__Paragraph {
+                 color: #7733FF;
+                 font-weight: bold;
+                 font-size: 20px;
+             }
+
+             .Text__ {
+                 display: flex;
+             }
+
+             .CircleBadge__ {
+                 display: flex;
+                 justify-content: center;
+                 align-items: center;
+                 background: #dfe8f1;
+                 color: #7733FF;
+                 font-weight: bold;
+                 width: 25px;
+                 height: 25px;
+                 border-radius: 50%;
+                 margin-left: 5px;
+             }
+         }
+     }
+
+     .ChatDashboard__UserInformation {
+         background: #fff;
+         padding: 50px;
+     }
+ }
+
+ .ChatDashboard__Conversations {
+     margin-top: 20px;
+     margin-bottom: 50px;
+     overflow: auto;
+     max-height: 45vh !important;
+
+
+
+     .ChatDashboard__Conversation__Inbox {
+         display: flex;
+         align-items: center;
+         padding: 10px;
+         border-radius: 5px;
+         margin-top: 10px;
+         transition: 350ms ease;
+         margin-right: 20px;
+         cursor: pointer;
+
+
+         .ChatDashboard__Inbox__Avatars {
+             background: #7733FF;
+             font-size: 25px;
+         }
+
+         p {
+             color: #7733FF;
+             font-weight: bold;
+             max-width: 250px;
+             overflow: hidden;
+             text-overflow: ellipsis;
+             white-space: nowrap;
+             font-size: 18px;
+             margin-left: 10px;
+         }
+     }
+
+     .ChatDashboard__Conversation__Inbox:hover {
+         background: #7733FF;
+
+         .ChatDashboard__Inbox__Avatars {
+             background: #fff;
+             color: #7733FF;
+         }
+
+         p {
+             color: #fff;
+         }
+
+     }
+
+     .ChatDashboard__Conversation__Inbox.active {
+         background: #7733FF;
+         font-size: 25px;
+
+         .ChatDashboard__Inbox__Avatars {
+             background: #fff;
+             color: #7733FF;
+         }
+
+         p {
+             color: #fff;
+         }
+     }
+ }
+
+ .ChatDashboard__ChatSystem {
+     padding: 0px 30px;
+
+     .ChatDashboard__Chat__Person {
+         display: flex;
+         margin-top: 50px;
+
+         .Avatar__ {
+             margin-right: 10px;
+             padding: 30px;
+             font-size: 25px;
+             background: #7733FF;
+         }
+
+         .ChatDashboard__Paper {
+             padding: 20px;
+             max-width: 500px;
+             border-radius: 15px;
+
+             p {
+                 font-weight: bold;
+                 color: #7733FF;
+                 line-height: 1.5em;
+             }
+         }
+     }
+
+     .ChatDashboard__Chat__Person.active {
+         display: flex;
+         flex-direction: row-reverse;
+
+         .ChatDashboard__Paper {
+             background: #7733FF;
+
+             p {
+                 color: #fff;
+             }
+         }
+
+         .Avatar__ {
+             margin-right: 0px;
+             margin-left: 10px;
+         }
+     }
+ }

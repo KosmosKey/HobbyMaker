@@ -9,6 +9,7 @@ import Signup from "./components/auth/Signup";
 import HomeApplication from "./components/UI app/HomeApplication";
 import Alert from "@material-ui/lab/Alert";
 import { updateUserFalse } from "./redux/actions/actions";
+import ChatDashboard from "./components/Chat/ChatDashboard";
 
 function App({ auth, loadUser, updateUserFalse }) {
   const isAuthenticated = auth.token;
@@ -29,7 +30,7 @@ function App({ auth, loadUser, updateUserFalse }) {
     <div className="App">
       {isAuthenticated ? "" : <NavigationBar />}
       {isAuthenticated ? (
-        <Redirect to={{ pathname: "/User" }} />
+        <Redirect to={{ pathname: "/Chat" }} />
       ) : (
         <Redirect to={{ pathname: "/" }} />
       )}
@@ -38,6 +39,7 @@ function App({ auth, loadUser, updateUserFalse }) {
         <Route path="/User" component={HomeApplication} />
         <Route path="/Login" component={Login} />
         <Route path="/Register" component={Signup} />
+        <Route path="/Chat" component={ChatDashboard} />
       </Switch>
 
       <Alert

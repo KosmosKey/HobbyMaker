@@ -17,7 +17,10 @@ body {
 
     .HomeApplication_ProfilePicture {
         max-width: 100%;
-        max-height: 150px;
+        padding: 60px;
+        margin: 0 auto;
+        font-size: 50px;
+        background: #7733ff;
     }
 
     .HomeApplication_Tabs {
@@ -93,7 +96,6 @@ body {
         }
 
         .HomeApplication_ProfilePicture {
-            border-radius: 50%;
             border: 2px solid #7733ff;
         }
 
@@ -409,7 +411,7 @@ body {
     }
 
     .HomeApplication_ProfilePicture {
-        display: none;
+        display: none !important;
     }
 
     .HomeApplication__Text {
