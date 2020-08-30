@@ -1,6 +1,5 @@
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
-import Paper from "@material-ui/core";
 
 const Conversation = () => {
   return (

@@ -1,19 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ChatDashboard.scss";
 import Avatar from "@material-ui/core/Avatar";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import MenuIcon from "@material-ui/icons/Menu";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import { IconButton, Paper, TextField } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import Conversation from "./Conversation/Conversation";
 import Messages from "./Conversation/Messages";
+import UserInfo from "./Conversation/UserInfo";
+import { NavigationBar } from "./Conversation/NavigationBar/NavigationBar";
 
 const ChatDashboard = () => {
+  const [open, setOpen] = useState(false);
+
+  const toggleNavigationBar = () => {
+    setOpen(!open);
+  };
+
   return (
     <div className="ChatDashobard__">
+      <NavigationBar active={open} onChangeActive={toggleNavigationBar} />
       <nav className="ChatDashboard__SideNotificationBar">
         <div className="ChatDashboard__Logo">
-          <IconButton>
+          <IconButton onClick={toggleNavigationBar}>
             <MenuIcon className="MenuBar__" />
           </IconButton>
         </div>
@@ -40,10 +49,9 @@ const ChatDashboard = () => {
         </div>
         <Conversation />
       </nav>
-
       <Messages />
       <div className="ChatDashboard__UserInformation">
-        <h1>User Information</h1>
+        <UserInfo />
       </div>
     </div>
   );

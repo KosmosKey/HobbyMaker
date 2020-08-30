@@ -49,6 +49,7 @@
          }
 
          .ChatDashobard__ProfilePicture {
+
              .ChatDashboard__Avatar {
                  background: #7733FF;
                  padding: 55px;
@@ -143,7 +144,7 @@
 
      .ChatDashboard__UserInformation {
          background: #fff;
-         padding: 50px;
+         text-align: center !important;
      }
  }
 
@@ -152,8 +153,6 @@
      margin-bottom: 50px;
      overflow: auto;
      max-height: 45vh !important;
-
-
 
      .ChatDashboard__Conversation__Inbox {
          display: flex;
@@ -254,6 +253,182 @@
          .Avatar__ {
              margin-right: 0px;
              margin-left: 10px;
+         }
+     }
+ }
+
+ .UserInfo__UserInfo {
+     padding: 25px;
+     border-radius: 5px;
+     border: 2px solid #EAEEF2;
+ }
+
+ .ChatDashord__UserProfileAndInfo {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     padding: 30px 20px;
+
+     .ChatDasbhoard__ProfilePicture {
+         .ChatDashboard__Avatar {
+             background: #7733FF;
+             padding: 50px;
+             font-size: 40px;
+             margin: 0 auto;
+         }
+     }
+ }
+
+ .UserInfo__ProfileInformation {
+     margin-top: 5px;
+     padding: 10px;
+
+     .Mail__ {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+
+         .Mail__Icon {
+             color: #7733FF !important;
+             margin-right: 10px;
+         }
+
+         p {
+             color: #7733FF;
+             font-weight: 700;
+         }
+     }
+
+     .Username__ {
+         display: flex;
+         align-items: center;
+         margin-top: 5px;
+
+         .AccountCircle__Icon {
+             color: #7733FF !important;
+             margin-right: 10px;
+         }
+
+         p {
+             font-weight: 700;
+             color: #7733FF;
+         }
+     }
+ }
+
+ .DeleteButton {
+     margin-top: 10px;
+
+     .UserInfo__DeleteButton {
+         border: 2px solid #7733FF;
+         background: #fff;
+         border-radius: 5px !important;
+         padding: 10px 30px !important;
+         color: #7733FF;
+         font-weight: bold;
+         box-shadow: none !important;
+         transition: 350ms ease;
+     }
+
+     .DeleteIcon__ {
+         margin-right: 5px;
+     }
+
+     .UserInfo__DeleteButton:hover {
+         background: #7733FF;
+         border: 2px solid #fff;
+         color: #fff;
+     }
+ }
+
+ .UserInfo__StatiStics {
+     padding: 25px;
+     border-radius: 5px;
+     border: 2px solid #EAEEF2;
+     width: 100%;
+     margin-top: 50px;
+
+     .UserInfo__BadAndGoodHobbies {
+         display: flex;
+         justify-content: space-between;
+     }
+
+     .UserInfo__TotalHobbies {
+         background: #7733FF;
+         border-radius: 5px;
+         padding: 10px;
+
+
+         .UserInfo__TotalHobbies__Container {
+             display: flex;
+             justify-content: center;
+             align-items: center;
+
+             .Text__ {
+                 p {
+                     font-size: 17px;
+                     color: #fff;
+                     font-weight: 700;
+                 }
+             }
+         }
+
+         .Icon__ {
+             .Icon__List {
+                 font-size: 30px;
+                 margin-top: 5px;
+                 color: #fff;
+                 margin-right: 5px;
+             }
+         }
+     }
+ }
+
+ .UserInfo__BadAndGoodHobbies {
+     margin-top: 15px;
+
+     .UserInfo__GoodHobbies {
+         display: flex;
+         flex: 0.5;
+         align-items: center;
+         justify-content: center;
+         background: #7733FF;
+         padding: 5px;
+         border-radius: 5px;
+         margin-right: 5px;
+
+         .Icon__ {
+             margin-top: 5px;
+             margin-right: 5px;
+             color: #fff;
+         }
+
+         .Text__ {
+             color: #fff;
+             font-weight: 700;
+         }
+     }
+
+     .UserInfo__BadHobbies {
+         display: flex;
+         flex: 0.5;
+         align-items: center;
+         justify-content: center;
+         background: #7733FF;
+         padding: 5px;
+         border-radius: 5px;
+         margin-left: 5px;
+
+         .Icon__ {
+             margin-top: 5px;
+             margin-right: 5px;
+             color: #fff;
+         }
+
+         .Text__ {
+             color: #fff;
+             font-weight: 700;
          }
      }
  }

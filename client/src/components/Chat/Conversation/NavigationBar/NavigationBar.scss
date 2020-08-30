@@ -1,0 +1,68 @@
+.NavigationBar__ {
+    .Navigationbar__CloseIcon {
+        position: absolute;
+        left: 5px;
+        top: 0px;
+        color: white;
+    }
+}
+
+.Icon__ {
+    color: #fff;
+    margin-right: 15px;
+}
+
+
+
+.NavigationBar__Menu {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 20;
+    padding: 0;
+    background: #7733ff !important;
+    padding: 20px;
+    transform: translateX(-100%);
+    overflow: hidden;
+    transition: 250ms ease;
+
+    ul {
+        margin-top: 15px;
+
+        li {
+            list-style: none !important;
+            margin-top: 20px;
+        }
+
+        p {
+            color: #fff;
+            font-weight: bold;
+            font-size: 15px;
+        }
+    }
+}
+
+.NavigationBar__Menu.active {
+    transform: translateX(0%);
+
+}
+
+.overlay {
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.75) !important;
+    transition: 250ms ease;
+
+}
+
+.overlay.active {
+    pointer-events: all;
+    opacity: 1;
+}
