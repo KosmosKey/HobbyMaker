@@ -12,6 +12,7 @@ import { NavigationBar } from "./Conversation/NavigationBar/NavigationBar";
 
 const ChatDashboard = () => {
   const [open, setOpen] = useState(false);
+  const [openMessageMenu, setOpenMessageMenu] = useState(true);
 
   const toggleNavigationBar = () => {
     setOpen(!open);
@@ -42,12 +43,19 @@ const ChatDashboard = () => {
                 <p>4</p>
               </div>
             </div>
-            <div className="ChatDashboard__Archive">
-              <KeyboardArrowUpIcon className="Icon__UpArrow" />
+            <div
+              className="ChatDashboard__Archive"
+              onClick={() => setOpenMessageMenu(!openMessageMenu)}
+            >
+              {openMessageMenu ? (
+                <KeyboardArrowDownIcon className="Icon__UpArrow" />
+              ) : (
+                <KeyboardArrowUpIcon className="Icon__UpArrow" />
+              )}
             </div>
           </div>
         </div>
-        <Conversation />
+        {openMessageMenu ? <Conversation /> : ""}
       </nav>
       <Messages />
       <div className="ChatDashboard__UserInformation">
