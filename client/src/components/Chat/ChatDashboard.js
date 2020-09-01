@@ -11,8 +11,14 @@ import Messages from "./Conversation/Messages";
 import UserInfo from "./Conversation/UserInfo";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
 import { NavigationBar } from "./Conversation/NavigationBar/NavigationBar";
+import { General } from "./Conversation/Rooms/General";
+import { Route, Switch } from "react-router-dom";
+import TotalHobbies from "./Conversation/Rooms/TotalHobbies";
+import BadHobbies from "./Conversation/Rooms/BadHobbies";
+import GoodHobbies from "./Conversation/Rooms/GoodHobbies";
+import Other from "./Conversation/Rooms/Other";
 
-const ChatDashboard = () => {
+const ChatDashboard = ({ match }) => {
   const [open, setOpen] = useState(false);
   const [openMessageMenu, setOpenMessageMenu] = useState(true);
   const [toggleChatDashboard, setToggleChatDashboard] = useState(false);
@@ -71,6 +77,7 @@ const ChatDashboard = () => {
             <div
               className="ChatDashboard__Archive"
               onClick={() => setOpenMessageMenu(!openMessageMenu)}
+              style={{ cursor: "pointer" }}
             >
               {openMessageMenu ? (
                 <KeyboardArrowDownIcon className="Icon__UpArrow" />
@@ -86,7 +93,16 @@ const ChatDashboard = () => {
           ""
         )}
       </nav>
-      <Messages />
+      <div style={{ width: "100%", height: "100vh", position: "relative" }}>
+        <Switch>
+          <Route path={`${match.url}/General`} component={General} />
+          <Route path={`${match.url}/Total`} component={TotalHobbies} />
+          <Route path={`${match.url}/Good`} component={GoodHobbies} />
+          <Route path={`${match.url}/Bad`} component={BadHobbies} />
+          <Route path={`${match.url}/Other`} component={Other} />
+        </Switch>
+      </div>
+
       <div className="ChatDashboard__UserInformation">
         <UserInfo />
       </div>

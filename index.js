@@ -22,6 +22,7 @@ mongoose
   });
 
 app.use("/api/user", require("./routes/routers"));
+app.use("/api/user/messages", require("./routes/messageRouters"));
 
 const PORT = process.env.PORT || 5000;
 

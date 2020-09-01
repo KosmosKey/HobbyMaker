@@ -4,7 +4,7 @@ import { Paper, TextField } from "@material-ui/core";
 
 const Messages = () => {
   return (
-    <div style={{ width: "100%", height: "100vh", position: "relative" }}>
+    <div>
       <div className="ChatDashboard__ChatSystem">
         <div className="ChatDashboard__Conversation">
           <div className="ChatDashboard__Chat__Person">
@@ -105,17 +105,6 @@ const Messages = () => {
             </Paper>
           </div>
         </div>
-      </div>
-      <div className="ChatDashboard__InputField">
-        <TextField
-          id="outlined-multiline-flexible"
-          label="Enter message"
-          placeholder="Enter your message here..."
-          className="InputField___"
-          multiline
-          rowsMax={4}
-          variant="outlined"
-        />
       </div>
     </div>
   );

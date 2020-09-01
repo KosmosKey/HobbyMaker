@@ -30,7 +30,7 @@ function App({ auth, loadUser, updateUserFalse }) {
     <div className="App">
       {isAuthenticated ? "" : <NavigationBar />}
       {isAuthenticated ? (
-        <Redirect to={{ pathname: "/Chat" }} />
+        <Redirect to={{ pathname: "/Chat/General" }} />
       ) : (
         <Redirect to={{ pathname: "/" }} />
       )}

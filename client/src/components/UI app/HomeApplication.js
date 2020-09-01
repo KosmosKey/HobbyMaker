@@ -139,7 +139,7 @@ const HomeApplication = ({ auth, loadUser, match, isLoading, logOut }) => {
               <div className="HomeApplication__Text">BAD</div>
             </IconButton>
           </Link>
-          <Link to="/Chat" style={{ textDecoration: "none" }}>
+          <Link to="/Chat/General" style={{ textDecoration: "none" }}>
             <IconButton
               variant="contained"
               className={
