@@ -5,7 +5,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ListIcon from "@material-ui/icons/List";
 import MoodIcon from "@material-ui/icons/Mood";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
-import DeleteIcon from "@material-ui/icons/Delete";
+import EqualizerIcon from "@material-ui/icons/Equalizer";
 import { Button } from "@material-ui/core";
 
 const UserInfo = () => {
@@ -18,11 +18,15 @@ const UserInfo = () => {
         <div className="UserInfo__ProfileInformation">
           <div className="Mail__">
             <MailIcon className="Mail__Icon" />
-            <p>Barcaboys2002@gmail.com</p>
+            <p>
+              Barcaboys2002<span>@gmail.com</span>
+            </p>
           </div>
           <div className="Username__">
             <AccountCircleIcon className="AccountCircle__Icon" />
-            <p>Magomed Khamidov</p>
+            <p>
+              Magomed <span>Khamidov</span>
+            </p>
           </div>
         </div>
 
@@ -32,8 +36,8 @@ const UserInfo = () => {
             color="primary"
             className="UserInfo__DeleteButton"
           >
-            <DeleteIcon className="DeleteIcon__" />
-            DELETE CONVERSATION
+            <EqualizerIcon className="DeleteIcon__" />
+            VIEW&nbsp;<span className="span__">STATISTIC</span>
           </Button>
         </div>
       </div>
@@ -45,7 +49,9 @@ const UserInfo = () => {
               <ListIcon className="Icon__List" />
             </div>
             <div className="Text__">
-              <p>1300 TOTAL HOBBIES</p>
+              <p>
+                1300 <span>TOTAL HOBBIES</span>
+              </p>
             </div>
           </div>
         </div>
@@ -55,7 +61,9 @@ const UserInfo = () => {
               <MoodIcon className="Icon__List" />
             </div>
             <div className="Text__">
-              <p>50 GOOD</p>
+              <p>
+                50 <span>GOOD</span>
+              </p>
             </div>
           </div>
           <div className="UserInfo__BadHobbies">
@@ -63,7 +71,9 @@ const UserInfo = () => {
               <MoodBadIcon className="Icon__List" />
             </div>
             <div className="Text__">
-              <p>1300 BAD</p>
+              <p>
+                1300 <span>BAD</span>
+              </p>
             </div>
           </div>
         </div>

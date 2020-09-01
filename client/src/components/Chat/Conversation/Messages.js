@@ -4,7 +4,7 @@ import { Paper, TextField } from "@material-ui/core";
 
 const Messages = () => {
   return (
-    <div style={{ width: "100%", height: "90vh", position: "relative" }}>
+    <div style={{ width: "100%", height: "100vh", position: "relative" }}>
       <div className="ChatDashboard__ChatSystem">
         <div className="ChatDashboard__Conversation">
           <div className="ChatDashboard__Chat__Person">
