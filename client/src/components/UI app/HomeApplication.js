@@ -42,8 +42,9 @@ const HomeApplication = ({ auth, loadUser, match, isLoading, logOut }) => {
             variant="circle"
             style={{ marginBottom: "10px" }}
           >
-            {auth?.user?.first_name?.charAt(0) +
-              auth?.user?.last_name?.charAt(0)}
+            {`${auth?.user?.first_name?.charAt(
+              0
+            )}${auth?.user?.last_name?.charAt(0)}`}
           </Avatar>
 
           <p>

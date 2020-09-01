@@ -1,113 +1,43 @@
 import React from "react";
 import Avatar from "@material-ui/core/Avatar";
-import { Paper, TextField } from "@material-ui/core";
+import DeleteIcon from "@material-ui/icons/Delete";
+import { Paper, IconButton } from "@material-ui/core";
+import { connect } from "react-redux";
 
-const Messages = () => {
+const Messages = ({ name, message, email, auth, deleteButton }) => {
   return (
-    <div>
-      <div className="ChatDashboard__ChatSystem">
-        <div className="ChatDashboard__Conversation">
-          <div className="ChatDashboard__Chat__Person">
-            <Avatar className="Avatar__">MK</Avatar>
-            <Paper className="ChatDashboard__Paper">
-              <p>
-                Hello bill nice to meet you! Hello bill nice to meet you! Hello
-                bill nice to meet you! Hello bill nice to meet you! Hello bill
-                nice to meet you! Hello bill nice to meet you! Hello bill nice
-                to meet you! Hello bill nice to meet you! Hello bill nice to
-                meet you! Hello bill nice to meet you!
-              </p>
-            </Paper>
-          </div>
+    <div className="ChatDashboard__Conversation">
+      <div
+        className={`ChatDashboard__Chat__Person ${
+          email === auth.user.email && "active"
+        }`}
+      >
+        <Avatar className="Avatar__">{name}</Avatar>
+        <Paper className="ChatDashboard__Paper">
+          {email === auth.user.email ? (
+            <div className="Delete__">
+              <IconButton
+                style={{ fontSize: "10px", color: "#fff" }}
+                onClick={deleteButton}
+              >
+                <DeleteIcon style={{ fontSize: "15px" }} />
+              </IconButton>
+            </div>
+          ) : (
+            ""
+          )}
 
-          <div className="ChatDashboard__Chat__Person active">
-            <Avatar className="Avatar__">MK</Avatar>
-            <Paper className="ChatDashboard__Paper">
-              <p>
-                Hello bill nice to meet you! Hello bill nice to meet you! Hello
-                bill nice to meet you! Hello bill nice to meet you! Hello bill
-                nice to meet you! Hello bill nice to meet you! Hello bill nice
-                to meet you! Hello bill nice to meet you! Hello bill nice to
-                meet you!
-              </p>
-            </Paper>
-          </div>
-          <div className="ChatDashboard__Chat__Person active">
-            <Avatar className="Avatar__">MK</Avatar>
-            <Paper className="ChatDashboard__Paper">
-              <p>
-                Hello bill nice to meet you! Hello bill nice to meet you! Hello
-                bill nice to meet you! Hello bill nice to meet you! Hello bill
-                nice to meet you! Hello bill nice to meet you! Hello bill nice
-                to meet you! Hello bill nice to meet you! Hello bill nice to
-                meet you!
-              </p>
-            </Paper>
-          </div>
-          <div className="ChatDashboard__Chat__Person active">
-            <Avatar className="Avatar__">MK</Avatar>
-            <Paper className="ChatDashboard__Paper">
-              <p>
-                Hello bill nice to meet you! Hello bill nice to meet you! Hello
-                bill nice to meet you! Hello bill nice to meet you! Hello bill
-                nice to meet you! Hello bill nice to meet you! Hello bill nice
-                to meet you! Hello bill nice to meet you! Hello bill nice to
-                meet you!
-              </p>
-            </Paper>
-          </div>
-          <div className="ChatDashboard__Chat__Person active">
-            <Avatar className="Avatar__">MK</Avatar>
-            <Paper className="ChatDashboard__Paper">
-              <p>
-                Hello bill nice to meet you! Hello bill nice to meet you! Hello
-                bill nice to meet you! Hello bill nice to meet you! Hello bill
-                nice to meet you! Hello bill nice to meet you! Hello bill nice
-                to meet you! Hello bill nice to meet you! Hello bill nice to
-                meet you!
-              </p>
-            </Paper>
-          </div>
-          <div className="ChatDashboard__Chat__Person active">
-            <Avatar className="Avatar__">MK</Avatar>
-            <Paper className="ChatDashboard__Paper">
-              <p>
-                Hello bill nice to meet you! Hello bill nice to meet you! Hello
-                bill nice to meet you! Hello bill nice to meet you! Hello bill
-                nice to meet you! Hello bill nice to meet you! Hello bill nice
-                to meet you! Hello bill nice to meet you! Hello bill nice to
-                meet you!
-              </p>
-            </Paper>
-          </div>
-          <div className="ChatDashboard__Chat__Person active">
-            <Avatar className="Avatar__">MK</Avatar>
-            <Paper className="ChatDashboard__Paper">
-              <p>
-                Hello bill nice to meet you! Hello bill nice to meet you! Hello
-                bill nice to meet you! Hello bill nice to meet you! Hello bill
-                nice to meet you! Hello bill nice to meet you! Hello bill nice
-                to meet you! Hello bill nice to meet you! Hello bill nice to
-                meet you!
-              </p>
-            </Paper>
-          </div>
-          <div className="ChatDashboard__Chat__Person active">
-            <Avatar className="Avatar__">MK</Avatar>
-            <Paper className="ChatDashboard__Paper">
-              <p>
-                Hello bill nice to meet you! Hello bill nice to meet you! Hello
-                bill nice to meet you! Hello bill nice to meet you! Hello bill
-                nice to meet you! Hello bill nice to meet you! Hello bill nice
-                to meet you! Hello bill nice to meet you! Hello bill nice to
-                meet you!
-              </p>
-            </Paper>
-          </div>
-        </div>
+          <p>{message}</p>
+        </Paper>
       </div>
     </div>
   );
 };
 
-export default Messages;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps, null)(Messages);

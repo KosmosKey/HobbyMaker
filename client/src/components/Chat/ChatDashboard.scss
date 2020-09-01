@@ -1,700 +1,697 @@
 .ChatDashobard__ {
-    display: flex;
-    justify-content: space-between;
-    background: #EAEEF2;
-    min-height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  background: #eaeef2;
+  min-height: 90vh;
 
-    ::-webkit-scrollbar {
-        width: 10px;
-        background: #EAEEF2;
+  ::-webkit-scrollbar {
+    width: 10px;
+    background: #eaeef2;
+  }
+
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px #eaeef2;
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #7733ff;
+    border-radius: 10px;
+  }
+
+  .ChatDashboard__SideNotificationBar {
+    background: #fff;
+    padding: 20px 40px;
+    max-width: 500px;
+    transition: 350ms ease;
+
+    .ChatDashboard__Logo {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #7733ff;
+      font-weight: bold;
     }
 
-    ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 10px #EAEEF2;
-        border-radius: 10px;
+    .MenuBar__ {
+      font-size: 35px;
+      color: #7733ff;
     }
 
-    ::-webkit-scrollbar-thumb {
-        background: #7733FF;
-        border-radius: 10px;
+    .ChatDashboard__UserInfoAndProfile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #f5f8fc;
+      border-radius: 25px;
+      padding: 30px;
+      min-width: 250px;
+      border: 2px solid #dfe8f1;
     }
 
-    .ChatDashboard__SideNotificationBar {
-        background: #fff;
-        padding: 20px 40px;
-        max-width: 500px;
-        transition: 350ms ease;
-
-
-        .ChatDashboard__Logo {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: #7733FF;
-            font-weight: bold;
-        }
-
-        .MenuBar__ {
-            font-size: 35px;
-            color: #7733FF;
-        }
-
-        .ChatDashboard__UserInfoAndProfile {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background: #f5f8fc;
-            border-radius: 25px;
-            padding: 30px;
-            min-width: 250px;
-            border: 2px solid #dfe8f1;
-        }
-
-        .ChatDashobard__ProfilePicture {
-
-            .ChatDashboard__Avatar {
-                background: #7733FF;
-                padding: 55px;
-                font-size: 40px;
-            }
-        }
-
-        .ChatDashboard__Archive {
-            .Icon__UpArrow {
-                color: #7733FF;
-
-            }
-        }
-
-        .ChatDashboard__Name {
-            display: flex;
-            justify-content: space-evenly;
-            text-align: center;
-            min-width: 300px;
-            margin-top: 10px;
-            font-size: 15px;
-
-            .IconUp__ {
-                font-size: 30px;
-                font-weight: 700;
-                color: #7733FF;
-            }
-
-            h1 {
-                max-width: 200px;
-                margin-top: 5px;
-                font-size: 20px;
-                color: #7733FF;
-                font-weight: 800;
-            }
-        }
+    .ChatDashobard__ProfilePicture {
+      .ChatDashboard__Avatar {
+        background: #7733ff;
+        padding: 55px;
+        font-size: 40px;
+      }
     }
 
-    .ChatDashboard__InputField {
-        background: #fff !important;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        padding-right: 10px;
-        padding-left: 10px;
-        padding-top: 25px;
-        padding-bottom: 25px;
-
-        .InputField___ {
-            width: 100%;
-        }
+    .ChatDashboard__Archive {
+      .Icon__UpArrow {
+        color: #7733ff;
+      }
     }
 
-    .ChatDashboard__ChatSystem {
-        height: 90vh;
-        overflow: auto;
-        width: 100%;
+    .ChatDashboard__Name {
+      display: flex;
+      justify-content: space-evenly;
+      text-align: center;
+      min-width: 300px;
+      margin-top: 10px;
+      font-size: 15px;
 
-        header {
-            background: #fff;
-            padding: 20px;
-        }
+      .IconUp__ {
+        font-size: 30px;
+        font-weight: 700;
+        color: #7733ff;
+      }
+
+      h1 {
+        max-width: 200px;
+        margin-top: 5px;
+        font-size: 20px;
+        color: #7733ff;
+        font-weight: 800;
+      }
     }
+  }
 
-    .ChatDashboard__ActiveConversations {
-        margin-top: 30px;
+  .ChatDashboard__InputField {
+    background: #fff !important;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 
-        .ChatDashobard_Text {
-            display: flex;
-            justify-content: space-between;
-
-            .First__Paragraph {
-                color: #7733FF;
-                font-weight: bold;
-                font-size: 20px;
-            }
-
-            .Text__ {
-                display: flex;
-            }
-
-            .CircleBadge__ {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: #dfe8f1;
-                color: #7733FF;
-                font-weight: bold;
-                width: 25px;
-                height: 25px;
-                border-radius: 50%;
-                margin-left: 5px;
-            }
-        }
+    .InputField___ {
+      width: 100%;
     }
+  }
 
-    .ChatDashboard__UserInformation {
-        background: #fff;
-        text-align: center !important;
-    }
-}
-
-.ChatDashboard__Conversations {
-    margin-top: 20px;
-    margin-bottom: 50px;
+  .ChatDashboard__ChatSystem {
+    height: 90vh;
     overflow: auto;
-    max-height: 45vh !important;
+    width: 100%;
 
-    .ChatDashboard__Conversation__Inbox {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        border-radius: 5px;
-        margin-top: 10px;
-        transition: 350ms ease;
-        margin-right: 20px;
-        cursor: pointer;
-
-
-        .ChatDashboard__Inbox__Avatars {
-            background: #7733FF;
-            font-size: 25px;
-        }
-
-        p {
-            color: #7733FF;
-            font-weight: bold;
-            max-width: 250px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            font-size: 18px;
-            margin-left: 10px;
-        }
+    header {
+      background: #fff;
+      padding: 20px;
     }
+  }
 
-    .ChatDashboard__Conversation__Inbox:hover {
-        background: #7733FF;
+  .ChatDashboard__Paper {
+    position: relative !important;
+  }
 
-        .ChatDashboard__Inbox__Avatars {
-            background: #fff;
-            color: #7733FF;
-        }
+  .Delete__ {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+  }
 
-        p {
-            color: #fff;
-        }
-
-    }
-
-    .ChatDashboard__Conversation__Inbox.active {
-        background: #7733FF;
-        font-size: 25px;
-
-        .ChatDashboard__Inbox__Avatars {
-            background: #fff;
-            color: #7733FF;
-        }
-
-        p {
-            color: #fff;
-        }
-    }
-}
-
-.ChatDashboard__ChatSystem {
-    padding: 0px 30px;
-
-    .ChatDashboard__Chat__Person:last-child {
-        margin-bottom: 50px;
-    }
-
-
-    .ChatDashboard__Chat__Person {
-        display: flex;
-        margin-top: 50px;
-
-        .Avatar__ {
-            margin-right: 10px;
-            padding: 30px;
-            font-size: 25px;
-            background: #7733FF;
-        }
-
-        .ChatDashboard__Paper {
-            padding: 20px;
-            max-width: 500px;
-            border-radius: 15px;
-
-            p {
-                font-weight: bold;
-                color: #7733FF;
-                line-height: 1.5em;
-            }
-        }
-    }
-
-    .ChatDashboard__Chat__Person.active {
-        display: flex;
-        flex-direction: row-reverse;
-
-        .ChatDashboard__Paper {
-            background: #7733FF;
-
-            p {
-                color: #fff;
-            }
-        }
-
-        .Avatar__ {
-            margin-right: 0px;
-            margin-left: 10px;
-        }
-    }
-}
-
-.UserInfo__UserInfo {
-    padding: 25px;
-    border-radius: 5px;
-    border: 2px solid #EAEEF2;
-}
-
-
-.ChatDashord__UserProfileAndInfo {
+  .ChatDashboard__ChatSystem.active {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    padding: 30px 20px;
+  }
 
-    .ChatDasbhoard__ProfilePicture {
-        .ChatDashboard__Avatar {
-            background: #7733FF;
-            padding: 50px;
-            font-size: 40px;
-            margin: 0 auto;
-        }
+  .ChatDashboard__ActiveConversations {
+    margin-top: 30px;
+
+    .ChatDashobard_Text {
+      display: flex;
+      justify-content: space-between;
+
+      .First__Paragraph {
+        color: #7733ff;
+        font-weight: bold;
+        font-size: 20px;
+      }
+
+      .Text__ {
+        display: flex;
+      }
+
+      .CircleBadge__ {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #dfe8f1;
+        color: #7733ff;
+        font-weight: bold;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin-left: 5px;
+      }
     }
+  }
+
+  .ChatDashboard__UserInformation {
+    background: #fff;
+    text-align: center !important;
+  }
+}
+
+.ChatDashboard__Conversations {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  overflow: auto;
+  max-height: 45vh !important;
+
+  .ChatDashboard__Conversation__Inbox {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 350ms ease;
+    margin-right: 20px;
+    cursor: pointer;
+
+    .ChatDashboard__Inbox__Avatars {
+      background: #7733ff;
+      font-size: 25px;
+    }
+
+    p {
+      color: #7733ff;
+      font-weight: bold;
+      max-width: 250px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+  }
+
+  .ChatDashboard__Conversation__Inbox:hover {
+    background: #7733ff;
+
+    .ChatDashboard__Inbox__Avatars {
+      background: #fff;
+      color: #7733ff;
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+
+  .ChatDashboard__Conversation__Inbox.active {
+    background: #7733ff;
+    font-size: 25px;
+
+    .ChatDashboard__Inbox__Avatars {
+      background: #fff;
+      color: #7733ff;
+    }
+
+    p {
+      color: #fff;
+    }
+  }
+}
+
+.ChatDashboard__ChatSystem {
+  padding: 0px 30px;
+
+  .ChatDashboard__Chat__Person:last-child {
+    margin-bottom: 50px;
+  }
+
+  .ChatDashboard__Chat__Person {
+    display: flex;
+    margin-top: 50px;
+
+    .Avatar__ {
+      margin-right: 10px;
+      padding: 30px;
+      font-size: 25px;
+      background: #7733ff;
+    }
+
+    .ChatDashboard__Paper {
+      padding: 25px 20px;
+      max-width: 500px;
+      border-radius: 15px;
+
+      p {
+        font-weight: bold;
+        color: #7733ff;
+        line-height: 1.5em;
+      }
+    }
+  }
+
+  .ChatDashboard__Chat__Person.active {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .ChatDashboard__Paper {
+      background: #7733ff;
+
+      p {
+        color: #fff;
+      }
+    }
+
+    .Avatar__ {
+      margin-right: 0px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.UserInfo__UserInfo {
+  padding: 25px;
+  border-radius: 5px;
+  border: 2px solid #eaeef2;
+}
+
+.ChatDashord__UserProfileAndInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 20px;
+
+  .ChatDasbhoard__ProfilePicture {
+    .ChatDashboard__Avatar {
+      background: #7733ff;
+      padding: 50px;
+      font-size: 40px;
+      margin: 0 auto;
+    }
+  }
 }
 
 .UserInfo__ProfileInformation {
+  margin-top: 5px;
+  padding: 10px;
+
+  .Mail__ {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Mail__Icon {
+      color: #7733ff !important;
+      margin-right: 10px;
+    }
+
+    p {
+      color: #7733ff;
+      font-weight: 700;
+    }
+  }
+
+  .Username__ {
+    display: flex;
+    align-items: center;
     margin-top: 5px;
-    padding: 10px;
 
-    .Mail__ {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        .Mail__Icon {
-            color: #7733FF !important;
-            margin-right: 10px;
-        }
-
-        p {
-            color: #7733FF;
-            font-weight: 700;
-        }
+    .AccountCircle__Icon {
+      color: #7733ff !important;
+      margin-right: 10px;
     }
 
-    .Username__ {
-        display: flex;
-        align-items: center;
-        margin-top: 5px;
-
-        .AccountCircle__Icon {
-            color: #7733FF !important;
-            margin-right: 10px;
-        }
-
-        p {
-            font-weight: 700;
-            color: #7733FF;
-        }
+    p {
+      font-weight: 700;
+      color: #7733ff;
     }
+  }
 }
 
-
 .DeleteButton {
-    margin-top: 10px;
+  margin-top: 10px;
 
-    .UserInfo__DeleteButton {
-        border: 2px solid #7733FF;
-        background: #fff;
-        border-radius: 5px !important;
-        padding: 10px 30px !important;
-        color: #7733FF;
-        font-weight: bold;
-        box-shadow: none !important;
-        transition: 350ms ease;
-    }
+  .UserInfo__DeleteButton {
+    border: 2px solid #7733ff;
+    background: #fff;
+    border-radius: 5px !important;
+    padding: 10px 30px !important;
+    color: #7733ff;
+    font-weight: bold;
+    box-shadow: none !important;
+    transition: 350ms ease;
+  }
 
-    .DeleteIcon__ {
-        margin-right: 5px;
-    }
+  .DeleteIcon__ {
+    margin-right: 5px;
+  }
 
-    .UserInfo__DeleteButton:hover {
-        background: #7733FF;
-        border: 2px solid #fff;
-        color: #fff;
-    }
+  .UserInfo__DeleteButton:hover {
+    background: #7733ff;
+    border: 2px solid #fff;
+    color: #fff;
+  }
 }
 
 .UserInfo__StatiStics {
-    padding: 25px;
+  padding: 25px;
+  border-radius: 5px;
+  border: 2px solid #eaeef2;
+  width: 100%;
+  margin-top: 50px;
+
+  .UserInfo__BadAndGoodHobbies {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .UserInfo__TotalHobbies {
+    background: #7733ff;
     border-radius: 5px;
-    border: 2px solid #EAEEF2;
-    width: 100%;
-    margin-top: 50px;
+    padding: 10px;
 
-    .UserInfo__BadAndGoodHobbies {
-        display: flex;
-        justify-content: space-between;
+    .UserInfo__TotalHobbies__Container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .Text__ {
+        p {
+          font-size: 17px;
+          color: #fff;
+          font-weight: 700;
+        }
+      }
     }
 
-    .UserInfo__TotalHobbies {
-        background: #7733FF;
-        border-radius: 5px;
-        padding: 10px;
-
-
-        .UserInfo__TotalHobbies__Container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-
-            .Text__ {
-                p {
-                    font-size: 17px;
-                    color: #fff;
-                    font-weight: 700;
-                }
-            }
-        }
-
-        .Icon__ {
-            .Icon__List {
-                font-size: 30px;
-                margin-top: 5px;
-                color: #fff;
-                margin-right: 5px;
-            }
-        }
+    .Icon__ {
+      .Icon__List {
+        font-size: 30px;
+        margin-top: 5px;
+        color: #fff;
+        margin-right: 5px;
+      }
     }
+  }
 }
-
 
 .UserInfo__BadAndGoodHobbies {
-    margin-top: 15px;
+  margin-top: 15px;
 
-    .UserInfo__GoodHobbies {
-        display: flex;
-        flex: 0.5;
-        align-items: center;
-        justify-content: center;
-        background: #7733FF;
-        padding: 5px;
-        border-radius: 5px;
-        margin-right: 5px;
+  .UserInfo__GoodHobbies {
+    display: flex;
+    flex: 0.5;
+    align-items: center;
+    justify-content: center;
+    background: #7733ff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 5px;
 
-        .Icon__ {
-            margin-top: 5px;
-            margin-right: 5px;
-            color: #fff;
-        }
-
-        .Text__ {
-            color: #fff;
-            font-weight: 700;
-        }
-    }
-
-    .UserInfo__BadHobbies {
-        display: flex;
-        flex: 0.5;
-        align-items: center;
-        justify-content: center;
-        background: #7733FF;
-        padding: 5px;
-        border-radius: 5px;
-        margin-left: 5px;
-
-        .Icon__ {
-            margin-top: 5px;
-            margin-right: 5px;
-            color: #fff;
-        }
-
-        .Text__ {
-            color: #fff;
-            font-weight: 700;
-        }
-    }
-}
-
-@media screen and (max-width: 1483px) {
-    .ChatDashboard__Conversations {
-        max-width: 250px;
-
-        p {
-            span {
-                display: none !important;
-            }
-        }
-    }
-
-    .ChatDashboard__UserInfoAndProfile {
-        padding: 30px 0px !important;
-        max-width: 50px !important;
-    }
-
-    .ChatDashboard__Conversations {
-        max-height: 35vh !important;
-    }
-
-    .First__Paragraph {
-        span {
-            display: none !important;
-        }
-    }
-}
-
-@media screen and (max-width: 1343px) {
-    .Mail__ {
-        span {
-            display: none;
-        }
-    }
-
-    .Username__ {
-        span {
-            display: none;
-        }
-    }
-
-    .UserInfo__ProfileInformation {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-    }
-
-    .span__ {
-        display: none !important;
+    .Icon__ {
+      margin-top: 5px;
+      margin-right: 5px;
+      color: #fff;
     }
 
     .Text__ {
-        span {
-            display: none;
-        }
+      color: #fff;
+      font-weight: 700;
+    }
+  }
+
+  .UserInfo__BadHobbies {
+    display: flex;
+    flex: 0.5;
+    align-items: center;
+    justify-content: center;
+    background: #7733ff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+
+    .Icon__ {
+      margin-top: 5px;
+      margin-right: 5px;
+      color: #fff;
     }
 
-
-
-    .UserInfo__TotalHobbies__Container {
-        display: flex;
-
-        .Icon__ {
-            margin: 0px !important;
-        }
+    .Text__ {
+      color: #fff;
+      font-weight: 700;
     }
+  }
+}
 
-    .Mail__,
-    .Username__ {
-        p {
+@media screen and (max-width: 1483px) {
+  .ChatDashboard__Conversations {
+    max-width: 250px;
 
-            max-width: 100px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
+    p {
+      span {
+        display: none !important;
+      }
     }
+  }
+
+  .ChatDashboard__UserInfoAndProfile {
+    padding: 30px 0px !important;
+    max-width: 50px !important;
+  }
+
+  .ChatDashboard__Conversations {
+    max-height: 35vh !important;
+  }
+
+  .First__Paragraph {
+    span {
+      display: none !important;
+    }
+  }
+}
+
+@media screen and (max-width: 1343px) {
+  .Mail__ {
+    span {
+      display: none;
+    }
+  }
+
+  .Username__ {
+    span {
+      display: none;
+    }
+  }
+
+  .UserInfo__ProfileInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .span__ {
+    display: none !important;
+  }
+
+  .Text__ {
+    span {
+      display: none;
+    }
+  }
+
+  .UserInfo__TotalHobbies__Container {
+    display: flex;
+
+    .Icon__ {
+      margin: 0px !important;
+    }
+  }
+
+  .Mail__,
+  .Username__ {
+    p {
+      max-width: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
 }
 
 .IconButton__DisplayChatDashboard {
-    display: none;
-
+  display: none;
 }
 
 @media screen and (max-width: 1209px) {
-    .ChatDashboard__Conversations {
-        max-width: 200px;
-    }
+  .ChatDashboard__Conversations {
+    max-width: 200px;
+  }
 
-    .ChatDashboard__UserInfoAndProfile {
-        min-width: 200px !important;
-    }
+  .ChatDashboard__UserInfoAndProfile {
+    min-width: 200px !important;
+  }
 }
 
 @media screen and (max-width: 943px) {
-    .ChatDashboard__UserInfoAndProfile {
-        min-width: 160px !important;
+  .ChatDashboard__UserInfoAndProfile {
+    min-width: 160px !important;
+  }
+
+  .ChatDashboard__SideNotificationBar {
+    padding: 20px 30px !important;
+  }
+
+  .ChatDashboard__Conversations {
+    max-width: 150px !important;
+  }
+
+  .UserInfo__ProfileInformation {
+    display: none !important;
+  }
+
+  .UserInfo__DeleteButton {
+    margin-top: 5px !important;
+  }
+
+  .ChatDashord__UserProfileAndInfo {
+    margin-top: 25px;
+
+    .UserInfo__UserInfo {
+      padding: 10px;
     }
 
-    .ChatDashboard__SideNotificationBar {
-        padding: 20px 30px !important;
+    .UserInfo__StatiStics {
+      padding: 10px;
     }
-
-    .ChatDashboard__Conversations {
-        max-width: 150px !important;
-    }
-
-    .UserInfo__ProfileInformation {
-        display: none !important;
-    }
-
-    .UserInfo__DeleteButton {
-        margin-top: 5px !important;
-    }
-
-    .ChatDashord__UserProfileAndInfo {
-        margin-top: 25px;
-
-        .UserInfo__UserInfo {
-            padding: 10px;
-        }
-
-        .UserInfo__StatiStics {
-            padding: 10px;
-        }
-    }
+  }
 }
 
 @media screen and (max-width: 800px) {
-    .ChatDashboard__UserInfoAndProfile {
-        display: none !important;
-    }
+  .ChatDashboard__UserInfoAndProfile {
+    display: none !important;
+  }
 
-    .ChatDashboard__Conversations {
-        max-height: 60vh !important;
-    }
+  .ChatDashboard__Conversations {
+    max-height: 60vh !important;
+  }
 
-    .First__Paragraph {
-        display: none !important;
-    }
+  .First__Paragraph {
+    display: none !important;
+  }
 
-    .CircleBadge__ {
-        margin-right: 35px;
-    }
+  .CircleBadge__ {
+    margin-right: 35px;
+  }
 
-    .ChatDashboard__Conversations {
-        max-width: 100px;
+  .ChatDashboard__Conversations {
+    max-width: 100px;
 
-        p {
-            display: none !important;
-        }
+    p {
+      display: none !important;
     }
+  }
 }
 
 .overlayArchive {
-    position: fixed;
-    pointer-events: none;
-    opacity: 0;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 3;
-    background: rgba(0, 0, 0, 0.75) !important;
-    transition: 250ms ease !important;
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.75) !important;
+  transition: 250ms ease !important;
 }
 
-
 @media screen and (max-width: 699px) {
-    .ChatDashboard__UserInformation {
-        display: none !important;
-    }
+  .ChatDashboard__UserInformation {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 485px) {
-    .ChatDashboard__SideNotificationBar {
-        position: fixed;
-        transform: translateX(-100%);
+  .ChatDashboard__SideNotificationBar {
+    position: fixed;
+    transform: translateX(-100%);
+  }
+
+  .ChatDashboard__Chat__Person:first-child {
+    margin-top: 90px;
+  }
+
+  .ChatDashboard__Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .Arrow__ {
+      color: #fff;
+      font-size: 40px;
+      transform: rotateY(180deg);
+      transition: 350ms ease;
+    }
+  }
+
+  .Arrow__:hover {
+    margin-left: 10px;
+  }
+
+  .IconButton__DisplayChatDashboard {
+    padding: 7px 14px;
+    display: block;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0;
+    background: #7733ff;
+    z-index: 1;
+
+    .Logo__ {
+      .Image__ {
+        max-width: 40px;
+      }
+    }
+  }
+
+  .ChatDashobard__ {
+    ::-webkit-scrollbar {
+      display: none !important;
     }
 
-    .ChatDashboard__Chat__Person:first-child {
-        margin-top: 90px;
+    ::-webkit-scrollbar-track {
+      display: none !important;
     }
 
-    .ChatDashboard__Header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .Arrow__ {
-            color: #fff;
-            font-size: 40px;
-            transform: rotateY(180deg);
-            transition: 350ms ease;
-        }
+    ::-webkit-scrollbar-thumb {
+      display: none !important;
     }
+  }
 
-    .Arrow__:hover {
-        margin-left: 10px;
-    }
+  .ChatDashboard__SideNotificationBar.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    background: #fff;
+    transform: translateX(0%);
+  }
 
-    .IconButton__DisplayChatDashboard {
-        padding: 7px 14px;
-        display: block;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0;
-        background: #7733FF;
-        z-index: 1;
-
-        .Logo__ {
-            .Image__ {
-                max-width: 40px;
-            }
-        }
-    }
-
-    .ChatDashobard__ {
-        ::-webkit-scrollbar {
-            display: none !important;
-        }
-
-        ::-webkit-scrollbar-track {
-            display: none !important;
-
-        }
-
-        ::-webkit-scrollbar-thumb {
-            display: none !important;
-
-        }
-    }
-
-    .ChatDashboard__SideNotificationBar.active {
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        z-index: 5;
-        background: #fff;
-        transform: translateX(0%);
-
-    }
-
-    .overlayArchive.active {
-        pointer-events: all;
-        opacity: 1;
-    }
+  .overlayArchive.active {
+    pointer-events: all;
+    opacity: 1;
+  }
 }

@@ -7,15 +7,19 @@ const General = require("../models/Messages/General");
 const TotalHobbies = require("../models/Messages/TotalHobbies");
 
 router.get("/", (req, res) => {
-  General.find().then((general) => res.json({ general }));
+  General.find()
+    .sort({ date: -1 })
+    .then((general) => res.json(general));
 });
 
 router.get("/General", (req, res) => {
-  TotalHobbies.find().then((total) => res.json({ total }));
+  TotalHobbies.find()
+    .sort({ date: -1 })
+    .then((total) => res.json(total));
 });
 
 router.post("/TotalHobbyMessage", (req, res) => {
-  const newMessageUser = new TotalHobbies({
+  const newMessageUser = new General({
     name: req.body.name,
     email: req.body.email,
     message: req.body.message,
@@ -25,9 +29,7 @@ router.post("/TotalHobbyMessage", (req, res) => {
 });
 
 router.delete("/TotalHobbyMessage/:id", (req, res) => {
-  TotalHobbies.findByIdAndDelete(req.params.id).then((total) =>
-    res.json(total)
-  );
+  General.findByIdAndDelete(req.params.id).then((total) => res.json(total));
 });
 
 module.exports = router;
