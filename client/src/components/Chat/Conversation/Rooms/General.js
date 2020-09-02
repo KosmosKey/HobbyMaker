@@ -123,8 +123,9 @@ const General = forwardRef(
                                 vertical: "top",
                                 horizontal: "center",
                               }}
+                              elevation={0}
                             >
-                              <div style={{ background: "red" }}>
+                              <div style={{ background: "#FF5252" }}>
                                 <IconButton
                                   style={{ fontSize: "10px", color: "#fff" }}
                                   onClick={deleteButtonMessage}

@@ -48,4 +48,24 @@ router.delete("/TotalHobbyMessage/:id", (req, res) => {
   General.findByIdAndDelete(req.params.id).then((total) => res.json(total));
 });
 
+router.get("/Good", (req, res) => {
+  GoodHobbies.find()
+    .sort({ date: -1 })
+    .then((good) => res.json(good));
+});
+
+router.post("/Good", (req, res) => {
+  const goodHobbyMessage = new GoodHobbies({
+    name: req.body.name,
+    email: req.body.email,
+    message: req.body.message,
+  });
+
+  goodHobbyMessage.save().then((good) => res.json(good));
+});
+
+router.delete("/Good/:id", (req, res) => {
+  GoodHobbies.findByIdAndDelete(req.params.id).then((good) => res.json(good));
+});
+
 module.exports = router;
