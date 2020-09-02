@@ -3,6 +3,9 @@ import {
   GET_GENERAL_MESSAGE,
   ADD_GENERAL_MESSAGE,
   DELETE_GENERAL_MESSAGE,
+  GET_TOTAL_MESSAGE,
+  ADD_TOTAL_MESSAGE,
+  DELETE_TOTAL_MESSAGE,
 } from "./messagesTypes";
 
 export const getGeneralChat = () => (dispatch) => {
@@ -34,4 +37,13 @@ export const deleteGeneralChat = (id) => (dispatch) => {
         payload: id,
       });
     });
+};
+
+export const getTotalHobbiesChat = () => (dispatch) => {
+  axios.get("http://localhost:5000/api/messages/Total").then((res) => {
+    dispatch({
+      type: GET_TOTAL_MESSAGE,
+      payload: res.data,
+    });
+  });
 };

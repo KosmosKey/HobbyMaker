@@ -2,11 +2,13 @@ import {
   GET_GENERAL_MESSAGE,
   ADD_GENERAL_MESSAGE,
   DELETE_GENERAL_MESSAGE,
+  GET_TOTAL_MESSAGE,
 } from "../actions/messagesTypes";
 
 const initalState = {
   loading: true,
   GeneralChat: null,
+  TotalChat: null,
 };
 
 export default function (state = initalState, action) {
@@ -30,6 +32,12 @@ export default function (state = initalState, action) {
         GeneralChat: state.GeneralChat.filter(
           ({ _id }) => _id !== action.payload
         ),
+      };
+
+    case GET_TOTAL_MESSAGE:
+      return {
+        ...state,
+        TotalChat: action.payload,
       };
 
     default:

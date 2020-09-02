@@ -12,10 +12,26 @@ router.get("/", (req, res) => {
     .then((general) => res.json(general));
 });
 
-router.get("/General", (req, res) => {
+router.get("/Total", (req, res) => {
   TotalHobbies.find()
     .sort({ date: -1 })
     .then((total) => res.json(total));
+});
+
+router.post("/Total", (req, res) => {
+  const newTotalHobbiesMessage = new TotalHobbies({
+    name: req.body.name,
+    email: req.body.email,
+    message: req.body.message,
+  });
+
+  newTotalHobbiesMessage.save().then((user) => res.json(user));
+});
+
+router.delete("/Total/:id", (req, res) => {
+  TotalHobbies.findByIdAndRemove(req.params.id).then((total) =>
+    res.json(total)
+  );
 });
 
 router.post("/TotalHobbyMessage", (req, res) => {

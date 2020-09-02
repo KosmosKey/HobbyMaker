@@ -19,6 +19,12 @@
     border-radius: 10px;
   }
 
+  .PopOver__Button {
+    position: absolute;
+    top: -10px;
+    right: -5px;
+  }
+
   .ChatDashboard__SideNotificationBar {
     background: #fff;
     padding: 20px 40px;
@@ -337,6 +343,7 @@
     }
   }
 }
+
 
 .DeleteButton {
   margin-top: 10px;
