@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const GoodHobbies = require("../models/Messages/GoodHobbies");
-const badHobbies = require("../models/Messages/BadHobbies");
 const Other = require("../models/Messages/Other");
 const General = require("../models/Messages/General");
 const TotalHobbies = require("../models/Messages/TotalHobbies");
+const BadHobbies = require("../models/Messages/BadHobbies");
 
 router.get("/", (req, res) => {
   General.find()
@@ -66,6 +66,24 @@ router.post("/Good", (req, res) => {
 
 router.delete("/Good/:id", (req, res) => {
   GoodHobbies.findByIdAndDelete(req.params.id).then((good) => res.json(good));
+});
+
+router.get("/Bad", (req, res) => {
+  BadHobbies.find().then((user) => res.json(user));
+});
+
+router.post("/Bad", (req, res) => {
+  const newBadHobbyChat = new BadHobbies({
+    name: req.body.name,
+    email: req.body.email,
+    message: req.body.message,
+  });
+
+  newBadHobbyChat.save().then((bad) => res.json(bad));
+});
+
+router.delete("/Bad/:id", (req, res) => {
+  BadHobbies.findByIdAndDelete(req.params.id).then((bad) => res.json(bad));
 });
 
 module.exports = router;

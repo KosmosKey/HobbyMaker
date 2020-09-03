@@ -6,6 +6,10 @@ const badHobbies = new Schema({
     type: String,
     required: true,
   },
+  email: {
+    type: String,
+    required: true,
+  },
   message: {
     type: String,
     required: true,
@@ -16,4 +20,4 @@ const badHobbies = new Schema({
   },
 });
 
-module.exports = mongoose.model("goodHobbies", badHobbies);
+module.exports = mongoose.model("badHobbies", badHobbies);

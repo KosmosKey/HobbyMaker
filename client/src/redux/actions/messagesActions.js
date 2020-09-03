@@ -9,6 +9,9 @@ import {
   GET_GOOD_MESSAGES,
   ADD_GOOD_MESSAGES,
   DELETE_GOOD_MESSAGES,
+  GET_BADHOBBY_MESSAGES,
+  POST_BADHOBBY_MESSAGES,
+  DELETE_BADHOBBY_MESSAGES,
 } from "./messagesTypes";
 
 export const getGeneralChat = () => (dispatch) => {
@@ -91,6 +94,33 @@ export const deleteGoodHobbyChat = (id) => (dispatch) => {
   axios.delete(`http://localhost:5000/api/messages/Good/${id}`).then((res) => {
     dispatch({
       type: DELETE_GOOD_MESSAGES,
+      payload: id,
+    });
+  });
+};
+
+export const getBadHobbiesMessages = () => (dispatch) => {
+  axios.get("http://localhost:5000/api/messages/Bad").then((res) => {
+    dispatch({
+      type: GET_BADHOBBY_MESSAGES,
+      payload: res.data,
+    });
+  });
+};
+
+export const postBadHobbiesMessages = () => (dispatch) => {
+  axios.post("http://localhost:5000/api/messages/Bad").then((res) => {
+    dispatch({
+      type: POST_BADHOBBY_MESSAGES,
+      payload: res.data,
+    });
+  });
+};
+
+export const deleteBadHobbiesMessages = (id) => (dispatch) => {
+  axios.delete(`http://localhost:5000/api/messages/Bad/${id}`).then((res) => {
+    dispatch({
+      type: DELETE_BADHOBBY_MESSAGES,
       payload: id,
     });
   });
