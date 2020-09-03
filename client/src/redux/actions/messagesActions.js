@@ -108,8 +108,8 @@ export const getBadHobbiesMessages = () => (dispatch) => {
   });
 };
 
-export const postBadHobbiesMessages = () => (dispatch) => {
-  axios.post("http://localhost:5000/api/messages/Bad").then((res) => {
+export const postBadHobbiesMessages = (value) => (dispatch) => {
+  axios.post("http://localhost:5000/api/messages/Bad", value).then((res) => {
     dispatch({
       type: POST_BADHOBBY_MESSAGES,
       payload: res.data,

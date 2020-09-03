@@ -19,7 +19,7 @@ const UserInfo = () => {
           <div className="Mail__">
             <MailIcon className="Mail__Icon" />
             <p>
-              Barcaboys2002<span>@gmail.com</span>
+              Barcaboys<span>@gmail.com</span>
             </p>
           </div>
           <div className="Username__">

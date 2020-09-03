@@ -69,7 +69,9 @@ router.delete("/Good/:id", (req, res) => {
 });
 
 router.get("/Bad", (req, res) => {
-  BadHobbies.find().then((user) => res.json(user));
+  BadHobbies.find()
+    .sort({ date: -1 })
+    .then((user) => res.json(user));
 });
 
 router.post("/Bad", (req, res) => {
@@ -84,6 +86,26 @@ router.post("/Bad", (req, res) => {
 
 router.delete("/Bad/:id", (req, res) => {
   BadHobbies.findByIdAndDelete(req.params.id).then((bad) => res.json(bad));
+});
+
+router.get("/Other", (req, res) => {
+  Other.find()
+    .sort({ date: -1 })
+    .then((other) => res.json(other));
+});
+
+router.post("/Other", (req, res) => {
+  const otherMessages = new Other({
+    name: req.body.name,
+    email: req.body.email,
+    message: req.body.email,
+  });
+
+  otherMessages.save().then((other) => res.json(other));
+});
+
+router.delete("/Other/:id", (req, res) => {
+  Other.findByIdAndDelete(req.params.id).then((other) => res.json(other));
 });
 
 module.exports = router;

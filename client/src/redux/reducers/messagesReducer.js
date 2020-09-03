@@ -8,6 +8,9 @@ import {
   GET_GOOD_MESSAGES,
   DELETE_GOOD_MESSAGES,
   ADD_GOOD_MESSAGES,
+  GET_BADHOBBY_MESSAGES,
+  POST_BADHOBBY_MESSAGES,
+  DELETE_BADHOBBY_MESSAGES,
 } from "../actions/messagesTypes";
 
 const initalState = {
@@ -17,10 +20,33 @@ const initalState = {
   loadingTotal: true,
   goodMessages: null,
   loadingGood: true,
+  badMessages: null,
+  loadingBad: true,
 };
 
 export default function (state = initalState, action) {
   switch (action.type) {
+    case GET_BADHOBBY_MESSAGES:
+      return {
+        ...state,
+        badMessages: action.payload,
+        loadingBad: false,
+      };
+
+    case POST_BADHOBBY_MESSAGES:
+      return {
+        ...state,
+        badMessages: [action.payload, ...state.badMessages],
+      };
+
+    case DELETE_BADHOBBY_MESSAGES:
+      return {
+        ...state,
+        badMessages: state.badMessages.filter(
+          ({ _id }) => _id !== action.payload
+        ),
+      };
+
     case GET_GENERAL_MESSAGE:
       return {
         ...state,

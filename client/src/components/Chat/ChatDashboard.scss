@@ -325,6 +325,10 @@
     p {
       color: #7733ff;
       font-weight: 700;
+      max-width: 235px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
@@ -332,6 +336,15 @@
     display: flex;
     align-items: center;
     margin-top: 5px;
+
+    p {
+      color: #7733ff;
+      font-weight: 700;
+      max-width: 235px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
 
     .AccountCircle__Icon {
       color: #7733ff !important;
