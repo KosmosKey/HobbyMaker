@@ -286,7 +286,7 @@
 }
 
 .UserInfo__UserInfo {
-  padding: 25px;
+  padding: 25px 60px;
   border-radius: 5px;
   border: 2px solid #eaeef2;
 }
@@ -314,7 +314,7 @@
 
   .Mail__ {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
     .Mail__Icon {

@@ -98,7 +98,7 @@ router.post("/Other", (req, res) => {
   const otherMessages = new Other({
     name: req.body.name,
     email: req.body.email,
-    message: req.body.email,
+    message: req.body.message,
   });
 
   otherMessages.save().then((other) => res.json(other));

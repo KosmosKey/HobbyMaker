@@ -7,38 +7,47 @@ import MoodIcon from "@material-ui/icons/Mood";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
 import EqualizerIcon from "@material-ui/icons/Equalizer";
 import { Button } from "@material-ui/core";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const UserInfo = () => {
+const UserInfo = ({ auth, hobbies }) => {
+  const email = auth?.user?.email?.split("@gmail.com");
+
   return (
     <div className="ChatDashord__UserProfileAndInfo">
       <div className="UserInfo__UserInfo">
         <div className="ChatDasbhoard__ProfilePicture">
-          <Avatar className="ChatDashboard__Avatar">HM</Avatar>
+          <Avatar className="ChatDashboard__Avatar">{`${auth?.first_name?.charAt(
+            0
+          )}${auth?.last_name?.charAt(0)}`}</Avatar>
         </div>
         <div className="UserInfo__ProfileInformation">
           <div className="Mail__">
             <MailIcon className="Mail__Icon" />
             <p>
-              Barcaboys<span>@gmail.com</span>
+              {email}
+              <span>@gmail.com</span>
             </p>
           </div>
           <div className="Username__">
             <AccountCircleIcon className="AccountCircle__Icon" />
             <p>
-              Magomed <span>Khamidov</span>
+              {auth?.first_name}&nbsp;<span>{auth?.last_name}</span>
             </p>
           </div>
         </div>
 
         <div className="DeleteButton">
-          <Button
-            variant="contained"
-            color="primary"
-            className="UserInfo__DeleteButton"
-          >
-            <EqualizerIcon className="DeleteIcon__" />
-            VIEW&nbsp;<span className="span__">STATISTIC</span>
-          </Button>
+          <Link to="/User" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              className="UserInfo__DeleteButton"
+            >
+              <EqualizerIcon className="DeleteIcon__" />
+              VIEW&nbsp;<span className="span__">STATISTIC</span>
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -50,7 +59,7 @@ const UserInfo = () => {
             </div>
             <div className="Text__">
               <p>
-                1300 <span>TOTAL HOBBIES</span>
+                {hobbies?.itemsHobbies?.length} <span>TOTAL HOBBIES</span>
               </p>
             </div>
           </div>
@@ -62,7 +71,7 @@ const UserInfo = () => {
             </div>
             <div className="Text__">
               <p>
-                50 <span>GOOD</span>
+                {hobbies?.goodItems?.length} <span>GOOD</span>
               </p>
             </div>
           </div>
@@ -72,7 +81,7 @@ const UserInfo = () => {
             </div>
             <div className="Text__">
               <p>
-                1300 <span>BAD</span>
+                {hobbies?.badItems?.length} <span>BAD</span>
               </p>
             </div>
           </div>
@@ -82,4 +91,11 @@ const UserInfo = () => {
   );
 };
 
-export default UserInfo;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+    hobbies: state.hobbies,
+  };
+};
+
+export default connect(mapStateToProps, null)(UserInfo);

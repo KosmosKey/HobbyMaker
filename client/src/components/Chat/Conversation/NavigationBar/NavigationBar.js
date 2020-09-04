@@ -9,8 +9,19 @@ import CloseIcon from "@material-ui/icons/Close";
 import SettingsIcon from "@material-ui/icons/Settings";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { IconButton } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { logOut } from "../../../../redux/actions/actions";
+import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-export const NavigationBar = ({ active, onChangeActive }) => {
+const NavigationBar = ({ active, onChangeActive, logOut }) => {
+  let history = useHistory();
+
+  const logOutUser = () => {
+    logOut();
+    history.push("/");
+  };
+
   return (
     <div className="NavigationBar__">
       <div className={`NavigationBar__Menu ${active && "active"}`}>
@@ -28,37 +39,47 @@ export const NavigationBar = ({ active, onChangeActive }) => {
         />
         <ul>
           <li>
-            <IconButton onClick={onChangeActive}>
-              <AppsIcon className="Icon__" />
-              <p>DASHBOARD</p>
-            </IconButton>
+            <Link to="/User" style={{ textDecoration: "none" }}>
+              <IconButton onClick={onChangeActive}>
+                <AppsIcon className="Icon__" />
+                <p>DASHBOARD</p>
+              </IconButton>
+            </Link>
           </li>
           <li>
-            <IconButton onClick={onChangeActive}>
-              <ListIcon className="Icon__" />
-              <p>TOTAL</p>
-            </IconButton>
+            <Link to="/User/Total" style={{ textDecoration: "none" }}>
+              <IconButton onClick={onChangeActive}>
+                <ListIcon className="Icon__" />
+                <p>TOTAL</p>
+              </IconButton>
+            </Link>
           </li>
           <li>
-            <IconButton onClick={onChangeActive}>
-              <CheckIcon className="Icon__" />
-              <p>GOOD</p>
-            </IconButton>
+            <Link to="/User/Completed" style={{ textDecoration: "none" }}>
+              <IconButton onClick={onChangeActive}>
+                <CheckIcon className="Icon__" />
+                <p>GOOD</p>
+              </IconButton>
+            </Link>
           </li>
           <li>
-            <IconButton onClick={onChangeActive}>
-              <CloseIcon className="Icon__" />
-              <p>BAD</p>
-            </IconButton>
+            <Link to="/User/Failed" style={{ textDecoration: "none" }}>
+              <IconButton onClick={onChangeActive}>
+                <CloseIcon className="Icon__" />
+                <p>BAD</p>
+              </IconButton>
+            </Link>
           </li>
           <li>
-            <IconButton onClick={onChangeActive}>
-              <SettingsIcon className="Icon__" />
-              <p>SETTINGS</p>
-            </IconButton>
+            <Link to="/User/Settings" style={{ textDecoration: "none" }}>
+              <IconButton onClick={onChangeActive}>
+                <SettingsIcon className="Icon__" />
+                <p>SETTINGS</p>
+              </IconButton>
+            </Link>
           </li>
           <li>
-            <IconButton onClick={onChangeActive}>
+            <IconButton onClick={logOutUser}>
               <ExitToAppIcon className="Icon__" />
               <p>LOGOUT</p>
             </IconButton>
@@ -72,3 +93,5 @@ export const NavigationBar = ({ active, onChangeActive }) => {
     </div>
   );
 };
+
+export default connect(null, { logOut })(NavigationBar);

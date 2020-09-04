@@ -9,15 +9,16 @@ import LogoWhite from "../../Logo/White.png";
 import Conversation from "./Conversation/Conversation";
 import UserInfo from "./Conversation/UserInfo";
 import ArrowRightAltIcon from "@material-ui/icons/ArrowRightAlt";
-import { NavigationBar } from "./Conversation/NavigationBar/NavigationBar";
+import NavigationBar from "./Conversation/NavigationBar/NavigationBar";
 import General from "./Conversation/Rooms/General";
 import { Route, Switch } from "react-router-dom";
 import TotalHobbies from "./Conversation/Rooms/TotalHobbies";
 import BadHobbies from "./Conversation/Rooms/BadHobbies";
 import GoodHobbies from "./Conversation/Rooms/GoodHobbies";
 import Other from "./Conversation/Rooms/Other";
+import { connect } from "react-redux";
 
-const ChatDashboard = ({ match }) => {
+const ChatDashboard = ({ match, auth }) => {
   const [open, setOpen] = useState(false);
   const [openMessageMenu, setOpenMessageMenu] = useState(true);
   const [toggleChatDashboard, setToggleChatDashboard] = useState(false);
@@ -59,18 +60,20 @@ const ChatDashboard = ({ match }) => {
             <Avatar className="ChatDashboard__Avatar">MK</Avatar>
           </div>
           <div className="ChatDashboard__Name">
-            <h1>Magomed K.</h1>
+            <h1>
+              {`${auth?.user?.first_name} ${auth?.user?.last_name?.charAt(0)}`}.
+            </h1>
           </div>
         </div>
         <div className="ChatDashboard__ActiveConversations">
           <div className="ChatDashobard_Text">
             <div className="Text__">
               <p className="First__Paragraph">
-                Active <span>Conversations</span>
+                Active&nbsp;<span>Conversations</span>
               </p>
               &nbsp;
               <div className="CircleBadge__">
-                <p>4</p>
+                <p>5</p>
               </div>
             </div>
             <div
@@ -113,4 +116,10 @@ const ChatDashboard = ({ match }) => {
   );
 };
 
-export default ChatDashboard;
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps, null)(ChatDashboard);

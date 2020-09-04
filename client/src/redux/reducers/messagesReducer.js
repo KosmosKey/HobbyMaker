@@ -11,6 +11,9 @@ import {
   GET_BADHOBBY_MESSAGES,
   POST_BADHOBBY_MESSAGES,
   DELETE_BADHOBBY_MESSAGES,
+  GET_OTHERMESSAGES,
+  POST_OTHERMESSAGES,
+  DELETE_OTHERMESSAGES,
 } from "../actions/messagesTypes";
 
 const initalState = {
@@ -22,10 +25,33 @@ const initalState = {
   loadingGood: true,
   badMessages: null,
   loadingBad: true,
+  otherMessages: null,
+  loadingOther: null,
 };
 
 export default function (state = initalState, action) {
   switch (action.type) {
+    case GET_OTHERMESSAGES:
+      return {
+        ...state,
+        otherMessages: action.payload,
+        loadingOther: false,
+      };
+
+    case POST_OTHERMESSAGES:
+      return {
+        ...state,
+        otherMessages: [action.payload, ...state.otherMessages],
+      };
+
+    case DELETE_OTHERMESSAGES:
+      return {
+        ...state,
+        otherMessages: state.otherMessages.filter(
+          ({ _id }) => _id !== action.payload
+        ),
+      };
+
     case GET_BADHOBBY_MESSAGES:
       return {
         ...state,

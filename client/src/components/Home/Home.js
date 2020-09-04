@@ -285,15 +285,30 @@ function Home() {
                 <h1>FOLLOW ON SOCIAL MEDIA!</h1>
                 <p>Follow on social media for more information!</p>
                 <div className="Home__FooterSocialMedias">
-                  <div className="Home__SocialIcons">
-                    <TwitterIcon />
-                  </div>
-                  <div className="Home__SocialIcons">
-                    <YouTubeIcon />
-                  </div>
-                  <div className="Home__SocialIcons">
-                    <LinkedInIcon />
-                  </div>
+                  <a
+                    href="https://twitter.com/KosmosDeveloper"
+                    style={{ color: "black" }}
+                  >
+                    <div className="Home__SocialIcons">
+                      <TwitterIcon />
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/channel/UCC0nd4ub4bFxIFxWoO2H1kA"
+                    style={{ color: "black" }}
+                  >
+                    <div className="Home__SocialIcons">
+                      <YouTubeIcon />
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/magomed-khamidov-37b7ba197/"
+                    style={{ color: "black" }}
+                  >
+                    <div className="Home__SocialIcons">
+                      <LinkedInIcon />
+                    </div>
+                  </a>
                 </div>
               </div>
             </Grid>
