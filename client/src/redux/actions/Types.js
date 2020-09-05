@@ -13,3 +13,5 @@ export const REFRESH_TOKEN = "REFRESH_TOKEN";
 export const UPDATED_USER = "UPDATED_USER";
 export const FINISHED = "FINISHED";
 export const LOGOUT = "LOGOUT";
+export const WELCOME = "WELCOME";
+export const STOP_WELCOME = "STOP_WELCOME";

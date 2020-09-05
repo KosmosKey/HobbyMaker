@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ChatDashboard.scss";
 import Avatar from "@material-ui/core/Avatar";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
@@ -17,11 +17,23 @@ import BadHobbies from "./Conversation/Rooms/BadHobbies";
 import GoodHobbies from "./Conversation/Rooms/GoodHobbies";
 import Other from "./Conversation/Rooms/Other";
 import { connect } from "react-redux";
+import { welcomeTrue } from "../../redux/actions/actions";
+import WelcomeMessage from "./WelcomeMessage";
 
-const ChatDashboard = ({ match, auth }) => {
+const ChatDashboard = ({ match, auth, welcomeTrue }) => {
   const [open, setOpen] = useState(false);
   const [openMessageMenu, setOpenMessageMenu] = useState(true);
   const [toggleChatDashboard, setToggleChatDashboard] = useState(false);
+  const [welcomeUser, setWelcomeUser] = useState(false);
+
+  useEffect(() => {
+    if (!auth.welcomeStorage) {
+      welcomeTrue();
+      setWelcomeUser(true);
+    } else {
+      setWelcomeUser(false);
+    }
+  }, [auth.welcomeStorage, welcomeTrue]);
 
   const toggleChatDashboardFunction = () => {
     setToggleChatDashboard(!toggleChatDashboard);
@@ -32,8 +44,13 @@ const ChatDashboard = ({ match, auth }) => {
     setOpen(!open);
   };
 
+  const buttonOnClick = () => {
+    setWelcomeUser(false);
+  };
+
   return (
     <div className="ChatDashobard__">
+      <WelcomeMessage active={welcomeUser} setButtOnClick={buttonOnClick} />
       <header className="IconButton__DisplayChatDashboard">
         <div className="ChatDashboard__Header">
           <div onClick={() => toggleChatDashboardFunction()}>
@@ -122,4 +139,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(ChatDashboard);
+export default connect(mapStateToProps, { welcomeTrue })(ChatDashboard);

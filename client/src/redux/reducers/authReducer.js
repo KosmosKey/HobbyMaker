@@ -8,11 +8,13 @@ import {
   UPDATED_USER,
   FINISHED,
   LOGOUT,
+  WELCOME,
 } from "../actions/Types";
 import { UPDATE_PASSWORD } from "../actions/modalTypes";
 
 const initalState = {
   token: localStorage.getItem("token"),
+  welcomeStorage: localStorage.getItem("welcomeStorage"),
   isAuthenticated: false,
   registeredSuccessful: false,
   isLoading: true,
@@ -28,6 +30,12 @@ export default function (state = initalState, action) {
         ...state,
         ...action.payload,
         isAuthenticated: true,
+      };
+
+    case WELCOME:
+      localStorage.setItem("welcomeStorage", "Welcome");
+      return {
+        ...state,
       };
 
     case FINISHED:

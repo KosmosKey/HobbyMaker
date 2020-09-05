@@ -7,6 +7,7 @@ import {
   UPDATED_USER,
   FINISHED,
   LOGOUT,
+  WELCOME,
 } from "./Types";
 import { REGISTRATION_SUCCESS } from "./Types";
 import {
@@ -21,6 +22,12 @@ import {
   ERROR_UPDATE_PASSWORD,
   REMOVE_ERROR_UDPATE,
 } from "./modalTypes";
+
+export const welcomeTrue = () => {
+  return {
+    type: WELCOME,
+  };
+};
 
 export const openNavBar = () => {
   return {
