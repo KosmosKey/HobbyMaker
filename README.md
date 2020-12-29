@@ -1,2 +1,2 @@
 # HobbyMaker
-# http://hobbymaker.herokuapp.com/
+# https://hobbymaker.netlify.app/
