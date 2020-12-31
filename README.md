@@ -1,6 +1,3 @@
-# HobbyMaker
-This web application allows you to have a statistic over your hobbies that went bad and hobbies that went good. You can also go through chat in the application and try chatting with other people if you want to know them better.
+# Technical React JS Test for (Wide assessment AS)
+The technical test for the company is not live. If you want to see how technical test went for me to the company you can download the repo and see how it went. The technical test was with React JS and CSS / Sass. Take a look to see a view on how technical test coding works 😊.
 
-Web application allows you to have your own dashboard over your hobbies and charts. Give it a try and go to the link down below :)
-
-# https://hobbymaker.netlify.app/
